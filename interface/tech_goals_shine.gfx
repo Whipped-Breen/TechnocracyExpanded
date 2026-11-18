@@ -341,7 +341,7 @@ spriteTypes = {
 		legacy_lazy_load = no
 	}
 	SpriteType = {
-		name = "GFX_goal_tna_canada"
+		name = "GFX_goal_tna_canada_shine"
 		texturefile = "gfx/interface/goals/tna_canada.dds"			
 		effectFile = "gfx/FX/buttonstate.lua"
 		animation = {
