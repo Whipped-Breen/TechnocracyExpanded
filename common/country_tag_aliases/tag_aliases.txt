@@ -15,7 +15,7 @@
 #	# if none of the following targets are defined, the game will check all existing countries but this is highly discouraged for performance reasons
 #	original_tag = GER # pick a country that has original_tag of GER
 #	targets = { GER FRA ENG } # search within the list of tags/variables
-#	target_array = array_name # search within an array 
+#	target_array = array_name # search within an array
 #
 #	# by default alias will return the first existing country that it matches and fulfils the triggers. you can also define a scoring system like this and it will pick the tag with the highest score > 0
 #	country_score = {
@@ -157,6 +157,33 @@ SB3 = {
 
 SB4 = {
 	variable = SWI.SWI_country_to_appease_4
+}
+
+#### AAT ####
+
+FNO = { # Alias for Fascist Norway 
+	original_tag = NOR 
+	has_government = fascism
+}
+
+FGR = {
+	original_tag = GER
+		country_score = {
+		base = 1
+		modifier = {
+			add = 1
+			has_government = neutrality
+		}
+		modifier = {
+			add = 1
+			tag = var:GLOBAL.platonic_fascist_bully
+		}
+		modifier = {
+			add = 5
+			has_government = fascism	
+			exists = yes 
+		}
+	}
 }
 
 # operative operation target

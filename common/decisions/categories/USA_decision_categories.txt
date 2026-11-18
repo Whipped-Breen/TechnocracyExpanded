@@ -17,7 +17,7 @@ USA_aid_britain = {
 	visible = {
 		ENG = {
 			has_war = yes
-			has_government = democratic
+			has_government = ROOT
 		}
 	}
 	available = {

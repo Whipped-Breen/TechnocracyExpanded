@@ -188,7 +188,7 @@ USA_congress = {
 			}
 		}
 		days_remove = 90
-		modifier = { consumer_goods_factor = 0.03 }
+		modifier = { consumer_goods_factor = 0.05 }
 		remove_effect = {
 			USA_congress_small_support = yes
 		}
@@ -212,7 +212,7 @@ USA_congress = {
 			}
 		}
 		days_remove = 90
-		modifier = { consumer_goods_factor = 0.03 }
+		modifier = { consumer_goods_factor = 0.05 }
 		remove_effect = {
 			USA_congress_small_support = yes
 		}
@@ -233,7 +233,7 @@ USA_congress = {
 				factor = 0
 			}
 		}
-		modifier = { consumer_goods_factor = -0.05 }
+		modifier = { consumer_goods_factor = -0.10 }
 		remove_effect = {
 			USA_congress_medium_opposition = yes
 		}
@@ -270,11 +270,13 @@ USA_congress = {
 				}
 			}
 		}
+
 		highlight_states = {
 			highlight_states_trigger = {
 				has_state_flag = USA_congress_build_factory
 			}
 		}
+
 		days_mission_timeout = 360
 		is_good = no
 		activation = {
@@ -320,11 +322,14 @@ USA_congress = {
 				}
 			}
 		}
+
 		highlight_states = {
 			highlight_states_trigger = {
-				has_state_flag = USA_congress_build_factory
+				has_state_flag = USA_congress_build_arms_factory
 			}
 		}
+
+
 		days_mission_timeout = 360
 		is_good = no
 		activation = {
@@ -370,11 +375,13 @@ USA_congress = {
 				}
 			}
 		}
+
 		highlight_states = {
 			highlight_states_trigger = {
-				has_state_flag = USA_congress_build_factory
+				has_state_flag = USA_congress_build_dockyard
 			}
 		}
+
 		days_mission_timeout = 360
 		is_good = no
 		activation = {
@@ -420,7 +427,7 @@ USA_congress = {
 		}
 		highlight_states = {
 			highlight_states_trigger = {
-				has_state_flag = USA_congress_build_factory
+				has_state_flag = USA_congress_build_infrastructure
 			}
 		}
 		days_mission_timeout = 360
@@ -618,9 +625,7 @@ USA_congress = {
 
 		}
 		visible = {
-			OR = {
-				has_completed_focus = USA_union_representation_act
-			}
+			has_completed_focus = USA_union_representation_act
 		}
 		days_re_enable = 180
 		cost = 50
