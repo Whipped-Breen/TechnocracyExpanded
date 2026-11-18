@@ -1,0 +1,3954 @@
+focus_tree = {
+	id = tna_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 20
+			tag = USA
+			has_country_flag = technate
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 1450 }
+
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_USA_CONGRESS}
+### search_filters = {FOCUS_FILTER_TNA_TECHNATE}
+### search_filters = {FOCUS_FILTER_TNA_ASSIMILATION}
+
+##### POLITICAL EFFORT #####
+	focus = {
+		id = TNA_scientific_revolution
+		icon = GFX_goal_scientific_revolution
+		x = 1
+		y = 0
+		cost = 10
+		
+		available = {
+			owns_state = 361
+		}
+
+		completion_reward = {
+			add_political_power = 150
+			hidden_effect = {
+				load_oob = TNA
+			}
+		}
+	}
+	focus = {
+		id = TNA_encourage_decision_making
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = TNA_scientific_revolution }
+		relative_position_id = TNA_scientific_revolution
+		x = -1
+		y = 1
+		cost = 5
+		
+		completion_reward = {
+			add_ideas = TNA_encourage_decision_making
+		}
+	}
+	focus = {
+		id = TNA_STV
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = TNA_scientific_revolution }
+		relative_position_id = TNA_scientific_revolution
+		x = 1
+		y = 1
+		cost = 5
+		
+		completion_reward = {
+			add_ideas = TNA_STV
+			add_stability = 0.2
+			add_popularity = { ideology = neutrality popularity = 0.1 }
+		}
+	}
+	focus = {
+		id = TNA_minister_reform
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = TNA_encourage_decision_making }
+		relative_position_id = TNA_scientific_revolution
+		x = -1
+		y = 2
+		cost = 5
+		
+		available = {
+			has_war = no
+		}
+		
+		completion_reward = {
+			add_stability = 0.1
+			add_popularity = { ideology = neutrality popularity = 0.1 }
+			create_country_leader = {
+				name = "The Continental Board"
+				desc = "POLITICS_THE_CONTINENTAL_BOARD_DESC"
+				picture = GFX_portrait_technate_council
+				expire = "1965.1.1"
+				ideology = technocracy
+				traits = {
+					continental_board
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_adapt_senate
+		icon = GFX_goal_adapt_senate
+		prerequisite = { focus = TNA_STV }
+		relative_position_id = TNA_scientific_revolution
+		x = 1
+		y = 2
+		cost = 5
+		
+		available = {
+			has_war = no
+		}
+		
+		completion_reward = {
+			USA_senate_large_support = yes
+			swap_ideas = { remove_idea = TNA_STV add_idea = TNA_adapt_senate }
+			remove_ideas = home_of_the_free
+			add_popularity = { ideology = democratic popularity = 0.1 }
+		}
+	}
+	focus = {
+		id = TNA_the_design
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = TNA_minister_reform }
+		prerequisite = { focus = TNA_adapt_senate }
+		relative_position_id = TNA_scientific_revolution
+		x = 0
+		y = 3
+		cost = 10
+		
+		available = {
+			has_war = no
+			congress_high_support_trigger = yes
+		}
+		
+		completion_reward = {
+			add_popularity = { ideology = democratic popularity = -0.3 }
+			add_ideas = TNA_the_design
+			USA_house_large_support = yes
+			drop_cosmetic_tag = yes
+			set_country_flag = TNA_the_design_cosmetic_flag
+			set_cosmetic_tag = TNA_the_design_cosmetic
+			set_politics = { ruling_party = neutrality elections_allowed = no }
+			add_country_leader_trait = dislikes_germany
+
+			custom_effect_tooltip = civil_war	
+			
+			country_event = tna_civil_war.2
+		}
+	}
+	focus = {
+		id = TNA_education_reform
+		icon = GFX_goal_education_reform
+		prerequisite = { focus = TNA_scientific_revolution }
+		relative_position_id = TNA_scientific_revolution
+		x = 4
+		y = 2
+		cost = 10
+		
+		completion_reward = {
+			add_ideas = TNA_education_reform
+		}
+	}
+	focus = {
+		id = TNA_party_propaganda
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = TNA_education_reform }
+		relative_position_id = TNA_education_reform
+		x = -1
+		y = 1
+		cost = 10
+		
+		completion_reward = {
+				swap_ideas = { remove_idea = TNA_education_reform add_idea = TNA_party_propaganda }
+				add_popularity = { ideology = democratic  popularity = 0.1 }
+		}
+	}
+	focus = {
+		id = TNA_adopt_metric_system
+		icon = GFX_goal_adopt_metric_system
+		prerequisite = { focus = TNA_education_reform }
+		relative_position_id = TNA_education_reform
+		x = 1
+		y = 1
+		cost = 10
+		
+		completion_reward = {
+			add_ideas = TNA_adopt_metric_system
+		}
+	}
+
+###ASIA###
+	focus = {
+		id = TNA_teknolohiya
+		icon = GFX_goal_teknolohiya
+		prerequisite = { focus = TNA_party_propaganda }
+		relative_position_id = TNA_education_reform
+		x = -1
+		y = 2
+		cost = 3
+		
+		available = {
+			PHI = { is_subject_of = USA }
+		}
+		
+		bypass = {
+			PHI = { exists = no }
+		}
+		
+		completion_reward = {
+			PHI = { country_event = tna.5 }
+			effect_tooltip = {
+				PHI = {
+					set_cosmetic_tag = TAS_philippines
+					add_stability = -0.1
+					add_popularity = { ideology = neutrality popularity = 0.5 }
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+					}
+				}
+				set_autonomy = { target = PHI autonomy_state = autonomy_tech_puppet } 
+			}
+		}
+	}
+	focus = {
+		id = TNA_Tekunokurashi
+		icon = GFX_focus_jap_pacific_guardian
+		prerequisite = { focus = TNA_teknolohiya }
+		relative_position_id = TNA_education_reform
+		x = -1
+		y = 3
+		cost = 3
+		
+		available = {
+			JAP = { is_subject_of = USA }
+		}
+		
+		bypass = {
+			JAP = { exists = no }
+		}
+		
+		completion_reward = {
+			JAP = { country_event = tna.14 }
+		}
+	}
+###RESEARCH###
+	focus = {
+		id = TNA_continental_research
+		icon = GFX_focus_research
+		prerequisite = { focus = TNA_adopt_metric_system }
+		relative_position_id = TNA_education_reform
+		x = 1
+		y = 2
+		cost = 10
+		
+		completion_reward = {
+			add_research_slot = 2
+		}
+	}
+	focus = {
+		id = TNA_manhattan_project
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = TNA_continental_research }
+		relative_position_id = TNA_education_reform
+		x = 1
+		y = 3
+		cost = 10
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = TNA_manhattan_project
+				bonus = 1.0
+				uses = 1
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = TNA_computing_machine
+		icon = GFX_goal_computing_machine
+		prerequisite = { focus = TNA_continental_research }
+		relative_position_id = TNA_education_reform
+		x = 2
+		y = 4
+		cost = 5
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = TNA_computing_machine
+				bonus = 1.0
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+	
+###SOCIAL JUSTICE###
+	focus = {
+		id = TNA_bilingual_schools
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = TNA_education_reform }
+		relative_position_id = TNA_education_reform
+		x = 0
+		y = 4
+		cost = 10
+
+		available = {
+			CAN = { is_subject_of = ROOT }
+			MEX = { is_subject_of = ROOT }
+		}
+
+		completion_reward = {
+			add_ideas = TNA_bilingual_schools
+			CAN = { add_ideas = TNA_bilingual_schools }
+			MEX = { add_ideas = TNA_bilingual_schools }
+
+			if = {
+				limit = { CAN = { is_subject_of = ROOT has_idea = CAN_conscription_crisis } }
+				CAN = { remove_ideas = CAN_conscription_crisis }
+			}
+		}
+	}
+	focus = {
+		id = TNA_desegregate_the_armed_forces
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = TNA_bilingual_schools }
+		relative_position_id = TNA_education_reform
+		x = 0
+		y = 5
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			date > 1945.01.01
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = USA_armed_forces_desegregation
+		}
+	}
+	
+##### ECONOMIC EFFORT #####
+	focus = {
+		id = TNA_energy_accounting
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = TNA_scientific_revolution }
+		relative_position_id = TNA_scientific_revolution
+		x = 9
+		y = 1
+		cost = 10
+		
+		available = {
+			congress_high_support_trigger = yes
+		}
+		
+		completion_reward = {
+			add_political_power = 50
+			USA_great_depression_level_down = yes
+			add_tech_bonus = {
+				name = TNA_energy_accounting
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = TNA_company_resource_management
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = TNA_energy_accounting }
+		relative_position_id = TNA_energy_accounting
+		x = -2
+		y = 1
+		cost = 10
+		
+		completion_reward = {
+			add_ideas = TNA_company_resource_management
+			add_popularity = { ideology = democratic popularity = 0.05 }
+		}
+	}
+	focus = {
+		id = TNA_new_timetables
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = TNA_company_resource_management }
+		relative_position_id = TNA_company_resource_management
+		x = 0
+		y = 1
+		cost = 10
+		
+		completion_reward = {
+			add_ideas = TNA_24_hour_society
+		}
+	}
+	focus = {
+		id = TNA_product_unit_standardization
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = TNA_new_timetables }
+		prerequisite = { focus = TNA_adopt_metric_system }
+		relative_position_id = TNA_new_timetables
+		x = 0
+		y = 1
+		cost = 10
+		
+		completion_reward = {
+			add_ideas = TNA_product_unit_standardization
+		}
+	}
+	focus = {
+		id = TNA_dynamic_command_economy
+		icon = GFX_goal_dynamic_command_economy
+		prerequisite = { focus = TNA_product_unit_standardization }
+		relative_position_id = TNA_product_unit_standardization
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+			has_tech = radio
+		}
+
+		completion_reward = {
+			add_ideas = civilian_economy
+			remove_ideas = TNA_company_resource_management 
+		}
+	}
+	focus = {
+		id = TNA_protectionism
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = TNA_energy_accounting }
+		relative_position_id = TNA_energy_accounting
+		x = 2
+		y = 1
+		cost = 10
+		
+		completion_reward = {
+			add_ideas = TNA_protectionism
+		}
+	}
+	focus = {
+		id = TNA_closed_economy
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = TNA_protectionism }
+		mutually_exclusive = { focus = TNA_limited_exports }
+		relative_position_id = TNA_protectionism
+		x = -1
+		y = 1
+		cost = 10
+		
+		bypass = {
+			has_idea = closed_economy
+		}
+		
+		completion_reward = {
+			add_ideas = closed_economy
+		}
+	}
+	focus = {
+		id = TNA_limited_exports
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = TNA_protectionism }
+		mutually_exclusive = { focus = TNA_closed_economy }
+		relative_position_id = TNA_protectionism
+		x = 1
+		y = 1
+		cost = 10
+		
+		bypass = {
+			has_idea = limited_exports
+		}
+		
+		completion_reward = {
+			add_ideas = limited_exports
+		}
+	}
+	focus = {
+		id = TNA_prospect
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = TNA_closed_economy  focus= TNA_limited_exports }
+		relative_position_id = TNA_protectionism
+		x = 0
+		y = 2
+		cost = 10
+		
+		completion_reward = {
+			add_ideas = TNA_prospect
+			if = {
+				limit = {
+					362 = { is_owned_and_controlled_by = USA }
+				}
+				add_resource = { type = steel amount = 60 state = 362 }
+			}
+			if = {
+				limit = {
+					463 = { is_owned_and_controlled_by = USA }
+				}
+				add_resource = { type = oil amount = 86 state = 463 }
+				463 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_rubber
+		icon = GFX_focus_generic_rubber
+		prerequisite = { focus = TNA_prospect }
+		prerequisite = { focus = TNA_central_america }
+		relative_position_id = TNA_prospect
+		x = 2
+		y = 1
+		cost = 5
+		
+		available = {
+			474 = { is_owned_or_subject_trigger = yes }
+			475 = { is_owned_or_subject_trigger = yes }
+			313 = { is_owned_or_subject_trigger = yes }
+		}
+		
+		completion_reward = {
+			add_resource = { type = rubber amount = 56 state = 474 }
+			add_resource = { type = rubber amount = 23 state = 475 }
+			add_resource = { type = rubber amount = 19 state = 313 }
+
+			effect_tooltip = {
+				TNA_mexican_rubber = yes
+			}
+			hidden_effect = {
+				MEX = { country_event = { id = tna_cleanup.1 days = 1 } }
+			}
+		}
+	}
+	focus = {
+		id = TNA_urbanates
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = TNA_energy_accounting }
+		relative_position_id = TNA_energy_accounting
+		x = 4
+		y = 1
+		cost = 10
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			
+		}
+		
+		completion_reward = {
+			359 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			357 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			358 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			360 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			361 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			395 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			365 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			366 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			375 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			378 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			386 = {
+				add_extra_state_shared_building_slots = 1	
+				set_state_flag = tna_urbanate_development
+			}
+			393 = {
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = tna_urbanate_development
+			}
+			473 = { set_state_flag = tna_urbanate_development }
+			276 = { set_state_flag = tna_urbanate_development }
+			468 = { set_state_flag = tna_urbanate_development }
+			277 = { set_state_flag = tna_urbanate_development }
+			478 = { set_state_flag = tna_urbanate_development }
+			304 = { set_state_flag = tna_urbanate_development }
+			306 = { set_state_flag = tna_urbanate_development }
+			315 = { set_state_flag = tna_urbanate_development }
+			327 = { set_state_flag = tna_urbanate_development }
+		}
+	}
+	focus = {
+		id = TNA_state_industry
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = TNA_prospect }
+		relative_position_id = TNA_energy_accounting
+		x = 2
+		y = 4
+		cost = 10
+
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = TNA_industrial_effort_IC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_ideas = TNA_state_industry
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC
+			}
+		}
+	}
+	focus = {
+		id = TNA_adopt_joule
+		icon = GFX_goal_joule
+		prerequisite = { focus = TNA_dynamic_command_economy }
+		prerequisite = { focus = TNA_state_industry }
+		relative_position_id = TNA_energy_accounting
+		x = 0
+		y = 5
+		cost = 10
+
+		available = {
+			
+		}
+		
+		completion_reward = {
+			USA_depression_clear_all = yes
+
+			if = {
+				limit = { CAN = { is_subject_of = ROOT has_idea = CAN_great_depression_2 } }
+				CAN = { remove_ideas = CAN_great_depression_2 }
+			}
+		}
+	}
+	focus = {
+		id = TNA_continental_design
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = TNA_adopt_joule }
+		relative_position_id = TNA_adopt_joule
+		x = -3
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 19
+			has_tech = advanced_machine_tools
+			has_tech = construction5
+		}
+
+		completion_reward = {
+			add_ideas = TNA_continental_power
+			
+			unlock_decision_tooltip = tna_continental_infrastructure_0
+			unlock_decision_tooltip = tna_continental_infrastructure_1
+		}
+	}
+	focus = {
+		id = TNA_continental_hydrology
+		icon = GFX_goal_continental_hydrology
+		prerequisite = { focus = TNA_continental_design }
+		relative_position_id = TNA_continental_design
+		x = -1
+		y = 1
+		cost = 10
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			num_of_civilian_factories > 199
+			has_tech = advanced_machine_tools
+			has_tech = construction5
+			has_tech = excavation4
+		}
+
+		completion_reward = {
+			add_ideas = TNA_continental_hydrology
+
+			every_state = {
+				limit = {
+					OR = {
+						state = 476
+						state = 477
+						state = 479
+						state = 375
+						state = 371
+						state = 370
+						state = 367
+						state = 365
+						state = 365
+						state = 364
+						state = 363
+						state = 362
+						state = 361
+						state = 360
+						state = 359
+						state = 358
+						state = 357
+						state = 365
+						state = 365
+						state = 468
+						state = 276
+						state = 374
+						state = 383
+						state = 384
+						state = 467
+						state = 683
+						state = 372
+						state = 373
+						state = 392
+						state = 394
+						state = 393
+						state = 395
+						state = 396
+						state = 368
+						state = 369
+						state = 361
+						state = 396
+						state = 378
+						state = 377
+						state = 380
+						state = 386
+						state = 473
+						state = 471
+						state = 463
+						state = 387
+						state = 470
+						state = 469
+						state = 472
+						state = 683
+						state = 682
+						state = 493
+					}
+				}
+				add_dynamic_modifier = { modifier = TNA_continental_hydrology }
+			}
+			683 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 10605
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					province = 7185
+					instant_build = yes
+				}
+			}
+			466 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 13196
+					instant_build = yes
+				}
+			}
+			472 = {
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					province = 12534
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					province = 12682
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_north_american_railroad
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = TNA_continental_design }
+		relative_position_id = TNA_continental_design
+		x = 0
+		y = 2
+		cost = 5
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 19
+			has_tech = advanced_machine_tools
+			has_tech = construction5
+		}
+
+		completion_reward = {
+			build_railway = { level = 5 start_province = 9450 target_province = 3878 }	# Chicago - New York
+			build_railway = { level = 5 start_province = 3878 target_province = 12384 }	# New York - Atlanta
+			build_railway = { level = 5 start_province = 12384 target_province = 10337 }	# Atlanta - Houston
+			build_railway = { level = 5 start_province = 10337 target_province = 1965 }	# Houston - Mexico City
+			build_railway = { level = 5 start_province = 10337 target_province = 9814 }	# Houston - Los Angeles
+			build_railway = { level = 5 start_province = 9814 target_province = 9671 }	# Los Angeles - San Francisco
+			build_railway = { level = 5 start_province = 9671 target_province = 7315 }	# San Francisco - Seattle
+			build_railway = { level = 5 start_province = 7315 target_province = 9616 } # Seattle - Boise
+			build_railway = { level = 5 start_province = 9616 target_province = 1827 } # Boise - Denver
+			build_railway = { level = 5 start_province = 1827 target_province = 4569 } # Denver - Saint Louis
+			build_railway = { level = 5 start_province = 4569 target_province = 9450 } # Saint Louis - Chicago
+			build_railway = { level = 5 start_province = 3878 target_province = 3778 }	# New York - Ottawa
+		}
+	}
+	focus = {
+		id = TNA_neotropical_road
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = TNA_north_american_railroad }
+		relative_position_id = TNA_north_american_railroad
+		x = -1
+		y = 1
+		cost = 10
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = hispanic_industry_tt
+				all_state = {
+					OR = {
+						is_latin_tna_state = no
+						AND = {
+							is_latin_tna_state = yes
+							is_owned_or_subject_trigger = yes
+						}
+					}
+				}
+			}
+		}
+		
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = TNA_industrial_effort_2IC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		completion_reward = {
+			random_state = {
+				limit = {
+					is_latin_tna_state = yes
+					is_owned_or_subject_trigger = yes
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_2IC
+			}
+			random_state = {
+				limit = {
+					is_latin_tna_state = yes
+					is_owned_or_subject_trigger = yes
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_2IC
+			}
+			random_state = {
+				limit = {
+					is_latin_tna_state = yes
+					is_owned_or_subject_trigger = yes
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_2IC
+			}
+			random_state = {
+				limit = {
+					is_latin_tna_state = yes
+					is_owned_or_subject_trigger = yes
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_2IC
+			}
+			random_state = {
+				limit = {
+					is_latin_tna_state = yes
+					is_owned_or_subject_trigger = yes
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_2IC
+			}
+		}
+	}
+##### FOREIGN RELATIONS #####
+	###AMERICA###
+	focus = {
+		id = TNA_scott_doctrine
+		icon = GFX_goal_foreign_relations
+		x = 18
+		y = 0
+		cost = 5
+		
+		available = {
+			has_war = no
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = north_american_claims
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_tna_state = yes
+					}
+					FROM = { add_state_claim = PREV }
+				}
+			}
+		}
+	}
+	#LATIN AMERICA#
+	focus = {
+		id = TNA_mexico
+		icon = GFX_focus_mex_jefe_maximo
+		prerequisite = { focus = TNA_scott_doctrine }
+		relative_position_id = TNA_scott_doctrine
+		x = -2
+		y = 1
+		cost = 10
+		
+		bypass = {
+			all_state = {
+				OR = {
+					NOT = { is_core_of = MEX }
+					AND = {
+						is_core_of = MEX
+						is_owned_or_subject_trigger = yes
+					}
+				}
+			}
+		}
+		
+		completion_reward = {
+			MEX = {
+				country_event = tna.7
+				custom_effect_tooltip = needs_approval
+				effect_tooltip = {
+					ROOT = {
+						set_autonomy = {
+							target = MEX 
+							autonomy_state = autonomy_tech_puppet 
+						}
+					}
+					transfer_navy = { target = ROOT }
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_central_america
+		icon = GFX_goal_central_america
+		prerequisite = { focus = TNA_mexico }
+		relative_position_id = TNA_mexico
+		x = 0
+		y = 1
+		cost = 10
+		
+		bypass = { 
+			owns_state = 315
+			owns_state = 318
+			owns_state = 319
+			owns_state = 313
+			owns_state = 312
+			owns_state = 317
+			owns_state = 304
+			owns_state = 685
+			owns_state = 316
+			owns_state = 314
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					OR = {
+						original_tag = CUB
+						original_tag = HAI
+						original_tag = DOM
+						original_tag = GUA
+						original_tag = HON
+						original_tag = NIC
+						original_tag = PAN
+						original_tag = COS
+						original_tag = ELS
+					}
+					not = { is_subject_of = ROOT }
+					exists = yes
+				}
+				country_event = tna.6
+			}
+		}
+	}
+	focus = {
+		id = TNA_south
+		icon = GFX_goal_tna_south
+		prerequisite = { focus = TNA_central_america }
+		relative_position_id = TNA_mexico
+		x = 0
+		y = 2
+		cost = 5
+		
+		bypass = { 
+			owns_state = 306
+			owns_state = 493
+			owns_state = 486
+			owns_state = 488
+			owns_state = 307
+			owns_state = 489
+			owns_state = 649
+		}
+		
+		completion_reward = {
+			every_country = {
+				limit = {
+					OR = {
+						original_tag = COL
+						original_tag = VEN
+					}
+					not = { is_subject_of = ROOT }
+					exists = yes
+				}
+				country_event = tna.6
+			}
+			ECU = { country_event = tna.2 }
+		}
+	}
+	#BRITISH AMERICA#
+	focus = {
+		id = TNA_technocracy_in_canada
+		icon = GFX_goal_tna_canada
+		prerequisite = { focus = TNA_scott_doctrine }
+		relative_position_id = TNA_scott_doctrine
+		x = 0
+		y = 1
+		cost = 10
+		
+		completion_reward = {
+			add_to_array = { TNA_canadian_provinces = 470 }# Alberta
+			add_to_array = { TNA_canadian_provinces = 473 }# British Columbia
+			add_to_array = { TNA_canadian_provinces = 467 }# Manitoba
+			add_to_array = { TNA_canadian_provinces = 465 }# New Brunswick
+			add_to_array = { TNA_canadian_provinces = 464 }# Nova Scotia
+			add_to_array = { TNA_canadian_provinces = 468 }# Saint Lawrence/Quebec
+			add_to_array = { TNA_canadian_provinces = 469 }# Saskatchewan
+			add_to_array = { TNA_canadian_provinces = 276 }# Ontario (Southern)
+			add_to_array = { TNA_canadian_provinces = 331 }# Newfoundland (& Labrador)
+			CAN = { 
+				country_event = tna.8 
+			}
+		}
+	}
+	focus = {
+		id = TNA_canada
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = TNA_technocracy_in_canada }
+		relative_position_id = TNA_technocracy_in_canada
+		x = 0
+		y = 1
+		cost = 5
+
+		bypass = {
+			all_state = {
+				OR = {
+					NOT = { is_core_of = CAN }
+					NOT = { is_owned_by = CAN }
+					AND = {
+						is_core_of = CAN
+						is_owned_or_subject_trigger = yes
+					}
+				}
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = canada_support_tt
+				check_variable = {
+					var = can.tech_popularity
+					value = can.check_popularity
+					compare = greater_than_or_equals
+				}
+			}
+		}
+
+		completion_reward = {
+			CAN = { 
+				country_event = tna.9
+			}
+		}
+	}
+	focus = {
+		id = TNA_british_caribbean
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = TNA_canada }
+		relative_position_id = TNA_canada
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+			controls_state = 311
+			controls_state = 689
+			controls_state = 690
+			controls_state = 693
+			controls_state = 696
+			controls_state = 308
+			controls_state = 691
+			controls_state = 692
+		}
+
+		available = {
+			ENG = {
+				OR = {
+					has_government = democratic
+					has_government = communism
+				}
+				has_war = yes
+				not = { has_war_with = ROOT }
+				any_enemy_country = {
+					is_major = yes
+				}
+			}
+		}
+
+		search_filters = {FOCUS_FILTER_ANNEXATION}
+		completion_reward = {
+			ENG = {
+				custom_effect_tooltip = needs_approval
+				country_event = { id = tna.10 days = 1 }
+			}
+			
+			effect_tooltip = {
+				custom_effect_tooltip = USA_destroyers_for_bases_tt
+				transfer_state = 311
+				transfer_state = 689
+				transfer_state = 690
+				transfer_state = 693
+				transfer_state = 696
+				transfer_state = 308
+				transfer_state = 691
+				transfer_state = 692
+				
+			}
+		}
+	}
+	#FRENCH, DUTCH AND DANISH AMERICA#
+	focus = {
+		id = TNA_dutch_america
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = TNA_scott_doctrine }
+		relative_position_id = TNA_scott_doctrine
+		x = 2
+		y = 1
+		cost = 1
+		
+		bypass = { 
+			controls_state = 309
+			controls_state = 695
+		}
+		
+		available = {
+			strength_ratio = { tag = HOL ratio > 2 }
+			HOL = { 
+				has_capitulated = yes
+				any_owned_state = {
+					OR = {
+						is_on_continent = north_america
+						is_on_continent = south_america
+					}
+
+				}
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		
+		completion_reward = {
+			HOL = {
+				country_event = tna.2
+				custom_effect_tooltip = needs_approval
+			}
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						is_tna_state = yes
+						is_owned_by = HOL
+					}
+					ROOT = { transfer_state = PREV }
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_danish_america
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = TNA_dutch_america }
+		relative_position_id = TNA_dutch_america
+		x = 0
+		y = 1
+		cost = 1
+		
+		bypass = { 
+			controls_state = 101
+		}
+		
+		available = {
+			strength_ratio = { tag = DEN ratio > 2 }
+			DEN = { 
+				has_capitulated = yes
+				any_owned_state = {
+					OR = {
+						is_on_continent = north_america
+						is_on_continent = south_america
+					}
+
+				}
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		
+		completion_reward = {
+			DEN = {
+				country_event = tna.2
+				custom_effect_tooltip = needs_approval
+			}
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						is_tna_state = yes
+						is_owned_by = DEN
+					}
+					ROOT = { transfer_state = PREV }
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_french_america
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = TNA_danish_america }
+		relative_position_id = TNA_dutch_america
+		x = 0
+		y = 2
+		cost = 1
+		
+		bypass = { 
+			controls_state = 310
+			controls_state = 694
+			controls_state = 730
+		}
+		
+		available = {
+			strength_ratio = { tag = FRA ratio > 2 }
+			FRA = { 
+				has_capitulated = yes
+				any_owned_state = {
+					OR = {
+						is_on_continent = north_america
+						is_on_continent = south_america
+					}
+
+				}
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		
+		completion_reward = {
+			FRA = {
+				country_event = tna.2
+				custom_effect_tooltip = needs_approval
+			}
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						is_tna_state = yes
+						is_owned_by = FRA
+					}
+					ROOT = { transfer_state = PREV }
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_north_american_technate
+		icon = GFX_goal_north_american_technate
+		prerequisite = { focus = TNA_south }
+		prerequisite = { focus = TNA_british_caribbean }
+		prerequisite = { focus = TNA_french_america }
+		relative_position_id = TNA_scott_doctrine
+		x = 0
+		y = 4
+		cost = 10
+		
+		available = {
+			has_idea = TNA_bilingual_schools
+			not = { has_idea = great_depression }
+			custom_trigger_tooltip = {
+				tooltip = north_america_tt
+				all_state = {
+					OR = {
+						is_tna_state = no
+						AND = {
+							is_tna_state = yes
+							is_owned_or_subject_trigger = yes
+							is_in_home_area = yes
+						}
+					}
+				}
+			}	
+		}
+
+		completion_reward = {
+			set_cosmetic_tag = TNA_north_american_technate
+			set_country_flag = TNA_north_american_technate_flag
+			set_capital = { state = 395 }
+			set_victory_points = {
+				province = 9450
+				value = 100
+			}
+			custom_effect_tooltip = land_cores
+			custom_effect_tooltip = add_to_congress
+			every_country = {
+				limit = {
+					OR = {
+						original_tag = CAN
+						original_tag = MEX
+					}
+				}
+				every_character = {
+					set_nationality = USA
+				}
+			}
+			hidden_effect = {
+				load_focus_tree = tna_focus
+				country_event = { id = tna_continental_control.1 days = 2 }
+				TNA_end_research_north_american_technate = yes
+
+				every_other_country = {
+					limit = {
+						capital_scope = {
+							is_tna_state = yes
+						}
+					}
+					USA = { annex_country = { target = PREV  transfer_troops = yes } }
+				}
+
+				every_state = {
+					limit = {
+						is_tna_state = yes
+					}
+					add_core_of = USA
+					USA = { transfer_state = PREV }
+				}
+
+				set_country_flag = delete_congress
+				
+				set_variable = { var = continental_total value = 100 }
+				TNA_congress_to_continental = yes
+				TNA_continental_get_quorum = yes
+				set_variable = { var = continental_support_small value = 5 }
+				set_variable = { var = continental_support_medium value = 30 }
+				set_variable = { var = continental_support_large value = 60 }
+				TNA_recalc_administration_icon_frames = yes
+
+				news_event = { id = tech_news.002 days = 1 }
+			}
+		}
+	}
+	focus = {
+		id = TNA_tachnate_science
+		icon = GFX_focus_research2
+		prerequisite = { focus = TNA_north_american_technate }
+		relative_position_id = TNA_north_american_technate
+		x = -2
+		y = 1
+		cost = 5
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		available = {
+			amount_research_slots > 4
+			num_of_factories > 259
+		}
+		
+		completion_reward = {
+			set_research_slots = 7
+		}
+	}
+	###EUROPE###
+	focus = {
+		id = TNA_mosley_plot
+		icon = GFX_focus_eng_organise_the_blackshirts
+		prerequisite = { focus = TNA_the_design }
+		relative_position_id = TNA_scientific_revolution
+		x = 0
+		y = 4
+		cost = 10
+		
+		bypass = {
+			any_country = {
+				original_tag = ENG
+				has_civil_war = no
+				has_government = fascism
+				exists = yes
+			}
+		}
+		
+		available = {
+		
+		}
+		
+		completion_reward = {
+			ENG = { add_ideas = TNA_mosley_plot_idea }
+		}
+	}
+	focus = {
+		id = TNA_man_of_action
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = TNA_mosley_plot }
+		mutually_exclusive = { focus = TNA_mosley_coup }
+		relative_position_id = TNA_mosley_plot
+		x = -1
+		y = 1
+		cost = 10
+		
+		bypass = {
+			any_country = {
+				original_tag = ENG
+				has_government = fascism
+			}
+		}
+		
+		available = {
+			GER = { exists = no }
+			ENG = { 
+				NOT = { has_government = fascism }
+				fascism > 0.29
+			}
+		}
+		
+		completion_reward = {
+			ENG = { 
+				set_politics = { ruling_party = fascism }
+				add_popularity = { ideology = fascism popularity = 0.25 }
+				hidden_effect = {
+					news_event = { id = tech_news.004 days = 1 }
+					start_civil_war = { 
+						ideology = communism
+						size = 0.2
+						keep_unit_leaders_trigger = {
+							always = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_mosley_coup
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = TNA_mosley_plot }
+		mutually_exclusive = { focus = TNA_man_of_action }
+		relative_position_id = TNA_mosley_plot
+		x = 1
+		y = 1
+		cost = 10
+		
+		bypass = {
+			any_country = {
+				original_tag = ENG
+				has_civil_war = no
+				has_government = fascism
+				exists = yes
+			}
+		}
+		
+		available = {
+			ENG = { 
+				has_war_with = GER
+				NOT = { has_government = fascism }
+				fascism > 0.49
+			}
+		}
+		
+		completion_reward = {
+			ENG = {
+				start_civil_war = { 
+					ideology = fascism
+					size = party_popularity@fascism
+				}
+			}
+			hidden_effect = {
+				random_other_country = {
+					limit = {
+						original_tag = ENG
+						has_government = fascism
+					}
+					load_focus_tree = british_focus
+					transfer_state = 127
+					save_event_target_as = ENG_Mosley
+				}
+				SAF = {
+					start_civil_war = { 
+						ideology = fascism
+						size = 0.5
+					}
+				}
+				random_other_country = {
+					limit = {
+						original_tag = SAF
+						has_government = fascism
+					}
+					load_focus_tree = south_african_focus
+#					set_capital = { state = 275 }
+					event_target:ENG_Mosley = {
+						puppet = PREV
+					}
+				}
+				news_event = { id = tech_news.005 days = 1 }
+			}
+		}
+	}
+	focus = {
+		id = TNA_coerce_mosley
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = { focus = TNA_mosley_coup  focus = TNA_man_of_action }
+		relative_position_id = TNA_mosley_plot
+		x = 0
+		y = 2
+		cost = 5
+		
+		available = {
+			OR = {
+				any_country = {
+					original_tag = ENG
+					has_government = fascism
+					exists = yes
+					has_civil_war = no
+				}
+			}
+		}
+		
+		completion_reward = {
+			every_country = {
+				limit = {
+					original_tag = ENG
+					has_government = fascism
+				}
+				country_event = { days = 1 id = tna.12 }
+			}
+		#	hidden_effect = {
+		#		every_country = {
+		#			limit = {
+		#				original_tag = SAF
+		#				has_government = fascism
+		#			}
+		#			country_event = { days = 1 id = tna.19 }
+		#		}
+		#	}
+		}
+	}
+	focus = {
+		id = TNA_technate_of_europe
+		icon = GFX_goal_technate_of_europe
+		prerequisite = { focus = TNA_coerce_mosley }
+		relative_position_id = TNA_coerce_mosley
+		x = 1
+		y = 2
+		cost = 10
+		
+		available = {
+			has_completed_focus = TNA_man_of_action
+		}
+		
+		completion_reward = {
+			unlock_decision_category_tooltip = TNA_europe_category
+		}
+	}
+	focus = {
+		id = TNA_pacific_technate
+		icon = GFX_goal_pacific_interests
+		prerequisite = { focus = TNA_coerce_mosley }
+		prerequisite = { focus = TNA_Tekunokurashi }	
+		relative_position_id = TNA_mosley_plot
+		x = 2
+		y = 3
+		cost = 10
+		
+		available = {
+			AST = {
+				OR = {
+					strength_ratio = { tag = AST ratio > 1 }
+					is_in_faction_with = USA
+					exists = no
+				}
+			}
+			NZL = {
+				OR = {
+					strength_ratio = { tag = NZL ratio > 1 }
+					is_in_faction_with = USA
+					exists = no
+				}
+			}
+		}
+		
+		completion_reward = {
+			add_state_claim = 726
+			effect_tooltip = {
+				every_other_country = {
+					limit = {
+						capital_scope = {
+							is_TOC_state = yes
+						}
+					}
+					country_event = tna.16
+				}
+			}
+			every_other_country = {
+				limit = {
+					any_owned_state = {
+						is_TOC_state = yes
+					}
+					capital_scope = {
+						is_TOC_state = no
+					}
+				}
+				country_event = tna.18
+			}
+			hidden_effect = {
+				every_other_country = {
+					limit = {
+						capital_scope = {
+							is_TOC_state = yes
+						}
+						NOT = { tag = AST }
+					}
+					country_event = tna.16
+				}
+				AST = { country_event = tna.15 }
+			}
+		}
+	}
+##### WAR PLANS #####
+	
+focus = {
+		id = TNA_war_plans_division
+		icon = GFX_goal_generic_position_armies
+		x = 27
+		y = 0
+		
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_completed_focus = TNA_encourage_decision_making
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = available_chief_of_army
+			show_ideas_tooltip = walter_krueger
+			unlock_decision_category_tooltip = USA_war_plans
+		}
+	}
+	focus = {
+		id = TNA_intervention_in_the_americas
+		icon = GFX_goal_generic_military_sphere
+		x = -4
+		y = 1
+		prerequisite = { focus = TNA_war_plans_division focus = TNA_scott_doctrine }
+		relative_position_id = TNA_war_plans_division
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = USA_intervention_in_the_americas
+			hidden_effect = {
+				unlock_decision_category_tooltip = USA_war_plans
+			}
+		}
+	}
+	focus = {
+		id = TNA_war_plan_green
+		icon = GFX_focus_attack_mexico
+		x = -1
+		y = 1
+		prerequisite = { focus = TNA_intervention_in_the_americas }
+		relative_position_id = TNA_intervention_in_the_americas
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_green show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_war_plan_crimson
+		icon = GFX_focus_attack_canada
+		x = 1
+		y = 1
+		prerequisite = { focus = TNA_intervention_in_the_americas }
+		relative_position_id = TNA_intervention_in_the_americas
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_crimson show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+
+	focus = {
+		id = TNA_war_plan_gray
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 0
+		y = 3
+		prerequisite = { focus = TNA_intervention_in_the_americas }
+		relative_position_id = TNA_intervention_in_the_americas
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_gray show_effect_tooltip = yes show_modifiers = yes } 
+		}
+	}
+	focus = {
+		id = TNA_pan_america
+		icon = GFX_focus_por_recover_latin_america
+		x = -2.5
+		y = 4
+		prerequisite = { focus = TNA_war_plan_gray }
+		prerequisite = { focus = TNA_north_american_technate }
+		relative_position_id = TNA_intervention_in_the_americas
+		cost = 5
+
+		available = {
+			threat > 0.99
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					capital_scope = {
+						is_on_continent = south_america
+						is_tna_state = no
+					}
+				}
+				country_event = tna.23
+				effect_tooltip = {
+					USA = {
+						diplomatic_relation = {
+							country = ROOT
+							relation = non_aggression_pact
+							active = yes
+						}
+						add_opinion_modifier = {
+							target = ROOT
+							modifier = pan_america
+						}
+					}
+					add_ideas = TNA_pan_america
+					add_opinion_modifier =  { target = USA modifier = monroe_doctrine_trade }
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_intervention_in_europe
+		icon = GFX_focus_usa_focus_on_europe
+		x = 0
+		y = 1
+		prerequisite = { focus = TNA_war_plans_division }
+		relative_position_id = TNA_war_plans_division
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = USA_intervention_in_europe
+		}
+	}
+	focus = {
+		id = TNA_war_plan_gold
+		icon = GFX_focus_attack_france
+		x = -2
+		y = 2
+		prerequisite = { focus = TNA_intervention_in_europe }
+		relative_position_id = TNA_intervention_in_europe
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_gold show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_war_plan_silver
+		icon = GFX_focus_attack_italy
+		x = -1
+		y = 1
+		prerequisite = { focus = TNA_intervention_in_europe }
+		mutually_exclusive = { }
+		relative_position_id = TNA_intervention_in_europe
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+	
+		available = {
+			
+		}
+			
+		bypass = {
+	
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_silver show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_war_plan_black
+		icon = GFX_focus_attack_germany
+		prerequisite = { focus = TNA_intervention_in_europe }
+		available = {
+		}
+
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+
+		x = 0
+		y = 2
+		relative_position_id = TNA_intervention_in_europe
+		cost = 5
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			GER = {
+				add_opinion_modifier = { target = USA modifier = war_plan_black }
+			}
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_black show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_research_sphere
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = TNA_war_plan_gold }
+		prerequisite = { focus = TNA_war_plan_silver }
+		prerequisite = { focus = TNA_war_plan_black }
+		relative_position_id = TNA_intervention_in_europe
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		x = -1
+		y = 3
+		cost = 5
+
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			is_faction_leader = yes
+			any_country = {
+				has_country_flag = technate
+				is_in_faction_with = ROOT
+			}
+		}
+		
+		completion_reward = {
+			add_to_tech_sharing_group = TNA_research_sphere
+			every_other_country = {
+				limit = {
+					has_country_flag = technate
+					is_in_faction_with = ROOT
+				}
+				add_to_tech_sharing_group = TNA_research_sphere
+			}
+		}
+	}
+	focus = {
+		id = TNA_war_plan_white
+		icon = GFX_focus_attack_soviet
+		prerequisite = { focus = TNA_intervention_in_europe }
+		available = {
+			
+		}
+		x = 2
+		y = 2
+		relative_position_id = TNA_intervention_in_europe
+		cost = 5
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			SOV = {
+				add_opinion_modifier = { target = USA modifier = war_plan_white }
+			}
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_white show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_anti_bolshevist_aid
+		icon = GFX_goal_generic_war_with_comintern
+		x = 2
+		y = 3
+		prerequisite = { focus = TNA_war_plan_white }
+		relative_position_id = TNA_intervention_in_europe
+		cost = 5
+
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = mtg_usa_anti_bolshevist_aid_tt 
+		}
+	}
+	focus = {
+		id = TNA_war_plan_red
+		icon = GFX_focus_attack_britain
+		prerequisite = { focus = TNA_intervention_in_europe }
+		available = {
+			
+		}
+		x = 4
+		y = 2
+		relative_position_id = TNA_intervention_in_europe
+		cost = 5
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			ENG = {
+				add_opinion_modifier = { target = USA modifier = war_plan_red }
+			}
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_red show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_war_plan_ruby
+		icon = GFX_focus_attack_india
+		x = 4
+		y = 3
+		prerequisite = { focus = TNA_war_plan_red }
+		relative_position_id = TNA_intervention_in_europe
+		cost = 5
+
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_ruby show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_war_plan_scarlet_garnet
+		icon = GFX_focus_attack_australia
+		x = 6
+		y = 3
+		prerequisite = { focus = TNA_war_plan_red }
+		relative_position_id = TNA_intervention_in_europe
+		cost = 5
+
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_scarlet_garnet show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_intervention_in_asia
+		icon = GFX_focus_usa_focus_on_asia
+		x = 6
+		y = 1
+		prerequisite = { focus = TNA_war_plans_division }
+		relative_position_id = TNA_war_plans_division
+		cost = 5
+
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			create_corps_commander = {
+				name = "Alexander Vandegrift"
+				gfx = GFX_portrait_usa_alexander_vandegrift
+				skill = 3
+				attack_skill = 3
+				defense_skill = 1
+				planning_skill = 3
+				logistics_skill = 3
+				traits = { naval_invader }
+			}
+		}
+	}
+	focus = {
+		id = TNA_war_plan_orange
+		icon = GFX_focus_attack_japan
+		prerequisite = { focus = TNA_intervention_in_asia }
+		available = {
+			
+		}
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+
+		x = -1
+		y = 1
+		relative_position_id = TNA_intervention_in_asia
+		cost = 5
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+
+		completion_reward = {
+			JAP = {
+				add_opinion_modifier = { target = USA modifier = war_plan_orange }
+			}
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_orange show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_war_plan_yellow
+		icon = GFX_focus_attack_china
+		x = 1
+		y = 1
+		prerequisite = { focus = TNA_intervention_in_asia }
+		relative_position_id = TNA_intervention_in_asia
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			unlock_decision_tooltip = { decision = USA_execute_war_plan_yellow show_effect_tooltip = yes show_modifiers = yes }
+		}
+	}
+	focus = {
+		id = TNA_defense_of_the_pacific
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = TNA_war_plan_yellow }
+		prerequisite = { focus = TNA_war_plan_orange }
+		available = {
+			JAP = {
+				exists = yes
+				has_government = fascism
+				has_government = communism
+			}
+		}
+		will_lead_to_war_with = JAP
+		x = 0
+		y = 2
+		relative_position_id = TNA_intervention_in_asia
+		cost = 5
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		completion_reward = {
+			650 = {
+				#Fortify naval bases
+				add_building_construction = {
+					type = coastal_bunker
+					province = 13067
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					province = 13067
+					level = 2
+					instant_build = yes
+				}
+			}
+			631 = {
+				#Fortify naval bases
+				add_building_construction = {
+					type = coastal_bunker
+					province = 13052
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					province = 13052
+					level = 2
+					instant_build = yes
+				}
+			}
+			632 = {
+				#Fortify naval bases
+				add_building_construction = {
+					type = coastal_bunker
+					province = 13047
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					province = 13047
+					level = 2
+					instant_build = yes
+				}
+			}
+			638 = {
+				#Fortify naval bases
+				add_building_construction = {
+					type = coastal_bunker
+					province = 12140
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					province = 12140
+					level = 2
+					instant_build = yes
+				}
+			}
+			642 = {
+				#Fortify naval bases
+				add_building_construction = {
+					type = coastal_bunker
+					province = 13050
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					province = 13050
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+ 
+##### WAR DEPARTMENT #####
+	
+	focus = {
+		id = TNA_war_department
+		icon = GFX_focus_usa_recruit_the_free_corps
+		x = 17
+		y = 6
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_completed_focus = TNA_encourage_decision_making
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = USA_war_department
+		}
+	}
+	focus = {
+		id = TNA_selective_training_act
+		icon = GFX_focus_generic_military_mission
+		x = -5
+		y = 1
+		prerequisite = { focus = TNA_war_department }
+		relative_position_id = TNA_war_department
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			if = {
+				limit = {
+					has_completed_focus = TNA_north_american_technate
+				}
+				administration_support_trigger = yes
+			}
+			else = {
+				if = {
+					limit = {
+						threat < 0.5
+						has_war = no
+					}
+					congress_high_support_trigger = yes
+				}
+				else = {
+					congress_low_support_trigger = yes
+				}
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		
+		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_USA_CONGRESS}
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						has_idea = disarmed_nation
+						has_idea = volunteer_only
+					}
+				}
+				add_ideas = limited_conscription
+			}
+			else = {
+				add_political_power = 150
+			}
+			if = {
+				limit = {
+					has_war_support < 0.1
+				}
+				set_war_support = 0.1
+			}
+			if = {
+				limit = {
+					has_war_support < 0.4 
+				}
+				USA_congress_medium_opposition = yes
+			}
+		}
+	}
+	focus = {
+		id = TNA_first_special_service_force
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = TNA_selective_training_act }
+		x = -2
+		y = 1
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			army_experience = 5
+			add_tech_bonus = {
+				name = special_bonus
+				bonus = 1.0
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+				technology = tech_engineers
+				technology = tech_engineers2
+				technology = tech_engineers3
+				technology = tech_recon
+				technology = tech_recon2
+				technology = tech_recon3
+			}
+		}
+	}
+	focus = {
+		id = TNA_louisiana_maneuvers
+		icon = GFX_goal_generic_cavalry
+		x = 0
+		y = 1
+		prerequisite = { focus = TNA_selective_training_act }
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			army_experience = 20
+			add_doctrine_cost_reduction = {
+				name = USA_louisiana_maneuvers
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = TNA_airborne_divisions
+		icon = GFX_focus_generic_paratrooper
+		x = -2
+		y = 2
+		prerequisite = { focus = TNA_louisiana_maneuvers }
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = USA_airborne_divisions
+		}
+	}
+	focus = {
+		id = TNA_army_of_the_united_states
+		icon = GFX_focus_generic_little_entente
+		x = 0
+		y = 2
+		prerequisite = { focus = TNA_louisiana_maneuvers }
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = USA_army_of_the_united_states
+		}
+	}
+	focus = {
+		id = TNA_womens_armed_service_integration_act
+		icon = GFX_focus_generic_treaty
+		x = 0
+		y = 3
+		prerequisite = { focus = TNA_army_of_the_united_states }
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			if = {
+				limit = {
+					has_completed_focus = TNA_north_american_technate
+				}
+				administration_support_trigger = yes
+			}
+			else = {
+				congress_medium_support_trigger = yes
+			}
+		}
+		
+		bypass = {
+
+		}
+		search_filters = {FOCUS_FILTER_MANPOWER}
+		completion_reward = {
+			add_ideas = USA_womens_armed_service_integration_act
+		}
+	}
+	
+	focus = {
+		id = TNA_support_rock_island
+		icon = GFX_goal_generic_army_artillery
+		x = 2
+		y = 1
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+		prerequisite = { focus = TNA_selective_training_act }
+		ai_will_do = {
+			factor = 5
+		}
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_support_rock_island
+				uses = 2
+				bonus = 1.0
+				category = artillery
+				category = support_tech
+			}
+		}
+	}
+	focus = {
+		id = TNA_tank_experiments
+		icon = GFX_goal_generic_army_tanks
+		x = 2
+		y = 2
+		prerequisite = { focus = TNA_support_rock_island }
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_tank_experiments
+				uses = 1
+				bonus = 1.0
+				category = armor
+			}
+		}
+	}
+	focus = {
+		id = TNA_tank_destroyer_doctrine
+		icon = GFX_focus_usa_tank_destroyer_doctrine
+		x = 2
+		y = 3
+		prerequisite = { focus = TNA_tank_experiments }
+		mutually_exclusive = { focus = TNA_main_battle_tanks }
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = tank_destroyer_board
+		}
+	}
+	focus = {
+		id = TNA_main_battle_tanks
+		icon = GFX_focus_generic_combined_arms
+		x = 4
+		y = 3
+		prerequisite = { focus = TNA_tank_experiments }
+		mutually_exclusive = { focus = TNA_tank_destroyer_doctrine }
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = detroit_arsenal
+		}
+	}
+	focus = {
+		id = TNA_armored_infantry
+		icon = GFX_goal_generic_build_tank
+		x = 2
+		y = 4
+		prerequisite = { focus = TNA_main_battle_tanks focus = TNA_tank_destroyer_doctrine }
+		relative_position_id = TNA_selective_training_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_armored_infantry
+				uses = 2
+				bonus = 1.0
+				category = motorized_equipment
+			}
+		}
+	}
+	focus = {
+		id = TNA_total_conscription
+		icon = GFX_goal_total_conscription
+		prerequisite = { focus = TNA_war_department }
+		prerequisite = { focus = TNA_adopt_joule }
+		relative_position_id = TNA_war_department
+		x = -3
+		y = 1
+		cost = 10
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_USA_CONGRESS}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			has_war = yes
+			administration_support_trigger = yes
+		}
+
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = TNA_industrial_effort_IC2 }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			every_state = {
+				limit = { has_state_flag = TNA_industrial_effort_IC202 }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		
+		completion_reward = {
+			add_ideas = war_economy
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = synthetic_refinery
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC202
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					industrial_complex > 0
+					free_building_slots = {
+						building = synthetic_refinery
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = TNA_industrial_effort_IC202
+			}
+		}
+	}
+	focus = {
+		id = TNA_m_day 
+		icon = GFX_goal_m_day
+		x = -6
+		y = 1
+		prerequisite = { focus = TNA_total_conscription }
+		relative_position_id = TNA_total_conscription
+		cost = 5
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = TNA_m_day
+			add_stability = -0.01
+		}
+	}
+	focus = {
+		id = TNA_build_the_pentagon
+		icon = GFX_focus_usa_build_the_pentagon
+		x = -1
+		y = 1
+		prerequisite = { focus = TNA_war_department }
+		relative_position_id = TNA_war_department
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = USA_the_pentagon
+		}
+	}
+	focus = {
+		id = TNA_department_of_defense
+		icon = GFX_goal_generic_army_doctrines
+		x = -1
+		y = 2
+		prerequisite = { focus = TNA_build_the_pentagon }
+		relative_position_id = TNA_war_department
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = USA_war_department
+				add_idea = USA_department_of_defense
+			}
+			add_ideas = USA_militia_organization_act
+		}
+	}
+
+
+
+ ##  ### ###       ## ###  ##  ### ###  ##  #  # 
+#  #  #  #  #     #   #   #  #  #   #  #  # ## # 
+####  #  ###       #  ##  #     #   #  #  # # ## 
+#  #  #  #  #       # #   #  #  #   #  #  # #  # 
+#  # ### #  #     ##  ###  ##   #  ###  ##  #  # 
+
+	focus = {
+		id = TNA_air_war_plans_division
+		icon = GFX_goal_generic_build_airforce
+		x = 2
+		y = 1
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		prerequisite = { focus = TNA_war_department }
+		relative_position_id = TNA_war_department
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_RESEARCH}
+	
+		completion_reward = {
+			air_experience = 25
+			add_doctrine_cost_reduction = {
+				name = USA_air_war_plans_division
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			} # REVISIT May use modifier?
+			add_ideas = air_war_plans_division_focus
+		}
+	}
+
+	focus = {
+		id = TNA_air_support
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = TNA_air_war_plans_division }
+		mutually_exclusive = { focus = TNA_strategic_bombing }
+		x = -1
+		y = 1
+		relative_position_id = TNA_air_war_plans_division
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+		completion_reward = {
+			air_experience = 25
+			add_ideas = air_support_focus
+		}
+	}
+
+	focus = {
+		id = TNA_strategic_bombing
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = TNA_air_war_plans_division }
+		mutually_exclusive = { focus = TNA_air_support }
+		x = 1
+		y = 1
+		relative_position_id = TNA_air_war_plans_division
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			air_experience = 25
+			add_ideas = strategic_bombing_focus
+		}
+	}
+
+	focus = {
+		id = TNA_TAC
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = TNA_air_support }
+		x = 0
+		y = 2
+		relative_position_id = TNA_air_support
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = USA_TAC
+				uses = 1
+				bonus = 1.0
+				category = tactical_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = TNA_CAS
+		text = CAS_effort
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = TNA_air_support }
+		x = -1
+		y = 1
+		relative_position_id = TNA_air_support
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_effort
+				uses = 1
+				bonus = 1.0
+				category = cas_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = TNA_combined_bomber_offensive
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = TNA_strategic_bombing }
+		available = {
+			has_war = yes
+			OR = {
+				is_in_faction_with = GER
+				is_in_faction_with = JAP
+				is_in_faction_with = ITA
+				is_in_faction_with = SOV
+				is_in_faction_with = FRA
+				is_in_faction_with = ENG
+			}
+		}
+		x = 0
+		y = 2
+		relative_position_id = TNA_strategic_bombing
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = USA_combined_bomber_offensive
+				bonus = 1.0
+				uses = 1
+				category = heavy_air
+			}
+			add_ideas = combined_bomber_offensive
+		}
+	}
+	focus = {
+		id = TNA_escort_fighters
+		icon = GFX_focus_usa_escort_fighters
+		x = 0
+		y = 2
+		prerequisite = { focus = TNA_air_support focus = TNA_strategic_bombing }
+		relative_position_id = TNA_air_war_plans_division
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+		search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_escort_fighters
+				bonus = 3.0
+				uses = 1
+				category = cat_heavy_fighter
+			}
+		}
+	}
+	focus = {
+		id = TNA_us_army_airforce
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = -1
+		y = 4
+		prerequisite = { focus = TNA_TAC }
+		relative_position_id = TNA_air_war_plans_division
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+		search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = USA_us_army_airforce
+				uses = 2
+				cost_reduction = 0.5
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = TNA_us_air_force
+		icon = GFX_goal_generic_build_airforce
+		x = 1
+		y = 4
+		prerequisite = { focus = TNA_combined_bomber_offensive }
+		relative_position_id = TNA_air_war_plans_division
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+		search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			add_ideas = USA_us_air_force
+		}
+	}
+	focus = {
+		id = TNA_lockheed_P_80
+		icon = GFX_goal_generic_air_fighter2
+		x = 0
+		y = 5
+		prerequisite = { focus = TNA_escort_fighters }
+		relative_position_id = TNA_air_war_plans_division
+		cost = 10
+
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+		#search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = TNA_lockheed_P_80
+				uses = 2
+				bonus = 1.0
+				category = jet_technology
+				category = rocketry
+			}
+		}
+	}
+
+#  #  ##  #   # #   #      ## ###  ##  ### ###  ##  #  # 
+## # #  # #   #  # #      #   #   #  #  #   #  #  # ## # 
+# ## ####  # #    #        #  ##  #     #   #  #  # # ## 
+#  # #  #  # #    #         # #   #  #  #   #  #  # #  # 
+#  # #  #   #     #       ##  ###  ##   #  ###  ##  #  # 
+
+	focus = {
+		id = TNA_two_ocean_navy_act
+		icon = GFX_focus_generic_navy_battleship2
+		x = 8
+		y = 1
+		prerequisite = { focus = TNA_war_department }
+		relative_position_id = TNA_war_department
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			if = {
+				limit = {
+					has_completed_focus = TNA_north_american_technate
+				}
+				administration_support_trigger = yes
+			}
+			else = {
+				if = {
+					limit = {
+						threat < 0.5
+						has_war = no
+					}
+					congress_high_support_trigger = yes
+				}
+				else = {
+					congress_low_support_trigger = yes
+				}
+			}
+			controls_state = 378
+			controls_state = 358
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		
+
+		complete_tooltip = {
+			378 = { 
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+			358 = { 
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+		search_filters = {FOCUS_FILTER_USA_CONGRESS}
+		completion_reward = {
+			if = {
+				limit = {
+					 has_war_support < 0.4 
+				}
+				USA_congress_medium_opposition = yes
+			}
+			if = { 
+				limit = { 
+					378 = {
+						free_building_slots = {
+							building = dockyard
+							size > 4
+							include_locked = yes
+						}
+					}
+				}
+				378 = { 
+					add_extra_state_shared_building_slots = 5
+					add_building_construction = {
+						type = dockyard
+						level = 5
+						instant_build = yes
+					}
+				}
+			}
+			if = { 
+				limit = { 
+					358 = {
+						free_building_slots = {
+							building = dockyard
+							size > 4
+							include_locked = yes
+						}
+					}
+				}
+				358 = { 
+					add_extra_state_shared_building_slots = 5
+					add_building_construction = {
+						type = dockyard
+						level = 5
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = TNA_maritime_commission
+		icon = GFX_goal_generic_production2
+		x = -3
+		y = 1
+		prerequisite = { focus = TNA_two_ocean_navy_act }
+		relative_position_id = TNA_two_ocean_navy_act
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = USA_maritime_commission
+		}
+	}
+	
+	focus = {
+		id = TNA_liberty_ships
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = TNA_maritime_commission }
+		x = -3
+		y = 2
+		relative_position_id = TNA_two_ocean_navy_act
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = liberty_ships_focus
+		}
+	}
+
+	focus = {
+		id = TNA_naval_engineering_industrial_function
+		icon = GFX_goal_generic_build_navy
+		x = 2
+		y = 1
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+		prerequisite = { focus = TNA_two_ocean_navy_act }
+		relative_position_id = TNA_two_ocean_navy_act
+		available_if_capitulated = yes
+
+		completion_reward = {
+			navy_experience = 50
+			add_ideas = bureau_of_ships_focus
+			if = {
+				limit = { has_idea = bureau_of_ordnance_spirit }
+				remove_ideas = bureau_of_ordnance_spirit
+			}
+		}
+	}
+	
+	focus = {
+		id = TNA_battleship_primacy
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = TNA_naval_engineering_industrial_function }
+		mutually_exclusive = { focus = TNA_carrier_primacy }
+		x = -3
+		y = 1
+		relative_position_id = TNA_naval_engineering_industrial_function
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_RESEARCH}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_battleship_primacy
+				bonus = 1.0
+				uses = 2
+				category = bb_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TNA_advanced_mahanian_doctrine
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = TNA_battleship_primacy }
+		x = 0
+		y = 1
+		relative_position_id = TNA_battleship_primacy
+		cost = 5
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = USA_advanced_mahanian_doctrine
+				cost_reduction = 0.5
+				uses = 1
+				category = cat_base_strike
+			}
+		}
+	}
+
+	focus = {
+		id = TNA_advanced_basing
+		icon = GFX_goal_generic_occupy_states_coastal
+		x = 0
+		y = 2
+		prerequisite = { focus = TNA_advanced_mahanian_doctrine }
+		relative_position_id = TNA_battleship_primacy
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			638 = {
+				add_building_construction = {
+					type = naval_base
+					province = 12140
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					327 = {
+						CONTROLLER = {
+							is_subject_of = ROOT
+						}
+					}
+				}
+				327 = {
+					add_building_construction = {
+						type = naval_base
+						province = 10265
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNA_carrier_primacy
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = TNA_naval_engineering_industrial_function }
+		mutually_exclusive = { focus = TNA_battleship_primacy }
+		x = -1
+		y = 1
+		relative_position_id = TNA_naval_engineering_industrial_function
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_carrier_primacy
+				bonus = 1.0
+				uses = 2
+				category = cv_tech
+			}
+		}
+	}
+
+	focus = {
+		id = TNA_bureau_of_aeronautics
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = TNA_carrier_primacy }
+		x = 0
+		y = 1
+		relative_position_id = TNA_carrier_primacy
+		cost = 5
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_bureau_of_aeronautics
+				bonus = 1.0
+				uses = 1
+				category = naval_bomber
+				category = naval_air
+			}
+		}
+	}
+	focus = {
+		id = TNA_naval_radar
+		icon = GFX_goal_generic_radar
+		x = 0
+		y = 1
+		prerequisite = { focus = TNA_bureau_of_aeronautics }
+		relative_position_id = TNA_bureau_of_aeronautics
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_naval_radar
+				uses = 2
+				bonus = 1.0
+				category = radar_tech
+			}
+			
+		}
+	}
+
+	focus = {
+		id = TNA_escort_effort
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = TNA_naval_engineering_industrial_function }
+		x = 1
+		y = 1
+		relative_position_id = TNA_naval_engineering_industrial_function
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = escort_effort_focus
+			
+		}
+	}
+
+	focus = {
+		id = TNA_convoy_tactics
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = TNA_escort_effort }
+		x = 0
+		y = 1
+		relative_position_id = TNA_escort_effort
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			navy_experience = 25
+			add_doctrine_cost_reduction = {
+				name = USA_convoy_tactics
+				cost_reduction = 0.35
+				uses = 2
+				category = convoy_defense_tree
+			}
+		}
+	}
+	focus = {
+		id = TNA_fleet_submarines
+		icon = GFX_goal_generic_navy_submarine
+		x = 3
+		y = 1
+		prerequisite = { focus = TNA_naval_engineering_industrial_function }
+		relative_position_id = TNA_naval_engineering_industrial_function
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_fleet_submarines
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				set_technology = { cruiser_submarines = 1 }
+			}
+		}
+	}
+
+	focus = {
+		id = TNA_unrestricted_submarine_warfare
+		icon = GFX_goal_generic_wolf_pack
+		x = 3
+		y = 2
+		prerequisite = { focus = TNA_fleet_submarines }
+		relative_position_id = TNA_naval_engineering_industrial_function
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = USA_unrestricted_submarine_warfare
+		}
+	}
+
+	focus = {
+		id = TNA_fund_the_navy
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 7
+		y = 1
+		relative_position_id = TNA_two_ocean_navy_act
+		cost = 10
+		prerequisite = { focus = TNA_two_ocean_navy_act }
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+				completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = USA_fund_the_navy
+				uses = 3
+				cost_reduction = 0.5
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = TNA_expand_the_USMC
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = TNA_fund_the_navy }
+		x = 0
+		y = 1
+		relative_position_id = TNA_fund_the_navy
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_expand_the_USMC
+				bonus = 1.0
+				uses = 1
+				technology = marines2
+				technology = marines3
+			}
+		}
+	}
+
+	focus = {
+		id = TNA_amphibious_operations
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = TNA_expand_the_USMC }
+		x = 0
+		y = 1
+		relative_position_id = TNA_expand_the_USMC
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_amphibious_operations
+				bonus = 1.0
+				uses = 2
+				category = tp_tech 
+			}
+		}
+	}
+}

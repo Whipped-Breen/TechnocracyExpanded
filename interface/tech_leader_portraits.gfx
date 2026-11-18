@@ -1,0 +1,11 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_portrait_technate_council"
+		texturefile = "gfx/leaders/USA/Portrait_TNA_Technate_Council.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_joshua_haldeman"
+		texturefile = "gfx/leaders/CAN/Portrait_Canada_Joshua_Haldeman.dds"
+	}
+}

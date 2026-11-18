@@ -1,0 +1,110 @@
+# Allows you to create your own dynamic keys
+# to be called in localization.
+# defined_text -> this is it, we're defining the text
+# text -> a discrete entry that can be picked to display in loc.
+# trigger -> determines if a text entry will be picked or not.
+# (The triggers need to be valid for the scope the key is called in
+# (eg Root or From.From).)
+# localization_key -> points to the localization key
+# that'll be used if trigger passes
+
+defined_text = {
+	name = GetFundTheNavy
+	text = {
+		trigger = {
+			original_tag = USA
+			NOT = { has_completed_focus = TNA_adopt_joule }
+		}
+		localization_key = TNA_FUND_THE_NAVY_PRICE
+	}
+	text = {
+		trigger = {
+			original_tag = USA
+			has_completed_focus = TNA_adopt_joule
+		}
+		localization_key = TNA_FUND_THE_NAVY_ENERGY
+	}
+}
+
+defined_text = {
+	name = GetExpandTheUSMC
+	text = {
+		trigger = {
+			original_tag = USA
+			OR = {
+				has_cosmetic_tag = TNA_president_scott
+				has_cosmetic_tag = TNA_the_design_cosmetic
+			}
+		}
+		localization_key = TNA_EXPAND_THE_USMC_STATES
+	}
+	text = {
+		trigger = {
+			original_tag = USA
+			has_cosmetic_tag = TNA_north_american_technate
+		}
+		localization_key = TNA_EXPAND_THE_USMC_TECHNATE
+	}
+}
+defined_text = {
+	name = GetExpandTheUSMCDesc
+	text = {
+		trigger = {
+			original_tag = USA
+			OR = {
+				has_cosmetic_tag = TNA_president_scott
+				has_cosmetic_tag = TNA_the_design_cosmetic
+			}
+		}
+		localization_key = TNA_EXPAND_THE_USMC_DESC_STATES
+	}
+	text = {
+		trigger = {
+			original_tag = USA
+			has_cosmetic_tag = TNA_north_american_technate
+		}
+		localization_key = TNA_EXPAND_THE_USMC_DESC_TECHNATE
+	}
+}
+
+defined_text = {
+	name = GetUsArmyAirForceUSMC
+	text = {
+		trigger = {
+			original_tag = USA
+			OR = {
+				has_cosmetic_tag = TNA_president_scott
+				has_cosmetic_tag = TNA_the_design_cosmetic
+			}
+		}
+		localization_key = TNA_US_ARMY_AIRFORCE_STATES
+	}
+	text = {
+		trigger = {
+			original_tag = USA
+			has_cosmetic_tag = TNA_north_american_technate
+		}
+		localization_key = TNA_US_ARMY_AIRFORCE_TECHNATE
+	}
+}
+
+defined_text = {
+	name = GetUsAirForce
+	text = {
+		trigger = {
+			original_tag = USA
+			OR = {
+				has_cosmetic_tag = TNA_president_scott
+				has_cosmetic_tag = TNA_the_design_cosmetic
+			}
+		}
+		localization_key = TNA_US_AIR_FORCE_STATES
+	}
+	text = {
+		trigger = {
+			original_tag = USA
+			has_cosmetic_tag = TNA_north_american_technate
+		}
+		localization_key = TNA_US_AIR_FORCE_TECHNATE
+	}
+}

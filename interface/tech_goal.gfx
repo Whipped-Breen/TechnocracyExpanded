@@ -1,0 +1,75 @@
+spriteTypes = {	
+
+	spriteType = {
+		name = "GFX_goal_pacific_interests"
+		texturefile = "gfx/interface/goals/pacific_interests.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_north_american_technate"
+		texturefile = "gfx/interface/goals/north_american_technate.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_adapt_senate"
+		texturefile = "gfx/interface/goals/adapt_senate.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_m_day"
+		texturefile = "gfx/interface/goals/m_day.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_total_conscription"
+		texturefile = "gfx/interface/goals/total_conscription.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_teknolohiya"
+		texturefile = "gfx/interface/goals/philippines_technocracy.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_adopt_metric_system"
+		texturefile = "gfx/interface/goals/adopt_metric_system.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_dynamic_command_economy"
+		texturefile = "gfx/interface/goals/dynamic_command_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_foreign_relations"
+		texturefile = "gfx/interface/goals/goal_foreign_relations.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_central_america"
+		texturefile = "gfx/interface/goals/central_america.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_education_reform"
+		texturefile = "gfx/interface/goals/education_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_tna_canada"
+		texturefile = "gfx/interface/goals/tna_canada.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_computing_machine"
+		texturefile = "gfx/interface/goals/computing_machine.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_tna_south"
+		texturefile = "gfx/interface/goals/tna_south.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_technate_of_europe"
+		texturefile = "gfx/interface/goals/technate_of_europe.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_scientific_revolution"
+		texturefile = "gfx/interface/goals/scientific_revolution.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_continental_hydrology"
+		texturefile = "gfx/interface/goals/continental_hydrology.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_joule"
+		texturefile = "gfx/interface/goals/joule.dds"
+	}
+}

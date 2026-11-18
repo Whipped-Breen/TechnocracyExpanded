@@ -1,0 +1,1926 @@
+﻿###########################
+# TNA Events
+###########################
+
+add_namespace = tna
+
+add_namespace = tna_continental_control
+
+add_namespace = tna_civil_war
+
+add_namespace = teu
+
+add_namespace = tna_cleanup
+
+add_namespace = tech_news
+
+country_event = {
+	id = tna.1
+	title = tna.1.t
+	desc = tna.1.desc
+	picture = GFX_report_event_gathering_protest
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = USA
+		date > 1936.1.1
+		not = {
+			has_government = neutrality
+		}
+	}
+	
+	mean_time_to_happen = { days = 100 }
+	
+	option = {
+		name = tna.1.a
+		add_popularity = { ideology = neutrality popularity = 0.1 }
+		add_ideas = TNA_technocrat_campaign
+	}
+}
+country_event = {
+	id = tna.2
+	title = tna.2.t
+	desc = tna.2.desc
+	picture = GFX_report_event_usa_heavy_cruiser
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.2.a
+		ai_chance = {
+			base = 1
+		}
+		every_owned_state = {
+			limit = {
+				is_tna_state = yes
+			}
+			FROM = { transfer_state = PREV }
+		}
+	}
+	option = {
+		name = tna.2.b
+		ai_chance = {
+			base = 0
+		}
+		if = {
+			limit = {
+				capital_scope = {
+					OR = {
+						is_on_continent = south_america
+						is_on_continent = north_america
+					}
+				}
+			}
+			USA = { country_event = tna.702 }
+		}
+		else = {
+			USA = { country_event = tna.3 }
+		}
+	}
+}
+country_event = {
+	id = tna.3
+	title = tna.3.t
+	desc = tna.3.desc
+	picture = GFX_report_event_czech_soldiers_01
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.3.a
+		every_state = {
+			limit = {
+				is_owned_by = FROM
+				is_tna_state = yes
+			}
+			ROOT = { transfer_state = PREV }
+		}
+		FROM = {
+			country_event = tna.4
+		}
+	}
+}
+country_event = {
+	id = tna.4
+	title = tna.4.t
+	desc = tna.4.desc
+	picture = GFX_report_event_generic_panzer_attack
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.4.a
+		add_opinion_modifier = { target = USA modifier = seized_land_during_war }
+	}
+}
+country_event = {
+	id = tna.5
+	title = tna.5.t
+	desc = tna.5.desc
+	picture = GFX_report_event_generic_usa_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.5.a
+		set_cosmetic_tag = TAS_philippines
+		set_country_flag = technate
+		add_stability = -0.1
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+		USA = { set_autonomy = { target = ROOT autonomy_state = autonomy_tech_puppet freedom_level = 0.5 } }
+		set_party_name = { ideology = neutrality long_name = PHI_technocrat_party name = PHI_technocrat_party }
+		create_country_leader = {
+			name = "The Archipelago Board"
+			desc = "POLITICS_THE_CONTINENTAL_BOARD_DESC"
+			picture = GFX_portrait_technate_council
+			expire = "1965.1.1"
+			ideology = technocracy
+			traits = {
+				continental_board
+			}
+		}
+		TNA_join_research_north_american_technate = yes
+	}
+}
+###OPPRESS LATIN AMERICAN COUNTRY###
+country_event = {
+	id = tna.6
+	title = tna.6.t
+	desc = tna.6.desc
+	picture = GFX_report_event_tanks_mexico_city
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.6.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				has_government = democratic
+			}
+			modifier = {
+				add = 0.7
+				has_government = communism
+			}
+			modifier = {
+				add = 0.6
+				has_government = neutrality
+			}
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+		FROM = { country_event = tna.701 }
+		hidden_effect = {
+			FROM = { annex_country = { target = ROOT transfer_troops = yes } }
+			add_threat = 2
+		}
+	}
+	option = {
+		name = tna.6.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 0.3
+				has_government = communism
+			}
+			modifier = {
+				add = 1
+				has_government = fascism
+			}
+			modifier = {
+				add = 0.4
+				has_government = neutrality
+			}
+		}
+		FROM = { country_event = tna.702 }
+	}
+}
+country_event = {
+	id = tna.7
+	title = tna.7.t
+	desc = tna.7.desc
+	picture = GFX_report_event_tanks_mexico_city
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.7.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				OR = {
+					has_government = democratic
+					has_country_leader = { ruling_only = yes name = "Lázaro Cárdenas" }
+				}
+			}
+			modifier = {
+				add = 0.7
+				has_government = communism
+			}
+			modifier = {
+				add = 0.6
+				has_government = neutrality
+			}
+		}
+		set_cosmetic_tag = TNA_mexico
+		set_country_flag = technate
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+		USA = { set_autonomy = { target = ROOT autonomy_state = autonomy_tech_puppet freedom_level = 0.5 } }
+		set_party_name = { ideology = neutrality long_name = MEX_technocrat_party name = MEX_technocrat_party }
+		add_country_leader_role = {
+			character = MEX_lazaro_cardenas
+			country_leader = {
+				expire = "1965.1.1"
+				ideology = technocracy
+			}
+			promote_leader = yes
+		}
+		TNA_join_research_north_american_technate = yes
+		hidden_effect = {
+			FROM = { country_event = tna.701 }
+			country_event = { id = tna_cleanup.2 days = 1 }
+			remove_ideas = MEX_womens_suffrage 
+			remove_ideas = MEX_ejido_worker_militias
+		}
+	}
+	option = {
+		name = tna.7.b
+		trigger = {
+			ROOT = { NOT = { is_subject_of = USA } }
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 0.3
+				has_government = communism
+			}
+			modifier = {
+				add = 1
+				has_government = fascism
+			}
+			modifier = {
+				add = 0.4
+				has_government = neutrality
+				NOT = { has_country_leader = { ruling_only = yes name = "Lázaro Cárdenas" } }
+			}
+		}
+		set_global_flag = mexico_refused
+		FROM = { country_event = tna.702 }
+	}
+}
+country_event = {
+	id = tna.701
+	title = tna.701.t
+	desc = tna.701.desc
+	picture = GFX_report_event_generic_sign_treaty3
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.701.a
+
+	}
+}
+country_event = {
+	id = tna.702
+	title = tna.702.t
+	desc = tna.702.desc
+	picture = GFX_report_event_tanks_mexico_city
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.702.a
+		create_wargoal = {
+			type = annex_everything
+			target = FROM
+		}
+	}
+}
+###OPPRESS THE EMPIRE###
+country_event = {
+	id = tna.8
+	title = tna.8.t
+	desc = tna.8.desc
+	picture = GFX_report_event_canada_patriation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.8.a
+		CAN = {
+			set_variable = { TNA_tpc_autonomy_gain = 1 }
+			set_variable = { TNA_tpc_democratic_drift = -0.1 }
+			set_variable = { TNA_tpc_neutrality_drift = 0.1 }
+			set_variable = { TNA_tpc_neutrality_acceptance = 55 }
+			add_dynamic_modifier = { modifier = TNA_technocracy_in_canada }
+
+			add_popularity = { ideology = neutrality popularity = 0.05 }
+			set_party_name = { ideology = neutrality long_name = CAN_technocrat_party name = CAN_technocrat_party }
+			create_country_leader = {
+				name = "Joshua Haldeman"
+				desc = "POLITICS_JOSHUA_HALDEMAN_DESC"
+				picture = GFX_portrait_joshua_haldeman
+				expire = "1965.1.1"
+				ideology = technocracy
+			}
+			TNA_canada_support_time = yes
+		}
+	}
+}
+country_event = {
+	id = tna.9
+	title = tna.9.t
+	desc = tna.9.desc
+	picture = GFX_report_event_gre_allied_diplomacy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_dynamic_modifier = { modifier = TNA_technocracy_in_canada }
+	}
+	
+	option = {
+		name = tna.9.a
+		USA = {
+			set_autonomy = { target = CAN autonomy_state = autonomy_tech_puppet freedom_level = 0.5 }
+			country_event = { id = tna.900 hours = 6 }
+		}
+		CAN = {
+			set_country_flag = technate
+			set_cosmetic_tag = TNA_canada
+			TNA_join_research_north_american_technate = yes
+		}
+		if = {
+			limit = { not = { has_dlc = "Man the Guns" } }
+			CAN = {	load_oob = "CAN_destroyers_for_bases" }
+		}
+		else = {
+			CAN = {	load_oob = "CAN_destroyers_for_bases_mtg" }
+		}
+	}
+	option = {
+		name = tna.9.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				OR = {
+					has_government = fascism
+					has_government = communism
+					has_government = neutrality
+				}
+			}
+			modifier = {
+				add = 1
+				GER = { has_capitulated = yes }
+			}
+			modifier = {
+				add = 1
+				AND = {
+					ITA = { has_war_with = CAN }
+					ITA = { has_capitulated = yes }
+				}
+			}
+			modifier = {
+				add = 1
+				AND = {
+					JAP = { has_war_with = CAN }
+					JAP = { has_capitulated = yes }
+				}
+			}
+		}
+		USA = { country_event = { id = tna.11 days = 1 } }
+	}
+}
+country_event = {
+	id = tna.900
+	title = tna.900.t
+	desc = tna.900.desc
+	picture = GFX_report_event_canada_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.900.a
+
+		CAN = {
+			transfer_state = 332
+			transfer_state = 331
+		}
+	}
+	option = {
+		name = tna.900.b
+
+		USA = {
+			transfer_state = 332
+			transfer_state = 331
+		}
+		332 = {
+			hidden_effect = { add_compliance = 35 }
+			effect_tooltip = { add_compliance = 70 }
+			add_state_modifier = { modifier = { resistance_growth = -0.8 } }
+			add_state_modifier = { modifier = { compliance_growth = 0.8 } }
+		}
+		331 = {
+			hidden_effect = { add_compliance = 35 }
+			effect_tooltip = { add_compliance = 70 }
+			add_state_modifier = { modifier = { resistance_growth = -0.8 } }
+			add_state_modifier = { modifier = { compliance_growth = 0.8 } }
+		}
+	}
+	option = {
+		name = tna.900.c
+
+		CAN = { transfer_state = 332 }
+		USA = {
+			transfer_state = 331
+		}
+		331 = {
+			hidden_effect = { add_compliance = 35 }
+			effect_tooltip = { add_compliance = 70 }
+			add_state_modifier = { modifier = { resistance_growth = -0.8 } }
+			add_state_modifier = { modifier = { compliance_growth = 0.8 } }
+		}
+	}
+}
+country_event = {
+	id = tna.10
+	title = tna.10.t
+	desc = tna.10.desc
+	picture = GFX_report_event_usa_british_sailors_destroyers
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.10.a
+		ENG = {
+			custom_effect_tooltip = usa.4.a.tt
+			hidden_effect = {
+				if = {
+					limit = { not = { has_dlc = "Man the Guns" } }
+					ENG = {	load_oob = "ENG_destroyers_for_bases" }
+				}
+				else = {
+					ENG = {	load_oob = "ENG_destroyers_for_bases_mtg" }
+				}
+			}
+		}
+		USA = {
+			if = { limit = { 311 = { is_owned_by = ENG } }
+				transfer_state = 311
+			}
+			if = { limit = { 689 = { is_owned_by = ENG } }
+				transfer_state = 689
+			}
+			if = { limit = { 690 = { is_owned_by = ENG } }
+				transfer_state = 690
+			}
+			if = { limit = { 693 = { is_owned_by = ENG } }
+				transfer_state = 693
+			}
+			if = { limit = { 696 = { is_owned_by = ENG } }
+				transfer_state = 696
+			}
+			if = { limit = { 308 = { is_owned_by = ENG } }
+				transfer_state = 308
+			}
+			if = { limit = { 691 = { is_owned_by = ENG } }
+				transfer_state = 691
+			}
+			if = { limit = { 692 = { is_owned_by = ENG } }
+				transfer_state = 692
+			}
+			if = { limit = { 687 = { is_owned_by = ENG } }
+				transfer_state = 687
+			}
+			country_event = { id = usa.401 days = 3 }
+		}
+	}
+	option = {
+		name = tna.10.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				has_government = fascism
+			}
+			modifier = {
+				add = 1
+				GER = { has_capitulated = yes }
+			}
+			modifier = {
+				add = 1
+				AND = {
+					ITA = { has_war_with = ENG }
+					ITA = { has_capitulated = yes }
+				}
+			}
+			modifier = {
+				add = 1
+				AND = {
+					JAP = { has_war_with = ENG }
+					JAP = { has_capitulated = yes }
+				}
+			}
+		}
+		USA = { country_event = { id = tna.11 days = 1 } }
+	}
+}
+
+country_event = {
+	id = tna.11
+	title = tna.11.t
+	desc = tna.11.desc
+	picture = GFX_report_event_canada_army
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.11.a
+		create_wargoal = {
+			type = annex_everything
+			target = ENG
+		}
+	}
+}
+###OPPRESS MOSLEY###
+country_event = {
+	id = tna.12
+	title = tna.12.t
+	desc = tna.12.desc
+	picture = GFX_report_event_generic_usa_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.12.a
+		ai_chance = {
+			base = 1
+		}
+		hidden_effect = {
+			remove_ideas = TNA_mosley_plot_idea
+			
+			set_politics = {
+				ruling_party = neutrality
+				election_frequency = 48
+				elections_allowed = yes
+			}
+#			add_popularity = { ideology = neutrality popularity = 0.5 }	
+
+			add_country_leader_role = {
+				character = ENG_oswald_mosley
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = technocracy
+				}
+				promote_leader = yes
+			}
+			set_party_name = { ideology = neutrality long_name = ENG_technocrat_party name = ENG_technocrat_party }
+			USA = {
+				set_autonomy = { 
+					target = ROOT 
+					autonomy_state = autonomy_tech_partner 
+					end_wars = no
+				}
+				create_faction = Technosphere
+				add_to_faction = ENG
+			}
+		}
+		set_cosmetic_tag = TEU_britain
+	}
+	option = {
+		name = tna.12.b
+		trigger = {
+			ROOT = { NOT = { is_subject_of = USA } }
+		}
+		ai_chance = {
+			base = 0
+		}
+		set_global_flag = mosley_refused
+		FROM = { country_event = { id = tna.11 days = 1 } }
+	}
+}
+###OPPRESS IREAND###
+country_event = {
+	id = tna.13
+	title = tna.13.t
+	desc = tna.13.desc
+	picture = GFX_report_event_generic_usa_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.13.a
+		ai_chance = {
+			base = 1
+		}
+		every_state = {
+			limit = {
+				is_core_of = IRE
+			}
+			add_core_of = ENG
+		}
+		ENG = {
+			annex_country = {
+				target = IRE
+				transfer_troops = yes
+			}
+		}
+		IRE = {
+			every_unit_leader = {
+				set_nationality = ENG
+			}
+		}
+	}
+	option = {
+		name = tna.13.b
+		ai_chance = {
+			base = 0
+		}
+
+		hidden_effect = {
+			add_threat = 2
+		}
+	}
+}
+
+###OPPRESS JAPAN###
+country_event = {
+	id = tna.14
+	title = tna.14.t
+	desc = tna.14.desc
+	picture = GFX_report_event_generic_usa_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.14.a
+		set_politics = { ruling_party = neutrality }
+		set_party_name = { ideology = neutrality long_name = JAP_technocrat_party name = JAP_technocrat_party }
+		create_country_leader = {
+			name = "The Archipelago Board"
+			desc = "POLITICS_THE_CONTINENTAL_BOARD_DESC"
+			picture = GFX_portrait_technate_council
+			expire = "1965.1.1"
+			ideology = technocracy
+			traits = {
+				continental_board
+			}
+		}
+		set_cosmetic_tag = TAS_japan
+		add_ideas = JAP_hirohito
+		USA = { set_autonomy = { target = ROOT autonomy_state = autonomy_tech_partner } }
+	}
+}
+
+###OPPRESS AUSTRALASIA###
+country_event = {
+	id = tna.15
+	title = tna.15.t
+	desc = tna.15.desc
+	picture = GFX_report_event_generic_usa_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.15.a
+		ai_chance = {
+			base = 1
+		}
+		set_politics = { ruling_party = neutrality elections_allowed = no }
+		set_party_name = { ideology = neutrality long_name = AST_technocrat_party_long name = AST_technocrat_party }
+		create_country_leader = {
+			name = "The Continental Board"
+			desc = "POLITICS_THE_CONTINENTAL_BOARD_DESC"
+			picture = GFX_portrait_technate_council
+			expire = "1965.1.1"
+			ideology = technocracy
+			traits = {
+				continental_board
+			}
+		}
+		set_cosmetic_tag = TOC_australia_technate
+		every_other_country = {
+			limit = {
+				capital_scope = { is_TOC_state = yes }
+				has_country_flag = TNA_accepted_pacific
+			}
+			ROOT = { annex_country = { target = PREV  transfer_troops = yes } }
+			PREV = { every_character = { set_nationality = AST } }
+		}
+		every_state = {
+			limit = {
+				is_TOC_state = yes
+				NOT = {
+					state = 669
+					state = 523
+					state = 737
+					state = 712
+				}
+			}
+			add_core_of = ROOT
+		}
+		every_state = {
+			limit = {
+				is_TOC_state = yes
+				is_owned_by = USA
+			}
+			ROOT = { transfer_state = PREV }
+		}
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 669
+						state = 523
+						state = 737
+					}
+				}
+				add_compliance = 35
+				add_dynamic_modifier = { modifier = self_governing_district }
+			}
+		}
+		USA = { add_state_core = 726 transfer_state = 726 }
+		set_country_flag = technate
+		USA = { set_autonomy = { target = ROOT autonomy_state = autonomy_tech_partner } }
+	}
+	option = {
+		name = tna.15.b
+		ai_chance = {
+			base = 0
+		}
+		trigger = {
+			ROOT = { NOT = { is_subject_of = FROM } }
+		}
+		FROM = { country_event = { id = tna.17 days = 1 } }
+		set_country_flag = tna_FROM_refused
+		set_global_flag = australia_refused
+	}
+}
+country_event = {
+	id = tna.16
+	title = tna.16.t
+	desc = tna.15.desc
+	picture = GFX_report_event_generic_usa_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.15.a
+		ai_chance = {
+			base = 1
+		}
+		if = {
+			limit = {
+				AST = {
+					has_cosmetic_tag = TOC_australia_technate
+				}
+			}
+			AST = { annex_country = { target = PREV  transfer_troops = yes } }
+			every_unit_leader = { set_nationality = AST }
+		}
+		else = {
+			set_country_flag = TNA_accepted_pacific
+			effect_tooltip = {
+				AST = { annex_country = { target = PREV  transfer_troops = yes } }
+				every_unit_leader = { set_nationality = AST }
+			}
+		}
+	}
+	option = {
+		name = tna.15.b
+		ai_chance = {
+			base = 0
+		}
+		trigger = {
+			ROOT = { NOT = { is_subject_of = FROM } }
+		}
+		FROM = { country_event = { id = tna.17 days = 1 } }
+		set_country_flag = tna_FROM_refused
+	}
+}
+country_event = {
+	id = tna.17
+	title = tna.17.t
+	desc = tna.17.desc
+	picture = GFX_report_event_ast_navy
+	
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			set_country_flag = tna_FROM_refused
+		}
+	}
+	
+	option = {
+		name = tna.17.a
+		unlock_decision_tooltip = TNA_war_FROM
+	}
+}
+country_event = {
+	id = tna.18
+	title = tna.16.t
+	desc = tna.18.desc
+	picture = GFX_report_event_gre_political_upheaval
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.15.a
+		ai_chance = {
+			base = 1
+		}
+		every_owned_state = {
+			limit = {
+				is_TOC_state = yes
+			}
+			if = {
+				limit = {
+					AST = {
+						has_cosmetic_tag = TOC_australia_technate
+					}
+				}
+				AST = { transfer_state = PREV }
+			}
+			else = {
+				effect_tooltip = {
+					AST = { transfer_state = PREV }
+				}
+				hidden_effect = {
+					USA = { transfer_state = PREV }
+				}
+			}
+		}
+	}
+	option = {
+		name = tna.15.b
+		ai_chance = {
+			base = 0
+		}
+		trigger = {
+			ROOT = { NOT = { is_subject_of = FROM } }
+		}
+		hidden_effect = {
+			every_owned_state = {
+				limit = {
+					is_TOC_state = yes
+				}
+				USA = { add_state_claim = PREV }
+			}
+		}
+		FROM = { country_event = { id = tna.17 days = 1 } }
+		set_country_flag = tna_FROM_refused
+	}
+}
+country_event = {
+	id = tna.19
+	title = tna.19.t
+	desc = tna.19.desc
+	picture = GFX_report_event_worker_protests
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.19.a
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+country_event = {
+	id = tna.20
+	title = tna.20.t
+	desc = tna.20.desc
+	picture = GFX_report_event_peasant_revolt
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.20.a
+		effect_tooltip = {
+			add_popularity = { ideology = neutrality popularity = 0.027 }
+		}
+		FROM = {
+			country_event = tna.201
+		}
+		TNA_canada_support_time = yes
+	}
+}
+country_event = {
+	id = tna.201
+	title = tna.20.t
+	desc = tna.20.desc
+	picture = GFX_report_event_peasant_revolt
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.20.a
+		CAN = {
+			add_popularity = { ideology = neutrality popularity = 0.027 }
+		}
+	}
+}
+country_event = {
+	id = tna.21
+	title = tna.21.t
+	desc = tna.21.desc
+	picture = GFX_report_event_generic_rally
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.21.a
+		effect_tooltip = {
+			add_stability = -0.054
+			add_popularity = { ideology = neutrality popularity = 0.027 }
+		}
+		FROM = {
+			country_event = tna.211
+		}
+		TNA_canada_support_time = yes
+	}
+}
+country_event = {
+	id = tna.211
+	title = tna.21.t
+	desc = tna.21.desc
+	picture = GFX_report_event_generic_rally
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.21.a
+		CAN = {
+			add_stability = -0.054
+			add_popularity = { ideology = neutrality popularity = 0.027 }
+		}
+	}
+}
+country_event = {
+	id = tna.22
+	title = tna.22.t
+	desc = tna.22.desc
+	picture = GFX_report_event_iww_demonstration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.22.a
+		effect_tooltip = {
+			add_stability = -0.081
+			add_popularity = { ideology = neutrality popularity = 0.027 }
+		}
+		FROM = {
+			country_event = tna.221
+		}
+		TNA_canada_support_time = yes
+	}
+}
+country_event = {
+	id = tna.221
+	title = tna.22.t
+	desc = tna.22.desc
+	picture = GFX_report_event_iww_demonstration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.22.a
+		CAN = {
+			add_stability = -0.081
+			add_popularity = { ideology = neutrality popularity = 0.027 }
+		}
+	}
+}
+
+country_event = {
+	id = tna.23
+	title = tna.23.t
+	desc = tna.23.desc
+	picture = GFX_news_event_usa_japan_at_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.23.a
+		ai_chance = {
+			base = 1
+		}
+		USA = {
+			diplomatic_relation = {
+				country = ROOT
+				relation = non_aggression_pact
+				active = yes
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = pan_america
+			}
+		}
+	}
+}
+
+# dispatcher event - Continental Control
+country_event = {
+	id = tna_continental_control.1
+	Hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		has_country_flag = delete_congress
+	}
+
+	immediate = {
+		random_list = {
+			20 = { 
+				modifier = {
+					administration_support_trigger = no
+					factor = 1.25
+				}
+				country_event = { id = tna_continental_control.2 days = 15 random_days = 6 } #small support
+			} 
+			20 = { 
+				modifier = {
+					check_variable = { var = senators_support value = quorum_high compare = greater_than_or_equals }
+					factor = 3
+				}
+				country_event = { id = tna_continental_control.3 days = 20 random_days = 6 } #small opposition 
+			} 
+			15 = { 
+				modifier = {
+					administration_support_trigger = no
+					factor = 1.25
+				}
+				country_event = { id = tna_continental_control.4 days = 20 random_days = 10 } #medium support
+			} 
+			15 = { 
+				modifier = {
+					check_variable = { var = senators_support value = quorum_high compare = greater_than_or_equals }
+					factor = 3
+				}
+				country_event = { id = tna_continental_control.5 days = 20 random_days = 10 }  #medium opposition
+			}
+		#	30 = { #investment opportunity
+		#		modifier = {
+		#			has_country_flag = USA_congress_investment
+		#			factor = 0
+		#		}
+		#		modifier = {
+		#			has_completed_focus = TNA_continental_design
+		#			factor = 1.5
+		#		} 
+		#		country_event = { id = tna_continental_control.6 days = 10 random_days = 15 } 
+		#	} 
+		}
+	}
+}
+country_event = {
+	id = tna_continental_control.2
+	title = tna_continental_control.2.t		# Continental controller votes for Government Proposal
+	desc = tna_continental_control.2.desc
+	picture = GFX_report_event_tna_speech
+
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		has_country_flag = TNA_north_american_technate_flag
+	}
+
+	option = {
+		name = tna_continental_control.2.a
+		TNA_continental_support_micro = yes
+		hidden_effect = {
+			country_event = { id = tna_continental_control.1 days = 70 random_days = 10 }
+		}
+	}
+}
+country_event = {
+	id = tna_continental_control.3
+	title = tna_continental_control.3.t		# Continental controller speaks out against Government Policy
+	desc = tna_continental_control.3.desc
+	picture = GFX_report_event_tna_speech
+
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		has_country_flag = TNA_north_american_technate_flag
+	}
+
+	option = {
+		name = tna_continental_control.3.a
+		TNA_continental_opposition_micro = yes
+		hidden_effect = {
+			country_event = { id = tna_continental_control.1 days = 70 random_days = 10 }
+		}
+	}
+}
+country_event = {
+	id = tna_continental_control.4		# Opposition suffers defeat in the Continental Control
+	title = tna_continental_control.4.t
+	desc = tna_continental_control.4.desc
+	picture = GFX_report_event_tna_speech
+
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		has_country_flag = TNA_north_american_technate_flag
+	}
+
+	option = {
+		name = tna_continental_control.4.a
+		TNA_continental_support_macro_half = yes
+		hidden_effect = {
+			country_event = { id = tna_continental_control.1 days = 70 random_days = 20 }
+		}
+	}
+}
+country_event = {
+	id = tna_continental_control.5		# Continental controller retires
+	title = tna_continental_control.5.t
+	desc = tna_continental_control.5.desc
+	picture = GFX_report_event_tna_speech
+
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		has_country_flag = TNA_north_american_technate_flag
+	}
+
+	option = {
+		name = tna_continental_control.5.a
+		TNA_continental_opposition_macro_half = yes
+		hidden_effect = {
+			country_event = { id = tna_continental_control.1 days = 70 random_days = 20 }
+		}
+	}
+}
+country_event = {
+	id = tna_continental_control.6
+	title = tna_continental_control.6.t
+	desc = tna_continental_control.6.desc
+	picture = GFX_report_event_tna_speech
+
+	is_triggered_only = yes
+	trigger = {
+		tag = USA
+		has_country_flag = TNA_north_american_technate_flag
+	}
+
+	option = {
+		name = tna_continental_control.6.a
+		TNA_continental_support_micro = yes
+		hidden_effect = {
+			country_event = { id = tna_continental_control.1 days = 70 random_days = 20 }
+		}
+	}
+}
+
+###Civil War###
+country_event = {
+	id = tna_civil_war.1 #Whiteshirt
+	title = tna_civil_war.1.t
+	desc = tna_civil_war.1.desc
+	picture = GFX_report_event_spain_civil_war_volunteers_01
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = tna_civil_war.1.a
+		load_oob = TNA
+		load_oob = TNA_WhiteShirt
+		add_equipment_to_stockpile = {
+			type = motorized_equipment
+			amount = 500
+			producer = USA
+		}
+	}
+}
+country_event = {
+	id = tna_civil_war.2
+	title = tna_civil_war.2.t
+	desc = tna_civil_war.2.desc
+	picture = GFX_report_event_generic_riot
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # welp
+		name = tna_civil_war.2.a
+		add_stability = -0.2
+		hidden_effect = {
+			country_event = { id = tna_civil_war.20 days = 120 }
+			country_event = { id = tna_civil_war.3 days = 15 }
+		#	country_event = { id = tna_civil_war.4 days = 15 }
+		}
+	}
+}
+
+##dispatcher event - general
+country_event = {
+	id = tna_civil_war.3
+
+	is_triggered_only = yes
+	hidden = yes
+	trigger = {
+		has_war = no
+	}
+	immediate = {
+		random_list = {
+			25 = { country_event = { id = tna_civil_war.10 days = 5 random_days = 6 } } #armory raided
+			10 = { country_event = { id = tna_civil_war.11 days = 5 random_days = 6 } } #state refuses to transfer funds
+			35 = { country_event = { id = tna_civil_war.13 days = 5 random_days = 6 } } #governor mobilizes national guard
+			20 = { country_event = { id = tna_civil_war.14 days = 5 random_days = 6 } } #soldiers desert
+		}
+	}
+}
+#
+##dispatcher event - industry
+country_event = {
+	id = tna_civil_war.4
+
+	is_triggered_only = yes
+	hidden = yes
+	trigger = {
+		has_war = no
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				not = {
+					has_country_flag = mucwf4
+				}
+			}
+			set_country_flag = mucwf4
+		}
+		random_list = {
+			67 = { country_event = tna_civil_war.15 } #industrialist moves factroy - military
+			33 = { country_event = tna_civil_war.16 } #industrialist moves factroy - civilian
+		}
+	}
+}
+#
+##armory raided
+country_event = {
+	id = tna_civil_war.10
+	title = tna_civil_war.10.t
+	desc = tna_civil_war.10.desc
+	picture = GFX_report_event_french_resistance_01
+
+	is_triggered_only = yes
+
+	option = {
+		name = tna_civil_war.10.a
+		if = {
+			limit = {
+				has_equipment = {
+					infantry_equipment > 999
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+		}
+		else = {
+			add_stability = -0.05
+		}
+		add_to_variable = { var = usa_democrat_arms_stockpile value = 1000 }
+		hidden_effect = {
+			country_event = {
+				id = tna_civil_war.3
+				days = 15
+				random_days = 5
+			}
+		}
+	}
+}
+#
+##state sabotages administration
+country_event = {
+	id = tna_civil_war.11
+	title = tna_civil_war.11.t
+	desc = tna_civil_war.11.desc
+	picture = GFX_report_event_communist_leader
+
+	is_triggered_only = yes
+
+	option = {
+		name = tna_civil_war.11.a
+		add_timed_idea = { idea = TNA_sabotages_administration days = 30 }
+		hidden_effect = {
+			country_event = {
+				id = tna_civil_war.3
+				days = 15
+				random_days = 5
+			}
+		}
+	}
+}
+#
+##general resigns
+unit_leader_event = {
+	id = tna_civil_war.12
+	title = tna_civil_war.12.t
+	desc = tna_civil_war.12.desc
+
+	is_triggered_only = yes
+
+	option = {
+		name = tna_civil_war.12.a
+		hidden_effect = {
+			USA = {
+				country_event = {
+					id = tna_civil_war.3
+					days = 15
+					random_days = 5
+				}
+			}
+		}
+	}
+}
+#
+##governor mobilizes national guard
+country_event = {
+	id = tna_civil_war.13
+	title = tna_civil_war.13.t
+	desc = tna_civil_war.13.desc
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			random_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = { is_rebellion_tna_state = yes is_rebellion_tna_state_2 = yes }
+					not = { has_state_flag = ng_mobilized }
+				}
+				set_state_flag = ng_mobilized
+				save_event_target_as = usa_ng_mobilized
+			}
+		}
+	}
+
+	option = {
+		name = tna_civil_war.13.a
+		event_target:usa_ng_mobilized = {
+			custom_effect_tooltip = citizen_militia_tt
+		}
+		hidden_effect = {
+			country_event = {
+				id = tna_civil_war.3
+				days = 15
+				random_days = 5
+			}
+		}
+	}
+}
+#
+##soldiers desert
+country_event = {
+	id = tna_civil_war.14
+	title = tna_civil_war.14.t
+	desc = tna_civil_war.14.desc
+	picture = GFX_report_event_desertion_poster
+
+	is_triggered_only = yes
+
+	option = {
+		name = tna_civil_war.14.a
+		if = {
+			limit = {
+				has_manpower > 9999
+			}
+			add_manpower = -10000
+		}
+		else = {
+			add_stability = -0.05
+		}
+		add_to_variable = { var = usa_democrat_recruits value = 10000 }
+		hidden_effect = {
+			country_event = {
+				id = tna_civil_war.3
+				days = 15
+				random_days = 5
+			}
+		}
+	}
+}
+#
+##industrialist moves factory
+country_event = {
+	id = tna_civil_war.15
+	title = tna_civil_war.15.t
+	desc = tna_civil_war.15.desc
+	picture = GFX_report_event_generic_lend_lease
+
+	is_triggered_only = yes
+
+	option = {
+		name = tna_civil_war.15.a
+		random_owned_state = {
+			limit = {
+				not = { is_rebellion_tna_state = yes  is_rebellion_tna_state_2 = yes }
+				arms_factory > 0
+			}
+			remove_building = {
+				type = arms_factory
+				level = 1
+			}
+		}
+		random_owned_state = {
+			limit = {
+				OR = { is_rebellion_tna_state = yes is_rebellion_tna_state_2 = yes }
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = tna_civil_war.4
+				days = 15
+				random_days = 5
+			}
+		}
+	}
+}
+##industrialist moves factory
+country_event = {
+	id = tna_civil_war.16
+	title = tna_civil_war.16.t
+	desc = tna_civil_war.16.desc
+	picture = GFX_report_event_generic_factory
+
+	is_triggered_only = yes
+
+	option = {
+		name = tna_civil_war.16.a
+		random_owned_state = {
+			limit = {
+				is_rebellion_tna_state = no
+				industrial_complex > 0
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		random_owned_state = {
+			limit = {
+				is_rebellion_tna_state = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = tna_civil_war.4
+				days = 20
+				random_days = 5
+			}
+		}
+	}
+}
+##first state seceedes
+country_event = {
+	id = tna_civil_war.20
+	title = tna_civil_war.20.t
+	desc = tna_civil_war.20.desc
+	picture = GFX_report_event_ger_civil_war
+	immediate = {
+		hidden_effect = {
+			start_civil_war = {
+				ideology = democratic
+				size = 0
+				army_ratio = 0
+				capital = 371
+				states = { 371 372 370 367 365 366 364 }
+				keep_unit_leaders = { 57 }
+				keep_political_leader = yes
+				
+				add_war_support = 100
+				save_event_target_as = usa_democratic
+
+				create_corps_commander = {
+					name = "Azalee Stranford"
+					portrait_path = "gfx/leaders/Europe/Portrait_europe_generic_land_19.dds"
+					traits = {  trickster brilliant_strategist trait_engineer trait_reckless }
+					skill = 4
+
+					attack_skill = 2 
+					defense_skill = 9
+					planning_skill = 4
+					logistics_skill = 2
+				}
+
+				USA_great_depression_level_down = yes
+				load_focus_tree = usa_focus
+				load_oob = TNA
+				every_controlled_state = {
+					limit = {
+						any_neighbor_state = {
+							is_controlled_by = USA
+						}
+					}
+					create_unit = {
+						division = "division_template = \"Freedom Militia\" start_experience_factor = 0.1 start_equipment_factor = 0.5 start_manpower_factor = 1" 
+						owner = PREV
+					}
+					create_unit = {
+						division = "division_template = \"Freedom Militia\" start_experience_factor = 0.1 start_equipment_factor = 0.5 start_manpower_factor = 1" 
+						owner = PREV
+					}
+					create_unit = {
+						division = "division_template = \"Freedom Militia\" start_experience_factor = 0.1 start_equipment_factor = 0.5 start_manpower_factor = 1" 
+						owner = PREV
+					}
+				}
+			}
+			
+			set_global_flag = TNA_civil_war_fired
+
+			country_event = {
+				id = tna_civil_war.1
+				days = 10
+				random_days = 5
+			}
+
+			random_other_country = {
+				limit = {
+					original_tag = USA
+					has_government = democratic
+				}
+				set_variable = { var = senators_support value = 96 }
+				set_variable = { var = senators_total value = 96 }
+				set_variable = { var = representatives_support value = 288 }
+				set_variable = { var = representatives_total value = 435 }
+				set_variable = { var = quorum_low value = 39 }
+				set_variable = { var = quorum_medium value = 49 }
+				set_variable = { var = quorum_high value = 58 }
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+						has_government = communism
+						has_government = democratic
+					}
+				}
+				add_ai_strategy = {
+					type = support
+					id = USA
+					value = 100
+				}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = USA
+					value = 100
+				}
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+						has_government = fascism
+						has_government = democratic
+					}
+				}
+				add_ai_strategy = {
+					type = support
+					id = event_target:usa_democratic
+					value = 100
+				}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = event_target:usa_democratic
+					value = 100
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = tna_civil_war.20.a
+		
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = USA
+					has_government = democratic
+				}
+				every_unit_leader = {
+					limit = {
+						has_id = 57
+					}
+					set_nationality = USA
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tna_civil_war.21
+	title = tna_civil_war.21.t
+	desc = tna_civil_war.21.desc
+	picture = GFX_report_event_poland_rejects
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tna_civil_war.21.a
+		ai_chance = {
+			factor = 0
+		}
+		random_other_country = {
+			limit = {
+				original_tag = USA
+				has_government = democratic
+			}
+			save_event_target_as = usa_democratic
+		}
+		USA = {
+			every_controlled_state = {
+				limit = {
+					is_rebellion_tna_state_2 = yes
+				}
+				event_target:usa_democratic = {
+					transfer_state = PREV
+				}
+			}
+		}
+		event_target:usa_democratic = {
+			create_intelligence_agency = yes
+		}
+	}
+}
+
+country_event = {
+	id = teu.1
+	title = teu.1.t
+	desc = teu.1.desc
+	picture = GFX_report_event_ast_planning
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tna.1.a
+		ai_chance = {
+			base = 1
+		}
+		set_cosmetic_tag = TEU_european_technate
+		set_country_flag = technate
+		
+		every_state = {
+			limit = {
+				OR = {
+					is_on_continent = europe
+					AND = {
+						OR = {
+							is_core_of = FRA
+							is_core_of = POR
+							is_core_of = SPR
+						}
+						is_on_continent = africa
+					}
+				}
+			}
+			add_core_of = ROOT
+		}
+		set_capital = { state = 6 }
+		set_victory_points = {
+			province = 516
+			value = 100
+		}
+		remove_ideas = ENG_george_vi
+		remove_ideas = stiff_upper_lip
+	}
+}
+country_event = {
+	id = teu.2
+	title = teu.2.t
+	desc = teu.2.desc
+	picture = GFX_report_event_ast_planning
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = teu.2.a
+		ai_chance = {
+			base = 1
+		}
+		ENG = { annex_country = { target = ROOT  transfer_troops = yes } }
+		
+		ROOT = {
+			every_unit_leader = {
+				set_nationality = ENG
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tna_cleanup.1
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		TNA_mexican_rubber = yes
+	}
+}
+country_event = {
+	id = tna_cleanup.2
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		MEX = {
+			give_resource_rights = { receiver = CAN state = 476 }
+			give_resource_rights = { receiver = CAN state = 477 }
+			give_resource_rights = { receiver = USA state = 479 }
+			give_resource_rights = { receiver = USA state = 480 }
+		}
+	}
+}
+country_event = {
+	id = tna_cleanup.3
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		MAL = {
+			transfer_state = 333
+		}
+	}
+}
+
+
+###########################
+# News Events
+###########################
+
+news_event = {
+	id = tech_news.001
+	title = tech_news.001.t
+	desc = tech_news.001.desc
+	picture = GFX_news_event_generic_rally2
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tech_news.001.a
+		trigger = {
+			NOT = {
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = tech_news.001.b
+		trigger = { TAG = USA }
+	}
+}
+
+news_event = {
+	id = tech_news.002
+	title = tech_news.002.t
+	desc = tech_news.002.desc
+	picture = GFX_tech_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tech_news.002.a
+		trigger = {
+			NOT = {
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = tech_news.002.b
+		trigger = { TAG = USA }
+	}
+}
+
+news_event = {
+	id = tech_news.004
+	title = tech_news.004.t
+	desc = tech_news.004.desc
+	picture = GFX_news_event_eng_blackshirts
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tech_news.004.a
+		trigger = {
+			NOT = {
+				TAG = USA
+				TAG = ENG
+			}
+		}
+	}
+	option = {
+		name = tech_news.004.b
+		trigger = { TAG = ENG }
+	}
+	option = {
+		name = tech_news.004.c
+		trigger = { TAG = USA }
+	}
+}
+
+news_event = {
+	id = tech_news.005
+	title = tech_news.005.t
+	desc = tech_news.005.desc
+	picture = GFX_news_event_spr_spanish_civil_war2
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tech_news.005.a
+		trigger = {
+			NOT = {
+				TAG = USA
+				TAG = ENG
+			}
+		}
+	}
+	option = {
+		name = tech_news.005.b
+		trigger = { TAG = ENG }
+	}
+	option = {
+		name = tech_news.005.c
+		trigger = { TAG = USA }
+	}
+}
+
+news_event = {
+	id = tech_news.006
+	title = tech_news.006.t
+	desc = tech_news.006.desc
+	picture = GFX_news_event_generic_riot
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = tech_news.006.a
+		trigger = {
+			NOT = {
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = tech_news.006.b
+		trigger = { TAG = USA }
+	}
+}

@@ -1,0 +1,21 @@
+Uncle Sam In Gray: Technocracy Expanded is a modification based on the technocracy movement form great depression America and Canada which sort to replace politicians and businesspeople with scientists and engineers who had the technical expertise or 'technocrats' as they called them and create a continent spanning superstate called a 'Technate' which would be mostly self-sufficient.
+
+This is an expansion/updating/modification of Rise of Technocracy by TheCrafterESP, who gets a decent chunk of the credit, I decided to take it upon myself too update it because liked it so much (and quarantine of course).
+
+special thanks to:
+
+TheCrafterESP for providing the original mod.
+
+Monsieur Z for his alternate history scenario on Technocracy which helped in the development.
+
+The Iron Workshop for helping me to understand HOI4 mod development.
+
+The original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=1402872422
+
+Note: this is a work in progress so bug fixes are still happening.
+
+if you encounter issues with the cosmetics try using these commands:
+	
+	set_cosmetic_tag USA TNA_the_design_cosmetic
+	
+	set_cosmetic_tag USA TNA_north_american_technate

@@ -1,0 +1,95 @@
+@CONTINENTAL_TEXT_X = 145
+@LEFT_TEXT_X = 10
+@RIGHT_TEXT_X = 285
+@TEXT_A_Y = 150
+@TEXT_B_Y = 265
+@TEXT_C_Y = 415
+@HEADERS_Y = 80
+@STATUS_Y = 60
+guiTypes = {
+
+	containerWindowType = {
+		name = "tna_administration_decision_ui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height= 550 }
+
+		iconType = {
+			name ="continental_icon"
+			spriteType = "GFX_decision_category_usa_congress_senate_ui"
+			position = { x= 200	 y = 5 }
+		}
+
+		instantTextBoxType = {
+			name ="continental_support_header"
+			position = { x = @CONTINENTAL_TEXT_X y = @HEADERS_Y }
+			font = "hoi_24header"
+			text = "tna_administration_continental_support_header"
+			format = center
+			maxHeight = 24
+		}
+
+		instantTextBoxType = {
+			name ="status_continental"
+			position = { x = @CONTINENTAL_TEXT_X y = @STATUS_Y }
+			font = "hoi_18mbs"
+			text = "tna_administration_continental_support_amount"
+			format = center
+		}
+		instantTextBoxType = {
+			name ="status_quorum"
+			position = { x = @LEFT_TEXT_X y = @STATUS_Y }
+			font = "hoi_18mbs"
+			text = "tna_administration_continental_quorum_amount"
+			format = center
+		}
+
+### Controllers ###
+		instantTextBoxType = {
+			name ="director"
+			position = { x = @LEFT_TEXT_X y = @TEXT_A_Y }
+			font = "hoi_24header"
+			text = "tna_director_text"
+			format = center
+		}
+
+		instantTextBoxType = {
+			name ="armed_forces"
+			position = { x = @LEFT_TEXT_X y = @TEXT_B_Y }
+			font = "hoi_24header"
+			text = "tna_armed_forces_text"
+			format = center
+		}
+
+		instantTextBoxType = {
+			name ="foreign_relations"
+			position = { x = @LEFT_TEXT_X y = @TEXT_C_Y }
+			font = "hoi_24header"
+			text = "tna_foreign_relations_text"
+			format = center
+		}
+
+		instantTextBoxType = {
+			name ="research"
+			position = { x = @RIGHT_TEXT_X y = @TEXT_A_Y }
+			font = "hoi_24header"
+			text = "tna_research_text"
+			format = center
+		}
+
+		instantTextBoxType = {
+			name ="social_relations"
+			position = { x = @RIGHT_TEXT_X y = @TEXT_B_Y }
+			font = "hoi_24header"
+			text = "tna_social_relations_text"
+			format = center
+		}
+
+		instantTextBoxType = {
+			name ="area_control"
+			position = { x = @RIGHT_TEXT_X y = @TEXT_C_Y }
+			font = "hoi_24header"
+			text = "tna_area_control_text"
+			format = center
+		}
+	}
+}

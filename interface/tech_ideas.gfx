@@ -1,0 +1,35 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_idea_meter"
+		texturefile = "gfx/interface/ideas/meter.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_energy_certificate"
+		texturefile = "gfx/interface/ideas/energy_certificate.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_continuous_energy_registration"
+		texturefile = "gfx/interface/ideas/continuous_energy_registration.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_continental_power"
+		texturefile = "gfx/interface/ideas/continental_power_idea.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_tna_marion_king_hubbert"
+		texturefile = "gfx/interface/ideas/marion_king_hubbert.dds"
+	}
+#	spriteType = {
+#		name = "GFX_report_event_rosebowl"
+#		texturefile = "gfx/interface/event_pictures/rosebowl.dds"
+#	}
+
+	spriteType = {
+		name = "GFX_modifier_continental_hydrology"
+		texturefile = "gfx/interface/ideas/continental_hydrology.dds"
+	}
+	spriteType = {
+		name = "GFX_tna_research_sphere"
+		texturefile = "gfx/interface/technology_sharing/technocracy.dds"
+	}
+}

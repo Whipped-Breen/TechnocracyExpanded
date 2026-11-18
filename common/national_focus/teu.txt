@@ -1,0 +1,40 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_USA_CONGRESS}
+### search_filters = {FOCUS_FILTER_TNA_ASSIMILATION}
+### search_filters = {FOCUS_FILTER_TNA_TECHNATE}
+
+focus_tree = {
+	id = teu_focus
+	
+	country = {
+		factor = 0
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 100 y = 2000 }
+
+##### POLITICAL EFFORT #####
+	focus = {
+		id = TEU_scientific_revolution
+		icon = GFX_focus_eng_special_air_service
+		x = 9
+		y = 0
+		cost = 5
+		search_filters = {FOCUS_FILTER_POLITICAL}
+		
+		available = {
+			owns_state = 126
+		}
+
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+}

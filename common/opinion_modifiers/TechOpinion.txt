@@ -1,0 +1,15 @@
+opinion_modifiers = {
+	
+	seized_land_during_war = {
+		value = -50
+	}
+	
+	pan_america = {
+		value = 65
+	}
+
+	inferring_in_our_politics = {
+		value = -25
+	}
+	
+}

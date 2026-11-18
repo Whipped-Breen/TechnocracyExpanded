@@ -1,0 +1,14 @@
+scripted_gui = {
+
+	tna_administration_decision_ui = {
+		context_type = decision_category
+		window_name = "tna_administration_decision_ui_window"
+
+		properties = {
+			continental_icon = {
+				frame = current_continental_icon_frame
+			}
+		}
+	}
+}
+

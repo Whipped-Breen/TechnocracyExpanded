@@ -1,0 +1,1524 @@
+scottia_category = {
+	build_scottia_1 = {
+	
+		icon = border_war
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 395
+			}
+		}
+		
+		cost = 50
+		
+		fire_only_once = yes
+		
+		visible = {
+			date > 1940.1.1
+			original_tag = USA
+			has_government = neutrality
+			has_completed_focus = TNA_the_design
+		}
+		available = {
+			has_war = no
+			num_of_civilian_factories > 10
+		}
+		icon = generic_infiltrate_state
+		complete_effect = {
+		}
+		modifier = {
+			civilian_factory_use = 10
+		}
+		days_remove = 5
+		remove_effect = {
+			395 = { add_manpower = 1000000 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+TNA_administration_category = {
+	TNA_support_industry = {
+		icon = generic_factory
+		available = {
+			check_variable = { continental_support < continental_total }
+			NOT = { has_country_flag = TNA_support_in_progress }
+		}
+		visible = { has_country_flag = delete_congress }
+		cost = 0
+		ai_will_do = {
+			factor = 1
+		}
+		days_remove = 90
+		modifier = { civilian_factory_use = 5 }
+		complete_effect = {
+			set_country_flag = TNA_support_in_progress
+		}
+		remove_effect = {
+			TNA_continental_support_macro_half = yes
+			clr_country_flag = TNA_support_in_progress
+		}
+	}
+	TNA_support_services = {
+		icon = generic_research
+		available = {
+			check_variable = { continental_support < continental_total }
+			NOT = { has_country_flag = TNA_support_in_progress }
+		}
+		visible = { has_country_flag = delete_congress }
+		cost = 0
+		ai_will_do = {
+			factor = 1
+		}
+		days_remove = 90
+		modifier = { consumer_goods_factor = 0.025 }
+		complete_effect = {
+			set_country_flag = TNA_support_in_progress
+		}
+		remove_effect = {
+			TNA_continental_support_macro_half = yes
+			clr_country_flag = TNA_support_in_progress
+		}
+	}
+}
+
+prospect_for_resources = {
+	develop_canadian_oil_deposits = {
+		
+		icon = oil
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 2
+			controls_state = 470
+			controls_state = 471
+			controls_state = 472
+			controls_state = 683
+		}
+
+		visible = {
+			NOT = {
+				CAN = {
+					has_completed_focus = CAN_imperial_oil
+				}
+			}
+			has_completed_focus = TNA_prospect
+			owns_state = 470
+			owns_state = 471
+			owns_state = 472
+			owns_state = 683
+		}
+
+	#	highlight_states = {
+	#		highlight_states_trigger = {
+	#			OR = {
+	#				state = 470
+	#				state = 471
+	#				state = 472
+	#				state = 683
+	#			}
+	#		}
+	#	}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 160
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			470 = {
+				add_resource = {
+					type = oil
+					amount = 2
+				}
+			}
+			471 = {
+				add_resource = {
+					type = oil
+					amount = 4
+				}
+			}
+			472 = {
+				add_resource = {
+					type = oil
+					amount = 4
+				}
+			}
+			683 = {
+				add_resource = {
+					type = oil
+					amount = 4
+				}
+			}
+		}
+	}
+	expand_mexican_steelmills = {
+		
+		icon = steel
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 2
+			controls_state = 480
+			controls_state = 482
+		}
+
+		visible = {
+			NOT = {
+				MEX = {
+					has_completed_focus = MEX_focus_northern_steel_plants
+				}
+			}
+			has_completed_focus = TNA_state_industry
+			owns_state = 480
+			owns_state = 482
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 160
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			480 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 4
+				}
+			}
+			482 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 4
+				}
+			}
+		}
+	}
+	develop_greenland_steel_deposits = {
+		
+		icon = steel
+
+		allowed = {
+			original_tag = USA
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 101
+			} 
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 101
+			controls_state = 101
+		}
+
+		visible = {
+			owns_state = 101
+			controls_state = 101
+			has_completed_focus = TNA_prospect
+			101 = {
+				NOT = {
+					has_state_flag = greenland_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = { 
+			101 = { set_state_flag = greenland_steel_developed } 
+			101 = {
+				add_resource = {
+					type = steel
+					amount = 12
+				}
+			}
+		}
+	}
+	develop_greenland_oil_deposits = {
+		
+		icon = oil
+
+		allowed = {
+			original_tag = USA
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 101
+			} 
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 101
+			controls_state = 101
+		}
+
+		visible = {
+			owns_state = 101
+			controls_state = 101
+			has_completed_focus = TNA_prospect
+			101 = {
+				NOT = {
+					has_state_flag = greenland_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = { 
+			101 = { set_state_flag = greenland_oil_developed } 
+			101 = {
+				add_resource = {
+					type = oil
+					amount = 10
+				}
+			}
+		}
+	}
+}
+
+TNA_urbanates_category = {
+	TNA_urbanate_development = {
+		
+		icon = generic_construction
+
+		available = {
+			num_of_available_civilian_factories > 3
+			FROM = {
+				CONTROLLER = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 9
+
+		on_map_mode = map_and_decisions_view
+
+		state_target = yes
+
+		target_trigger = {
+			FROM = {
+				has_state_flag = tna_urbanate_development
+				NOT = { has_state_category = megalopolis }
+			}
+		}
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = { 
+			FROM = {
+				set_state_category = megalopolis
+			}
+		}
+	}
+}
+
+foreign_influence = {
+	TNA_philippines_independence = {
+		icon = generic_nationalism
+		allowed = {
+			original_tag = USA
+		}
+		available = {
+			PHI = {
+				exists = yes
+				is_subject_of = USA
+			}
+			has_completed_focus = TNA_teknolohiya
+		}
+		visible = {
+			has_country_flag = technate
+			country_exists = PHI
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		fire_only_once = yes
+
+		days_remove = 80
+
+		cost = 10
+
+		modifier = {
+			political_power_gain = 0.05
+			stability_weekly_factor = 0.01
+		}
+
+		remove_effect = {
+			set_autonomy = { target = PHI autonomy_state = autonomy_free }
+			add_manpower = 80000
+			
+			if = {
+				limit = {
+					NOT = { PHI = { is_in_faction_with = USA } }
+				}
+				give_guarantee = PHI
+				diplomatic_relation = {
+					country = PHI
+					relation = non_aggression_pact
+					active = yes
+				}
+				give_military_access = PHI
+				PHI = { give_military_access = USA }
+			}
+			PHI = {
+				add_ai_strategy = {
+					type = support
+					id = USA
+					value = 1000
+				}
+				add_ai_strategy = {
+					type = befriend
+					id = USA
+					value = 1000
+				}
+			}
+			hidden_effect = {
+				PHI = {
+					drop_cosmetic_tag = yes
+					set_cosmetic_tag = TAS_philippines
+				}
+			}
+		}
+	}
+	TNA_mexico_central_america = {
+		icon = generic_operation
+		allowed = {
+			original_tag = USA
+		}
+		available = {
+			MEX = { is_subject_of = ROOT }
+			controls_state = 313
+			controls_state = 314
+			controls_state = 312
+			controls_state = 317
+			controls_state = 316
+			controls_state = 304
+		}
+		visible = {
+			has_country_flag = technate
+			MEX = {
+				is_subject_of = ROOT
+				exists = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+		
+		complete_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 313
+						state = 314
+						state = 312
+						state = 317
+						state = 316
+						state = 304
+						state = 311
+					}
+					is_owned_and_controlled_by = USA
+				}
+				MEX = {
+					add_state_core = PREV
+					transfer_state = PREV
+				}
+			}
+			hidden_effect = {
+				MEX = { country_event = { id = tna_cleanup.1 days = 1 } }
+			}
+		}
+	}
+}
+TNA_functional_sequences_category = {
+	TNA_automate_industry = {
+		icon = generic_factory
+		available = {
+			has_tech = advanced_computing_machine
+			has_tech = assembly_line_production
+		}
+		visible = {
+			has_completed_focus = TNA_dynamic_command_economy
+		}
+		cost = 50
+		days_remove = -1
+		ai_will_do = {
+			factor = 1
+		}
+
+		modifier = {
+			production_factory_max_efficiency_factor = 0.1
+			production_factory_efficiency_gain_factor = 0.1
+			stability_factor = 0.05
+		}
+	}
+	tna_continental_infrastructure_0 = {
+
+		icon = GFX_decision_tna_railway
+
+		visible = { has_completed_focus = TNA_continental_design }
+
+		fire_only_once = yes
+
+		available = {
+			num_of_civilian_factories > 5
+			any_state = {
+				infrastructure < 3
+				infrastructure > 1
+				is_core_of = USA
+			}
+			administration_support_trigger = yes
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { 
+				infrastructure < 3
+				infrastructure > 1
+				is_core_of = USA
+			}
+		}
+
+		modifier = { civilian_factory_use = 5 }
+
+		days_remove = 90
+
+		remove_effect  = {
+			every_state = {
+				limit = {
+					infrastructure < 3
+					infrastructure > 1
+					is_core_of = USA
+					is_owned_and_controlled_by = USA
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	tna_continental_infrastructure_1 = {
+
+		icon = GFX_decision_tna_railway
+
+		visible = { has_completed_focus = TNA_continental_design }
+
+		fire_only_once = yes
+
+		available = {
+			num_of_civilian_factories > 5
+			any_state = {
+				infrastructure < 4
+				infrastructure > 2
+				is_core_of = USA
+			}
+			administration_support_trigger = yes
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { 
+				infrastructure < 4
+				infrastructure > 2
+				is_core_of = USA
+			}
+		}
+
+		modifier = { civilian_factory_use = 5 }
+
+		days_remove = 90
+
+		remove_effect  = {
+			every_state = {
+				limit = {
+					infrastructure < 4
+					infrastructure > 2
+					is_core_of = USA
+					is_owned_and_controlled_by = USA
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	TNA_enginearing_greenland = {
+		icon = infiltrate_state
+		available = {
+			101 = { is_controlled_by = ROOT }
+		}
+		visible = {
+			101 = { 
+				is_controlled_by = ROOT 
+				NOT = { has_state_flag = TNA_enginearing_greenland }
+			}
+		}
+		cost = 50
+		days_remove = 90
+		ai_will_do = {
+			factor = 1
+		}
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+		
+		remove_effect = {
+			101 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					province = 12512
+					level = 4
+					instant_build = yes
+				}
+				hidden_effect = {
+					set_victory_points = { province = 13058 value = 1 }
+					set_province_name = { id = 13058 name = "Arctic Testing Station" }
+				}
+				set_state_flag = TNA_enginearing_greenland
+			}
+		}
+	}
+}
+operations = {
+	TNA_war_FROM = {
+
+		icon = generic_ignite_civil_war
+
+		allowed = {
+			original_tag = USA
+		}
+
+		visible = {
+			FROM = {
+				has_country_flag = tna_FROM_refused
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		target_array = global.countries
+
+		target_trigger = {
+			FROM = {
+				has_country_flag = tna_FROM_refused
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				ENG = {
+					end_puppet = FROM
+					remove_from_faction = FROM
+				}
+			}
+			declare_war_on = { target = FROM type = puppet_wargoal_focus }
+			every_other_country = {
+				limit = {
+					has_country_flag = TNA_accepted_pacific
+				}
+				declare_war_on = { target = FROM type = puppet_wargoal_focus }
+			}
+		}		
+	}
+}
+TNA_technocracy_in_canada = {
+	
+	TNA_CAN_expand_civil_technocracy_support = {
+
+		icon = generic_civil_support
+
+		available = {
+			NOT = { focus_progress = { focus = TNA_canada progress > 0.035 } }
+		}
+		
+		cancel_trigger = {
+			CAN = {
+				has_government = neutrality
+			}
+		}
+
+		days_remove = 30
+
+		complete_effect = {
+			CAN = {
+				add_to_variable = { TNA_tpc_neutrality_drift = 0.04 }
+			}
+			custom_effect_tooltip = civil_technocracy_support_tt
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					NOT = { focus_progress = { focus = TNA_canada progress > 0.035 } }
+				}
+				CAN = {
+					add_to_variable = { TNA_tpc_neutrality_drift = -0.04 }
+					TNA_canada_support_time = yes
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	TNA_CAN_open_up_political_discourse_technocracy = {
+
+		icon = generic_political_discourse
+
+		available = {
+			congress_low_support_trigger = yes
+		}
+
+		visible = {
+			CAN = {
+				NOT = { has_government = neutrality }
+				NOT = { has_country_flag = open_up_political_discourse_technocracy }
+			}
+		}
+		
+		cost = 75
+		
+		complete_effect = {
+			CAN = { set_country_flag = open_up_political_discourse_technocracy }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	TNA_CAN_rally = {
+		
+		icon = eng_propaganda_campaigns
+
+		days_remove = 7
+		   
+		available = {
+			NOT = {
+				has_country_flag = TNA_CAN_rally_in_progress
+				focus_progress = { focus = TNA_canada progress > 0.035 }
+			}
+		}
+
+		state_target = yes
+#		on_map_mode = map_only
+
+		visible = {
+			CAN = {
+				NOT = { has_government = neutrality }
+				OR = {
+					neutrality > 0.6
+					has_country_flag = open_up_political_discourse_technocracy
+				}
+			}
+		}
+
+		target_array = TNA_canadian_provinces
+
+		target_trigger = {
+			FROM = {
+				NOT = { has_state_flag = TNA_CAN_rally_flag }
+				is_owned_by = CAN
+			}
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+
+		complete_effect = {
+			set_country_flag = TNA_CAN_rally_in_progress
+			save_event_target_as = TNA_CAN_rally_state
+		}
+		
+		remove_effect = {
+			FROM = { set_state_flag = TNA_CAN_rally_flag }
+			clr_country_flag = TNA_CAN_rally_in_progress
+			CAN = {
+				random_list = {
+					30 = {
+						country_event = { id = TNA.20 days = 1 }
+					}
+					50 = {
+						country_event = { id = TNA.21 days = 1 }
+					}
+					20 = {
+						country_event = { id = TNA.22 days = 1 }
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 210
+			modifier = {
+				CAN = { neutrality > 0.6 }
+				factor = 10
+			}
+		}
+	}
+	TNA_discredit_government_canada = {
+
+		icon = generic_political_discourse
+
+		available = {
+			CAN = {
+				fascism < 0.8
+				democratic < 0.8
+				communism < 0.8
+				neutrality < 0.8
+			}
+			NOT = { focus_progress = { focus = TNA_canada progress > 0.035 } }
+		}
+
+		visible = {
+			CAN = {
+				NOT = { has_government = neutrality }
+				has_country_flag = open_up_political_discourse_technocracy
+			}
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+		
+		complete_effect = {
+			CAN = {
+				add_stability = -0.010
+				add_popularity = {
+					ideology = CAN
+					popularity = -0.1
+				}
+				TNA_canada_support_time = yes
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+USA_war_plans = {
+	USA_execute_war_plan_green = {
+		icon = generic_operation
+		available = {
+			has_war_with = MEX
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_green
+			has_completed_focus = TNA_war_plan_green
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		modifier = {
+			production_speed_infrastructure_factor = 0.1
+		}
+		targeted_modifier = {
+			tag = MEX
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_red = {
+		icon = generic_operation
+		available = {
+			has_war_with = ENG
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_red
+			has_completed_focus = TNA_war_plan_red
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		modifier = {
+			spotting_chance = 0.1
+		}
+		targeted_modifier = {
+			tag = ENG
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_silver = {
+		icon = generic_operation
+		available = {
+			has_war_with = ITA
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_silver
+			has_completed_focus = TNA_war_plan_silver
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		targeted_modifier = {
+			tag = ITA
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_ruby = {
+		icon = generic_operation
+		available = {
+			has_war_with = RAJ
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_ruby
+			has_completed_focus = TNA_war_plan_ruby
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		targeted_modifier = {
+			tag = RAJ
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_scarlet_garnet = {
+		icon = generic_operation
+		available = {
+			has_war_with = AST
+			has_war_with = NZL
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_scarlet_garnet
+			has_completed_focus = TNA_war_plan_scarlet_garnet
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		targeted_modifier = {
+			tag = AST
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		targeted_modifier = {
+			tag = NZL
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_orange = {
+		icon = generic_operation
+		available = {
+			has_war_with = JAP
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_orange
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		modifier = {
+			amphibious_invasion = 0.1
+			invasion_preparation = -0.25
+		}
+		targeted_modifier = {
+			tag = JAP
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		targeted_modifier = {
+			tag = MAN
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		targeted_modifier = {
+			tag = MEN
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_yellow = {
+		icon = generic_operation
+		available = {
+			OR = {
+				has_war_with = CHI
+				has_war_with = PRC
+				has_war_with = SHX
+				has_war_with = YUN
+				has_war_with = GXC
+				has_war_with = XSM
+				has_war_with = SIK
+
+			}
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_yellow
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		targeted_modifier = {
+			tag = CHI
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		targeted_modifier = {
+			tag = PRC
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		targeted_modifier = {
+			tag = SHX
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		targeted_modifier = {
+			tag = YUN
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		targeted_modifier = {
+			tag = XSM
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		targeted_modifier = {
+			tag = GXC
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		targeted_modifier = {
+			tag = SIK
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_crimson = {
+		icon = generic_operation
+		available = {
+			has_war_with = CAN
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_crimson
+			has_completed_focus = TNA_war_plan_crimson
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		modifier = {
+			production_speed_bunker_factor = 0.1
+		}
+		targeted_modifier = {
+			tag = CAN
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_gray = {
+		icon = generic_operation
+		available = {
+			any_enemy_country = {
+				capital_scope = {
+					OR = {
+						is_on_continent = south_america
+						is_on_continent = north_america
+					}
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_gray
+			has_completed_focus = TNA_war_plan_gray
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		modifier = {
+			amphibious_invasion = 0.1
+			invasion_preparation = -0.5
+		}
+	
+	}
+	USA_execute_war_plan_gold = {
+		icon = generic_operation
+		available = {
+			has_war_with = FRA
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_gold
+			has_completed_focus = TNA_war_plan_gold
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		targeted_modifier = {
+			tag = FRA
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_black = {
+		icon = generic_operation
+		available = {
+			has_war_with = GER
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_black
+			has_completed_focus = TNA_war_plan_black
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		targeted_modifier = {
+			tag = GER
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+	USA_execute_war_plan_white = {
+		icon = generic_operation
+		available = {
+			has_war_with = SOV
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_white
+			has_completed_focus = TNA_war_plan_white
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		targeted_modifier = {
+			tag = SOV
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+	}
+}
+
+TNA_europe_category = {
+	TNA_teu_FRA = {
+		icon = eng_propaganda_campaigns
+		available = {
+			FRA = { exists = yes }
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 50
+		modifier = {
+			political_power_gain = -0.1
+		}
+		remove_effect = {
+			FRA = { add_ideas = TNA_teu }
+		}
+	}
+	TNA_teu_WGR = {
+		icon = eng_propaganda_campaigns
+		available = {
+			WGR = { exists = yes }
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 50
+		modifier = {
+			political_power_gain = -0.1
+		}
+		remove_effect = {
+			WGR = { add_ideas = TNA_teu }
+		}
+	}
+	TNA_teu_BEL = {
+		icon = eng_propaganda_campaigns
+		available = {
+			BEL = { exists = yes }
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 50
+		modifier = {
+			political_power_gain = -0.1
+		}
+		remove_effect = {
+			BEL = { add_ideas = TNA_teu }
+		}
+	}
+	TNA_teu_HOL = {
+		icon = eng_propaganda_campaigns
+		available = {
+			HOL = { exists = yes }
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 50
+		modifier = {
+			political_power_gain = -0.1
+		}
+		remove_effect = {
+			HOL = { add_ideas = TNA_teu }
+		}
+	}
+	TNA_teu_LUX = {
+		icon = eng_propaganda_campaigns
+		available = {
+			LUX = { exists = yes }
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 50
+		modifier = {
+			political_power_gain = -0.1
+		}
+		remove_effect = {
+			LUX = { add_ideas = TNA_teu }
+		}
+	}
+	TNA_teu_ITA = {
+		icon = eng_propaganda_campaigns
+		available = {
+			ITA = { exists = yes }
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 50
+		modifier = {
+			political_power_gain = -0.1
+		}
+		remove_effect = {
+			ITA = { add_ideas = TNA_teu }
+		}
+	}
+	TNA_teu_IRE = {
+		icon = eng_propaganda_campaigns
+		available = {
+			IRE = { exists = yes }
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 50
+		modifier = {
+			political_power_gain = -0.1
+		}
+		complete_effect = {
+			IRE = {
+				transfer_state = 119
+			}
+		}
+		remove_effect = {
+			IRE = { add_ideas = TNA_teu }
+		}
+	}
+	TNA_teu_gen = {
+		icon = eng_propaganda_campaigns
+		available = {
+			any_country = {
+				exists = yes
+				capital_scope = { is_on_continent = europe }
+				is_subject_of = ROOT
+				not = {
+					original_tag = FRA
+					original_tag = HOL
+					original_tag = BEL
+					original_tag = LUX
+					original_tag = WGR
+					original_tag = ITA
+					original_tag = ENG
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+			ENG = {
+				NOT = { has_cosmetic_tag = TEU_european_technate }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 25
+		modifier = {
+			political_power_gain = -0.1
+		}
+		remove_effect = {
+			every_country = {
+				limit = {
+					exists = yes
+					capital_scope = { is_on_continent = europe }
+					is_subject_of = ROOT
+					not = {
+						original_tag = FRA
+						original_tag = HOL
+						original_tag = BEL
+						original_tag = LUX
+						original_tag = WGR
+						original_tag = ITA
+					}
+				}
+				PREV = { add_ideas = TNA_teu }
+			}
+		}
+	}
+	TNA_teu_add = {
+		icon = eng_imperial_federation
+		available = {
+			FROM = {
+				OR = {
+					has_government = democratic
+					has_government = neutrality
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+			ENG = {
+				has_cosmetic_tag = TEU_european_technate
+			}
+			capital_scope = { is_on_continent = europe }
+		}
+		target_array = faction_members
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		cost = 50
+		modifier = {
+			political_power_gain = -0.1
+		}
+		complete_effect = {
+			FROM = {
+				add_ideas = TNA_teu
+			}
+		}
+		remove_effect = {
+			FROM = {
+				country_event = { id = teu.2 }
+			}
+		}
+	}
+	TNA_europe_a_nation = {
+		icon = eng_blackshirt_speech
+		available = {
+			FRA = { has_idea = TNA_teu }
+			HOL = { has_idea = TNA_teu }
+			BEL = { has_idea = TNA_teu }
+			LUX = { has_idea = TNA_teu }
+			WGR = { has_idea = TNA_teu }
+			ITA = { has_idea = TNA_teu }
+			ENG = { has_political_power > 99 }
+		}
+		visible = {
+			has_completed_focus = TNA_technate_of_europe
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 90
+		cost = 100
+		modifier = {
+			political_power_gain = -0.5
+			civilian_factory_use = 2
+		}
+		complete_effect = {
+			ENG = {
+				add_political_power = -100
+			}
+		}
+		remove_effect = {
+			ENG = { country_event = teu.1 }
+			every_country = {
+				limit = {
+					capital_scope = { is_on_continent = europe }
+					has_idea = TNA_teu
+					NOT = { original_tag = ENG }
+				}
+				country_event = { id = teu.2 }
+			}
+			if = {
+				limit = {
+					is_debug = yes
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = FRA
+							tag = HOL
+							tag = BEL
+							tag = LUX
+							tag = WGR
+							tag = GER
+							tag = ITA
+						}
+					}
+					country_event = { id = teu.2 }
+				}
+			}
+		}
+	}
+}

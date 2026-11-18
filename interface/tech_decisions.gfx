@@ -1,0 +1,30 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_decision_category_scottia"
+		texturefile = "gfx/interface/decisions/decision_picture_scottia.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_category_europe_a_nation"
+		texturefile = "gfx/interface/decisions/decision_picture_europe_a_nation.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_category_foreign_relations"
+		texturefile = "gfx/interface/decisions/decision_picture_foreign_relations.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_category_functional_sequences"
+		texturefile = "gfx/interface/decisions/decision_picture_functional_sequences.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_tna_scottia_category"
+		texturefile = "gfx/interface/decisions/tna_scottia_category.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_category_tna_urbanates"
+		texturefile = "gfx/interface/decisions/tna_urbanates_category.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_tna_railway"
+		texturefile = "gfx/interface/decisions/decision_tna_railway.dds"
+	}
+}

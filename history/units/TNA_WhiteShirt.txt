@@ -1,0 +1,57 @@
+﻿##### Division Templates ####
+division_template = {
+	name = "Whiteshirt"
+
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	support = {
+		military_police = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+	}
+	priority = 1
+}
+###### OOB ######
+units = {
+	division = {			#1
+		name = "Whiteshirt Division"
+		location = 3957
+		division_template = "Whiteshirt"
+		start_experience_factor = 0.75
+		start_equipment_factor = 1	
+	}
+	division = {			#2
+		name = "Whiteshirt Division"
+		location = 3957
+		division_template = "Whiteshirt"
+		start_experience_factor = 0.75
+		start_equipment_factor = 1	
+	}
+	division = {			#3
+		name = "Whiteshirt Division"
+		location = 3957
+		division_template = "Whiteshirt"
+		start_experience_factor = 0.75
+		start_equipment_factor = 1	
+	}
+	division = {			#4
+		name = "Whiteshirt Division"
+		location = 3957
+		division_template = "Whiteshirt"
+		start_experience_factor = 0.75
+		start_equipment_factor = 1	
+	}
+	division = {			#5
+		name = "Whiteshirt Division"
+		location = 3957
+		division_template = "Whiteshirt"
+		start_experience_factor = 0.75
+		start_equipment_factor = 1	
+	}
+}

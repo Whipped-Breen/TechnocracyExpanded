@@ -1,0 +1,182 @@
+﻿l_english:
+ usa.6.c:0 "Technocracy Incorporated. Let's try something new!"
+ usa.6.t_d:0 "The day of the presidential election has arrived. Incumbent Franklin Delano Roosevelt has already implemented several of the programs referred collectively to as the New Deal, intended to take the US out of the Great Depression.\n\nWhile many of the efforts have been popular, his plans to further extend the role and power of the government have been met with criticism from his opponent, Republican Alf Landon. Coming from the oil industry, Landon wants to see greater economic freedom, while Roosevelt and the Democratic Party want to expand Social Security and ensure economic stability. The election may be a close call, or a major victory for the Democrats.\n\nHowever, there is this weird proposal called Technocracy which has recently gained a lot of popularity. They claim that in order to recover from the Great Depression we need to fill up the government with engineers and scientists. But their motives are undemocratic."
+ 
+ tna.1.t:0 "Major Technocrat Meeting"
+ tna.1.desc:0 "Political leaders of a utopian movement called Tecnocracy Incorporated have gathered in a meeting in Hollywood Bowl, California to discuss the future of our nation. Thousands of people have attended to this week-long gathering. Their influence is weak but they can soon attract more and more citizens into believing this nonsense. They are composed mostly of socialist sympathizers."
+ tna.1.a:0 "OK"
+
+ tna.2.t:0 "[USA.GetNameDef] Seeks to Purchase Our Land"
+ tna.2.desc:0 "Amidst the current war [USA.GetNameDef] is reqesting our land in the Americas."
+ tna.2.a:0 "We cannot controll it, nor fight them in a war."
+ tna.2.b:0 "It's our teratory!"
+
+ tna.3.t:0 "[FROM.GetNameDef] Refuses our offer"
+ tna.3.desc:0 "The [From.GetRulingPartyLong] has foolishly decided to cling onto there colonies in America, but since they have no army to defend them we can just seize them.\nBuy recruiting personnel from within the Coast Guard, discharging them, but retaining their ratings, we can form the nucleus of an armed guard to create a legal fiction that would avoid charges of an [USA.GetAdjective] invasion of [FROM.GetNameDef]."
+ tna.3.a:0 "Seize them anyway."
+ 
+ tna.4.t:0 "[USA.GetNameDef] Seizes Land"
+ tna.4.d:0 "Amidst the current war [USA.GetRulingParty] has seized our land in the Americas."
+ tna.4.a:0 "That is unfortunate"
+ 
+ tna.5.t:0 "Change in Government"
+ tna.5.desc:0 "[USA.GetNameDef] have modified an article of the Constitution that makes the executive branch of a country a council of expertees instead of a cabinet of ministers. As a pseudo-independent nation led by [USA.GetNameDef] we have to follow orders."
+ tna.5.a:0 "Fine..."
+ 
+ tna.6.t:0 "Submission to the Technate"
+ tna.6.desc:0 "[USA.GetNameDef] are offering us to join the new Technate that will span across North America. This project will allow a better future for all north americans. They promise to keep our integrated country as an aoutonomous region with customs and traditions intact. However, by accepting this treaty he wave to accept the terms of giving up the current political system to a new one led by [USA.GetNameDef]. If we refuse, they'll have no other choice but to declare war. What should we do?"
+ tna.6.a:0 "For a better future"
+ tna.6.b:0 "Who are they to harm sovereignity?"
+ 
+ tna.7.t:0 "[MEX.GetAdjective] submission to the Technate"
+ tna.7.desc:0 "[USA.GetNameDef] are offering us to join the new Technate that will span across North America. This project will allow a better future for all north americans. They promise to keep our integrated country as an aoutonomous region with customs and traditions intact. However, by accepting this treaty he wave to accept the terms of giving up the current political system to a new one led by [USA.GetNameDef]. If we refuse, they'll have no other choice but to declare war. What should we do?"
+ tna.7.a:0 "For a better future"
+ tna.7.b:0 "Who are they to harm sovereignity?"
+ 
+ tna.701.t:0 "Aceppted Proposal"
+ tna.701.desc:0 "[FROM.GetNameDef] has aceppted our proposal to join the Technate."
+ tna.701.a:0 "Welcome!"
+
+ tna.702.t:0 "Refused Proposal"
+ tna.702.desc:0 "The proposal has been refused. We have no choice but to fight."
+ tna.702.a:0 "Fight will be, then!"
+ 
+ tna.8.t:0 "[USA.GetNameDef] Demand [CAN.GetAdjective] Cooperation"
+ tna.8.desc:0 "[USA.GetNameDef] are demanding Newfoundland and Labrador to give to Canada. We're busy fighting the germans and it'll be hard to fight on two fronts. It is advised to avoid any armed conflict with more countries. What should we do?"
+ tna.8.a:0 "We would have too many enemies to fight"
+ tna.8.b:0 "We shall never surrender any land of the Empire!"
+ 
+ tna.9.t:0 "The [USA.GetName] Demand [CAN.GetNameDef]"
+ tna.9.desc:0 "The [USA.GetName] are demanding [CAN.GetNameDef] as their plan to achieve a continental Empire. We're busy fighting the germans and it'll be hard to fight on two fronts. It is advised to avoid any armed conflict with more countries. What should we do?"
+ tna.9.a:0 "We would have too many enemies to fight"
+ tna.9.b:0 "We shall never surrender any land of the Empire!"
+ 
+ tna.10.t:0 "[From.GetNameDefCap] accepts Destroyers for West Indies Agreement"
+ tna.10.desc:0 "British Prime Minister [From.GetLeader] has signaled his acceptance of the terms of the Destroyers for West Indies Agreement. A group of [From.GetAdjective] naval officers has arrived to inspect the destroyers and oversee the transfer.\n\n There is evidently still some work to do as several [From.GetAdjective] officers seem a little concerned about the sheer amount and thickness of guano and rust on the ships to be transfered."
+ tna.10.a:0 "Beggars can't be choosers."
+
+ tna.11.t:0 "[From.GetNameDefCap] Refuses"
+ tna.11.d:0 "[From.GetLeader] has reacted with deep consternation to our diplomatic note. In his answer, he declared that [From.GetNameDef] has a long and proud history of independence and sovereignity and would never permit a foreign power to enforce its will on them.\n\nHe further implored [USA.GetLeader] to consider the ramifications of a war on this issue, which would surely see [USA.GetNameDef] labeled the largest threat to peace and would have unimaginable consequences."
+ tna.11.a:0 "Brave words from someone so weak."
+ 
+ tna.12.t:0 "Join The Scientific Revolution"
+ tna.12.desc:0 "The [USA.GetName] are offering us to join their faction as the beacon of technocracy in Europe. We must take into account that we've been heavily aided by [TNA.GetNameDef]. What should we do?"
+ tna.12.a:0 "For a better future"
+ tna.12.b:0 "Is this a joke?"
+ 
+ tna.14.t:0 "Technocratic Japan"
+ tna.14.desc:0 "The [FROM.GetRulingParty] want to create the Technocratic Japanese Archipelago"
+ tna.14.a:0 "Hai"
+
+ tna.15.t:0 "Become the Technate of The Pacific"
+ tna.15.desc:0 "The [USA.GetName] are offering us to join their faction as the beacon of technocracy in The Pacific. We must take into account that we've been heavily aided by [TNA.GetNameDef]. What should we do?"
+ tna.15.a:0 "For a better future"
+ tna.15.b:0 "Is this a joke?"
+
+ tna.16.t:0 "Join Technate of The Pacific"
+ tna.18.t:0 "Secede to the Technate of The Pacific"
+ tna.18.desc:0 "The [USA.GetName] are asking us to secede our territory to their faction to join the beacon of technocracy in The Pacific. What should we do?"
+
+ tna.17.t:0 "[From.GetNameDefCap] Refuses"
+ tna.17.desc:0 "The government of [From.GetNameDef] has refused to even meet with our delegation, claiming that there are no outstanding issues between our nations. However, the military attaches in [GET_AUSTRALIA_NEW_ZEALAND_STATUS] have reported a significant increase in military maneuvers recently."
+ tna.17.a:0 "We have no choice but to use force."
+
+ tna.20.t:0 "Successful Speech in [TNA_CAN_rally_state.GetName]"
+ tna.20.desc:0 "The march in [TNA_CAN_rally_state.GetName] was a tremendous success; counter-protests were at a minimum. The surge of popularity that resulted from this has allowed us to make significant political gains to the benefit of our movement in [CAN.GetNameDef]."
+ tna.20.a:0 "Marching on inexorably to victory!"
+
+ tna.21.t:0 "Speech in [TNA_CAN_rally_state.GetName]"
+ tna.21.desc:0 "Despite some counter-protests and minor clashes, the march in [TNA_CAN_rally_state.GetName] was a success. We continue marching onwards towards total political victory."
+ tna.21.a:0 "None can stand in the way of progress."
+
+ tna.22.t:0 "Riot in [TNA_CAN_rally_state.GetName]"
+ tna.22.desc:0 "The march in [TNA_CAN_rally_state.GetName] resulted in huge counter-protests and extensive street-fighting. Despite large numbers of wounded, our Members managed to hold their own against the troubleshooters until police intervened."
+ tna.22.a:0 "What are a few broken eggs in the face of the future of the nation?"
+
+ tna.23.t:0 "Join South American Dominance"
+ 
+ tna_continental_control.2.t:0 "Continental controller votes for Government Proposal"
+ tna_continental_control.2.desc:0 "In a recent vote, a continental controller has surprisingly switched sides to vote for a government proposal. While the issue itself was fairly minor, the public vote of support from a previously outspoken critic of [USA.GetLeader] has raised many eyebrows around 8741.\n\nSome analysts believe that this example will lead additional senators to reconsider their stance."
+ tna_continental_control.2.a:0 "A useful ally."
+
+ tna_continental_control.3.t:0 "Continental controller speaks out against Government Policy"
+ tna_continental_control.3.desc:0 "A continental controller has given an interview in a major newspaper, saying that he can no longer support the "foolish and dangerous" policies of The Continental Council. He further claimed that he knew several other continental controllers who thought similarly and would abandon the the current administration in short order."
+ tna_continental_control.3.a:0 "He'll come running back soon enough."
+
+ tna_continental_control.4.t:0 "Opposition suffers defeat in the Continental Control"
+ tna_continental_control.4.desc:0 "A motion to censure The Continental Council has been defeated in the Continental Control. While even its most ardent supporters had little hope that it would pass, the amount of votes against it came as a shock even to the most pessimistic of observers. It appears that the The Continental Council enjoys a far greater level of support in the Continental Control than most believed, which should help in advancing their legislative agenda."
+ tna_continental_control.4.a:0 "Great."
+
+ tna_continental_control.5.t:0 "Continental controller retires"
+ tna_continental_control.5.desc:0 "Following a minor heart attack, a senior controller announced today that he will be retiring for health reasons. With more than two decades with tho movement, the Controller built a large network of supporters and his influence carried a lot of weight. While technically only one man with one vote, 8741 insiders nonetheless counted him as worth several votes as he was the key to secure several others. \n\nWith the seat most likely going to an avowed critic of the Continental Council, the Administration will find it a lot harder to secure the necessary votes to pass bills."
+ tna_continental_control.5.a:0 "He will be missed. And his vote as well."
+
+ tna_civil_war.1.t:0 "Whiteshirt Division Formed"
+ tna_civil_war.1.desc:0 "Militants have recently formed a new paramilitary division in order to defend the new ideals of the Scientific Revolution during the Civil War."
+ tna_civil_war.1.a:0 "Any help is appreciated"
+ tna_civil_war.2.t:1 "Protests in the Capital"
+ tna_civil_war.2.desc:1 "Another wave of mass-protests has hit the capital, with demonstrations clogging every major road in and around the Capitol Building. Organized by the "Action Committee for the Preservation of the Republic", the protesters demanded an independent investigation into allegations of corruption and misconduct in the administration of [USA.GetLeader]. In particular, they demanded that the [USA.GetLeader] publicly assure them that their rights as voters will be respected.\n\n[USA.GetLeader] has refused to comment on the issue."
+ tna_civil_war.2.a:1 "Let them protest, we have a country to run."
+ tna_civil_war.10.t:1 "Armory Raided"
+ tna_civil_war.10.desc:1 "A US Army armory in [GetCSAState] was assaulted and briefly taken over yesterday. The small detachment of guards found themselves opposed by a large armed mob that demanded the keys to the storage rooms. When reinforcements from a nearby garrison arrived, the attackers had already retreated, carrying with them a large number of small arms.\n\nGiven that the guards were completely unharmed and the reinforcements took a suspiciously long time to arrive, some in government speculate that this was a coordinated attack."
+ tna_civil_war.10.a:1 "Deeply troubling news."
+ tna_civil_war.11.t:1 "State Interferes with Tax Collection"
+ tna_civil_war.11.desc:1 "The government of [GetCSAState] has sent state police to shut down all tax collection and assessment operations in the state. Furthermore, the governor declared any taxes and duties on tobacco and alcohol null and void and ordered businesses not to pay any customs or duties to the Treasury. \n\n However, he also ordered that businesses and private individuals should continue to file taxes with state tax authorities, including taxes otherwise owed to the Treasury."
+ tna_civil_war.11.a:1 "Greedy."
+ tna_civil_war.12.t:1 "General [From.GetName] Resigns"
+ tna_civil_war.12.desc:1 "Citing poor health, General [From.GetName] has handed in his resignation. It is an open secret, however, that he has privately voiced deep concerns about the political direction of the country, even going so far as to claim that a new American Civil War is just around the corner.\n\nRather than contemplating his own loyalties, he seems to have decided not to take up arms against his fellow citizens at all."
+ tna_civil_war.12.a:1 "He will be missed."
+ tna_civil_war.13.t:1 "Governor mobilizes National Guard"
+ tna_civil_war.13.desc:1 "The Governor of [usa_ng_mobilized.GetName] has announced that he has mobilized the state's National Guard for what he called "an extended period of training and exercises". The war department claims it has no knowledge of any planned maneuvers in [usa_ng_mobilized.GetName]. \n\n It also appears that the National Guard units took their full allotment of supplies and live ammunition with them when they marched out, raising questions about just what they are preparing for."
+ tna_civil_war.13.a:1 "Very unsettling."
+ tna_civil_war.14.t:1 "Soldiers Desert"
+ tna_civil_war.14.desc:1 "Alarming reports have come in from several units that soldiers have failed to return from leave or simply deserted their posts. Perhaps even more alarming is the fact that many of these soldiers come from the same geographical areas, and many had received mail from home only a few days before they disappeared.\n\nIt appears that there is a concerted effort going on to get soldiers from southern states to return home."
+ tna_civil_war.14.a:1 "Such disloyalty."
+ tna_civil_war.15.t:1 "Industrialist moves Arms Factory"
+ tna_civil_war.15.desc:1 "Citing a political climate unsuitable to business, the owner of a major arms company has today announced that he will be moving production to a more suitable location. He specifically noted an increase in union activity which he claims lowered production and reduced investor confidence. Instead, the company will build a new factory in an undisclosed location in the southern states."
+ tna_civil_war.15.a:1 "That shouldn't matter too much."
+ tna_civil_war.16.t:1 "Industrialist moves Civilian Factory"
+ tna_civil_war.16.desc:1 "According to a confidential support from the Department of Commerce, a growing number of industrialists in the northern parts of the US have made plans to move production to other states after a number of strikes were called by unions, demanding higher wages and shorter workdays. A climate of deep worry has set in in the business community, with many arguing that it is becoming increasingly difficult to turn a reasonable profit in states that will not act to suppress these strikers."
+ tna_civil_war.16.a:1 "An absurd and unamerican position."
+ tna_civil_war.20.t:1 "The Dallas Rebellion"
+ tna_civil_war.20.desc:1 "The series of protests against the President have at last reached a climax. Yesterday, after the march had reached its destination in the center of New Orleans, the protesters did not disperse to go home. Instead, they broke into smaller groups and seized vital locations around the city. By nightfall, they had full control of the city. The police have largely gone over to the protesters, and the governor of Louisiana has refused to send in the National Guard.\n\nA "New Orleans Citizen Committee" has taken over control of the city and is reportedly cooperating with the rebels. Other states in democratic south have passed motions of support, stating that they no longer consider themselves bound by any law signed by [USA.GetLeader]. Instead, they call on all other state governments in the United States to declare the [USA.GetLeader] deposed, Congress dissolved and to hold new elections.\n\nWhile most of the military remain on our side, entire formations have informed their officers that they would not obey orders to crush the rebellion."
+ tna_civil_war.20.a:1 "No."
+
+ teu.1.t:0 "The European Technate"
+ teu.1.desc:0 "[USA.GetNameDef] are offering us to join their faction as the beacon of technocracy in Europe. We must take into account that we've been heavily aided by [TNA.GetNameDef]. What should we do?"
+ teu.1.a:0 "For a better future"
+ teu.1.b:0 "Is this a joke?"
+ 
+ teu.2.t:0 "Submission to the Technate"
+ teu.2.desc:0 "The Union Movement are offering us to join the new Technate that will span across Europe. This project will allow a better future for all north americans. They promise to keep our integrated country as an aoutonomous region with customs and traditions intact. However, by accepting this treaty he wave to accept the terms of giving up the current political system to a new one led by [USA.GetNameDef]. If we refuse, they'll have no other choice but to declare war. What should we do?"
+ teu.2.a:0 "For a better future"
+ teu.2.b:0 "Who are they to harm sovereignity?"
+ 
+ ###NEWS EVENTS###
+ 
+ tech_news.001.t:0 "33nd President of the United States"
+ tech_news.001.desc:0 "Howard Scott an American engineer and founder of Technocracy Incorporated has just been inaugurated as the 33nd president of the United States and Technocracy Incorporated replaced the Democrats as the leading political party in America. But it remains to be seen whether his ideology of 'Technocracy' can overcome the hardships of the great depression and secure peace and prosperity for America now and forever."
+ tech_news.001.a:0 "An interesting development"
+ tech_news.001.b:0 "Now and forever!"
+ 
+ tech_news.002.t:0 "Establishment of the Technate of North America"
+ tech_news.002.desc:0 "The Technocrats have finaly completed there plan for a pan North American superstate streching from the Beaufort Sea to the Northern Amazons, however it has yet to be seen whether such a linguistically and ethnically diverse nation can hold itself together and Technocracy Incorporated prove itself as worthy of governance."
+ tech_news.002.a:0 "Good for them"
+ tech_news.002.b:0 "For a prosperous tomorrow!"
+ 
+ tech_news.004.t:0 "New Prime Minister of the United Kingdom"
+ tech_news.004.desc:0 "Sir Oswald Ernald Mosley, 6th Baronet, leader of the British Union of Fascists has just been pronounced Prime Minister of the United Kingdom of Great Britain and Northern Ireland. But even though the change in govement was legitimate many non-fascists have taken to the streets to protest the new position of the controversial political figure. Communist Party of Great Britain has begun a commuist up-rising under Harry Pollitt in response to the development."
+ tech_news.004.a:0 "Good luck..."
+ tech_news.004.b:0 "1642!"
+ tech_news.004.c:0 "Technocracy inc. wishes him well"
+ 
+ tech_news.005.t:0 "British Civil War"
+ tech_news.005.desc:0 "Sir Oswald Ernald Mosley, 6th Baronet, leader of the British Union of Fascists has just begun a fascist up-rising in the united kingdom, he is known for his dislike of war and the recent aid his movement has been geting, it is belived that a foreign power has orchestrated the event, most likely Nazi Germany."
+ tech_news.005.a:0 "Oh well"
+ tech_news.005.b:0 "For our country!"
+ tech_news.005.c:0 "Technocracy inc. wishes him well"
+ 
+ tech_news.006.t:0 "Pro-Roosevelt States Secede!"
+ tech_news.006.desc:0 "After the removal of national elections the states of Texas, Mississippi, Alabama, Georgia, Arkansas and Louisiana has Seceded from the union under EX-US presedent Franklin D. Roosevelt, with the aim of reestablishing the democratic United States.\nBut with the majority of the American military under control of [USA.GetNameDef] it appears that the Technocrats victory is highly likely."
+ tech_news.006.a:0 "What will this mean for America?"
+ tech_news.006.b:0 "For a vast future!"

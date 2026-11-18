@@ -1,0 +1,42 @@
+﻿l_english:
+ TNA_president_scott_neutrality:0 "United States"
+ TNA_president_scott_neutrality_DEF:0 "The United States"
+
+ TNA_the_design_cosmetic:0 "Technocratic States"
+ TNA_the_design_cosmetic_DEF:0 "the Technocratic States"
+ 
+ TNA_north_american_technate:0 "Technate of North America"
+ TNA_north_american_technate_DEF:0 "the Technate of North America"
+ TNA_north_american_technate_ADJ:0 "Technate"
+ 
+ TNA_mexico_neutrality:0 "Technocratic Mexican States"
+ TNA_mexico_neutrality_DEF:0 "the Technocratic Mexican States"
+ 
+ TNA_canada_neutrality:0 "Technocratic Provinces of Canada"
+ TNA_canada_neutrality_DEF:0 "the Technocratic Provinces of Canada"
+ 
+ TAS_philippines_neutrality:0 "Technocratic Filipino Archipelago"
+ TAS_philippines_neutrality_DEF:0 "the Technocratic Filipino Archipelago"
+
+ TAS_central_control_neutrality:0 "Malaysia-Pacific Control"
+ TAS_central_control_neutrality_DEF:0 "the Malaysia-Pacific Control"
+ 
+ TAS_japan_neutrality:0 "Technocratic Japanese Archipelago"
+ TAS_japan_neutrality_DEF:0 "the Technocratic Japanese Archipelago"
+ 
+ TEU_britain_neutrality:0 "Technocratic British Isles"
+ TEU_britain_neutrality_DEF:0 "the Technocratic British Isles"
+ 
+ TEU_european_technate_neutrality:0 "Technate of Europe"
+ TEU_european_technate_neutrality_DEF:0 "the Technate of Europe"
+ TEU_european_technate:0 "Europe"
+ TEU_european_technate_DEF:0 "Europe"
+ TEU_european_technate_ADJ:0 "European"
+ 
+ TOC_australia_technate:0 "Australasian Technate"
+ TOC_australia_technate_DEF:0 "the Australasian Technate"
+ TOC_australia_technate_ADJ:0 "Australasian"
+ 
+ TSA_territories_neutrality:0 "Technocratic Cape Command"
+ TSA_territories_neutrality_DEF:0 "the Technocratic Cape Command"
+ TSA_territories_neutrality_ADJ:0 "Technocratic African"

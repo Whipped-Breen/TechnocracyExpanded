@@ -1,0 +1,12 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_tech_news_event_001"
+		texturefile = "gfx/event_pictures/tech_news_event_001.dds"
+	}
+
+	spriteType = {
+		name = "GFX_report_event_tna_speech"
+		texturefile = "gfx/event_pictures/report_event_tna_speech.dds"
+	}
+}

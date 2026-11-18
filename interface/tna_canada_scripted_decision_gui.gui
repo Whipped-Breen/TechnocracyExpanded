@@ -1,0 +1,24 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "tna_canada_scripted_decision_ui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 90 }
+
+		instantTextBoxType = {
+			name ="status_support"
+			position = { x = 16 y = 0 }
+			font = "hoi_24header"
+			text = "tna_canada_scripted_decision_support_amount"
+			format = center
+		}
+
+		instantTextBoxType = {
+			name ="status_growth"
+			position = { x = 252 y = 0 }
+			font = "hoi_24header"
+			text = "tna_canada_scripted_decision_growth_amount"
+			format = center
+		}
+	}
+}

@@ -1,0 +1,38 @@
+spriteTypes = {
+	
+	#Autonomy Stuff
+
+	spriteType = {
+		name = "GFX_autonomy_tech_puppet_icon"
+		textureFile = "gfx/interface/autonomy/autonomy_tech_puppet_icon.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_autonomy_tech_partner_icon"
+		textureFile = "gfx/interface/autonomy/autonomy_tech_partner_icon.dds"
+	}
+	
+	#Politics
+
+	spriteType = {
+		name = "GFX_ideology_technocracy"
+		texturefile = "gfx/interface/ideologies/technocracy.dds"
+	}
+
+	#Shearch filters
+
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_TNA_ASSIMILATION"
+		textureFile = "gfx/interface/focusview/filter/assimilation_icon.dds"
+	}
+
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_TNA_TECHNATE"
+		textureFile = "gfx/interface/focusview/filter/technate_icon.dds"
+	}
+
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_TNA_PRODUCTION_CONSUMPTION"
+		textureFile = "gfx/interface/focusview/filter/production_consumption.dds"
+	}
+}

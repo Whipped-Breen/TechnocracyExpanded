@@ -1,0 +1,717 @@
+TNA_continental_support_micro = {
+	custom_effect_tooltip = continental_support_micro_tt
+	add_to_variable = { continental_support = 1 }
+	round_variable = continental_support
+	clamp_variable = { var = continental_support max = continental_total min = 0 }
+	TNA_recalc_administration_icon_frames = yes
+}
+
+TNA_continental_opposition_micro = {
+	custom_effect_tooltip = continental_opposition_micro_tt
+	subtract_from_variable = { continental_support = 1 }
+	round_variable = continental_support
+	clamp_variable = { var = continental_support max = continental_total min = 0 }
+	TNA_recalc_administration_icon_frames = yes
+}
+
+TNA_continental_support_macro_half = {
+	custom_effect_tooltip = continental_support_macro_tt
+	add_to_variable = { continental_support = 15 }
+	round_variable = continental_support
+	clamp_variable = { var = continental_support max = continental_total min = 0 }
+	TNA_recalc_administration_icon_frames = yes
+}
+
+TNA_continental_support_macro = {
+	custom_effect_tooltip = continental_support_macro_tt
+	add_to_variable = { continental_support = 30 }
+	round_variable = continental_support
+	clamp_variable = { var = continental_support max = continental_total min = 0 }
+	TNA_recalc_administration_icon_frames = yes
+}
+
+TNA_continental_opposition_macro_half = {
+	custom_effect_tooltip = continental_opposition_macro_tt
+	subtract_from_variable = { continental_support = 15 }
+	round_variable = continental_support
+	clamp_variable = { var = continental_support max = continental_total min = 0 }
+	TNA_recalc_administration_icon_frames = yes
+}
+
+TNA_continental_opposition_macro = {
+	custom_effect_tooltip = continental_opposition_macro_tt
+	subtract_from_variable = { continental_support = 30 }
+	round_variable = continental_support
+	clamp_variable = { var = continental_support max = continental_total min = 0 }
+	TNA_recalc_administration_icon_frames = yes
+}
+
+TNA_congress_to_continental = {
+	set_temp_variable = { temp_senators_support = senators_support }
+	divide_temp_variable = { temp_senators_support = senators_total }
+	multiply_temp_variable = { temp_senators_support = continental_total }
+	set_variable = { var = continental_support value = temp_senators_support }
+	round_variable = continental_support
+	TNA_recalc_administration_icon_frames = yes
+}
+
+TNA_continental_get_quorum = {
+	set_temp_variable = { temp_quorum = continental_total }
+	divide_temp_variable = { temp_quorum = 3 }
+	multiply_temp_variable = { temp_quorum = 2 }
+	set_variable = { var = continental_quorum value = temp_quorum }
+	round_variable = continental_quorum
+}
+
+TNA_recalc_administration_icon_frames = {
+	
+	set_temp_variable = { continental_temp = continental_support }
+	divide_temp_variable = { continental_temp = continental_total }
+	multiply_temp_variable = { continental_temp = 21 }
+	if = {
+		limit = { check_variable = { continental_temp > 0 } }
+		clamp_temp_variable = {
+			var = continental_temp
+			min = 1
+			max = 21
+		}
+	}
+	else = {
+		set_temp_variable = { continental_temp = 1 }
+	}
+	set_variable = { current_continental_icon_frame = continental_temp }
+}
+
+TNA_canada_support_time = {
+	set_variable = { tni_drf = can.TNA_tpc_neutrality_drift }
+	add_to_variable = { tni_drf = 0.03 }
+
+	set_temp_variable = { tni_cmt = 35 }
+	multiply_temp_variable = { tni_cmt = tni_drf }
+
+	set_variable = { check_popularity = 50 }
+	subtract_from_variable = { check_popularity = tni_cmt }
+
+	set_variable = { tech_popularity = party_popularity_100@neutrality }
+
+	set_variable = { growth_days = check_popularity }
+	subtract_from_variable = { growth_days = tech_popularity }
+	divide_variable = { growth_days = tni_drf }
+	round_variable = growth_days
+
+	if = {
+		limit = { check_variable = { growth_days < 0 } }
+		set_variable = { growth_days = 0 }
+	}
+}
+
+TNA_join_research_sphere = {
+	if = {
+		limit = {
+			USA = {
+				has_completed_focus = TNA_research_sphere
+			}
+		}
+		ROOT = { add_to_tech_sharing_group = TNA_research_sphere }
+	}
+}
+
+TNA_join_research_north_american_technate = {
+	if = {
+		limit = {
+			USA = {
+				NOT = { has_cosmetic_tag = TNA_north_american_technate }
+			}
+		}
+		USA = {
+			if = {
+				limit = {
+					NOT = { is_in_tech_sharing_group = TNA_north_american_technate }
+				}
+				add_to_tech_sharing_group = TNA_north_american_technate
+			}
+		}
+		add_to_tech_sharing_group = TNA_north_american_technate
+	}
+}
+TNA_end_research_north_american_technate = {
+	every_country = {
+		limit = {
+			is_in_tech_sharing_group = TNA_north_american_technate
+		}
+		remove_from_tech_sharing_group = TNA_north_american_technate
+	}
+}
+
+TNA_join_technate = {
+	ROOT = {
+		if = {
+			limit = {
+				original_tag = MEX
+			}
+			MEX = { country_event = tna.7 retire_character = MEX_lazaro_cardenas }
+		}
+		if = {
+			limit = {
+				original_tag = CAN
+			}
+			CAN = { country_event = tna.9 }
+		}
+		if = {
+			limit = {
+				original_tag = ENG
+			}
+			ENG = { country_event = tna.12 }
+		}
+		if = {
+			limit = {
+				original_tag = AST
+			}
+			AST = { country_event = tna.15 }
+		}
+	#	if = {
+	#		limit = {
+	#			original_tag = SAF
+	#		}
+	#		SAF = { country_event = tna.19 }
+	#	}
+	}
+}
+
+TNA_civil_war_create_divisions = {
+	every_controlled_state = {
+		limit = {
+			OR = {
+				is_rebellion_tna_state = yes
+				is_rebellion_tna_state_2 = yes
+			}
+		}
+		create_unit = {
+			division = "name = \"Freedom Militia\" division_template = \"Freedom Militia\" start_experience_factor = 0.4" 
+			owner = event_target:usa_democratic
+		}
+		create_unit = {
+			division = "name = \"Freedom Militia\" division_template = \"Freedom Militia\" start_experience_factor = 0.4" 
+			owner = event_target:usa_democratic
+		}
+		create_unit = {
+			division = "name = \"Freedom Militia\" division_template = \"Freedom Militia\" start_experience_factor = 0.4" 
+			owner = event_target:usa_democratic
+		}
+	}
+	every_controlled_state = {
+		limit = {
+			has_state_flag = ng_mobilized
+		}
+		create_unit = {
+			division = "name = \"National Guard\" division_template = \"National Guard\" start_experience_factor = 0.7" 
+			owner = event_target:usa_democratic
+		}
+	}
+}
+
+TNA_save_same_focuses = {
+	if = {
+		limit = { has_completed_focus = USA_war_plans_division }
+		set_country_flag = USA_war_plans_division
+	}
+	###
+	if = {
+		limit = { has_completed_focus = USA_intervention_in_the_americas }
+		set_country_flag = USA_intervention_in_the_americas
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_green }
+		set_country_flag = USA_war_plan_green
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_crimson }
+		set_country_flag = USA_war_plan_crimson
+	}
+	if = {
+		limit = { has_completed_focus = USA_reinforce_monroe_doctrine }
+		set_country_flag = USA_reinforce_monroe_doctrine
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_gray }
+		set_country_flag = USA_war_plan_gray
+	}
+	###
+	if = {
+		limit = { has_completed_focus = USA_intervention_in_europe }
+		set_country_flag = USA_intervention_in_europe
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_gold }
+		set_country_flag = USA_war_plan_gold
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_silver }
+		set_country_flag = USA_war_plan_silver
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_black }
+		set_country_flag = USA_war_plan_black
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_white }
+		set_country_flag = USA_war_plan_white
+	}
+	if = {
+		limit = { has_completed_focus = USA_anti_bolshevist_aid }
+		set_country_flag = USA_anti_bolshevist_aid
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_red }
+		set_country_flag = USA_war_plan_red
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_ruby }
+		set_country_flag = USA_war_plan_ruby
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_scarlet_garnet }
+		set_country_flag = USA_war_plan_scarlet_garnet
+	}
+	###
+	if = {
+		limit = { has_completed_focus = USA_intervention_in_asia }
+		set_country_flag = USA_intervention_in_asia
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_orange }
+		set_country_flag = USA_war_plan_orange
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_yellow }
+		set_country_flag = USA_war_plan_yellow
+	}
+	if = {
+		limit = { has_completed_focus = USA_defense_of_the_pacific }
+		set_country_flag = USA_defense_of_the_pacific
+	}
+	###
+	if = {
+		limit = { has_completed_focus = USA_intervention_in_asia }
+		set_country_flag = USA_intervention_in_asia
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_orange }
+		set_country_flag = USA_war_plan_orange
+	}
+	if = {
+		limit = { has_completed_focus = USA_war_plan_yellow }
+		set_country_flag = USA_war_plan_yellow
+	}
+	if = {
+		limit = { has_completed_focus = USA_defense_of_the_pacific }
+		set_country_flag = USA_defense_of_the_pacific
+	}
+	###
+	if = {
+		limit = { has_completed_focus = USA_war_department }
+		set_country_flag = USA_war_department
+	}
+	if = {
+		limit = { has_completed_focus = USA_selective_training_act }
+		set_country_flag = USA_selective_training_act
+	}
+	if = {
+		limit = { has_completed_focus = USA_first_special_service_force }
+		set_country_flag = USA_first_special_service_force
+	}
+	if = {
+		limit = { has_completed_focus = USA_louisiana_maneuvers }
+		set_country_flag = USA_louisiana_maneuvers
+	}
+	if = {
+		limit = { has_completed_focus = USA_airborne_divisions }
+		set_country_flag = USA_airborne_divisions
+	}
+	if = {
+		limit = { has_completed_focus = USA_army_of_the_united_states }
+		set_country_flag = USA_army_of_the_united_states
+	}
+	if = {
+		limit = { has_completed_focus = USA_support_rock_island }
+		set_country_flag = USA_support_rock_island
+	}
+	if = {
+		limit = { has_completed_focus = USA_tank_experiments }
+		set_country_flag = USA_tank_experiments
+	}
+	###
+	if = {
+		limit = { has_completed_focus = USA_build_the_pentagon }
+		set_country_flag = USA_build_the_pentagon
+	}
+	if = {
+		limit = { has_completed_focus = USA_department_of_defense }
+		set_country_flag = USA_department_of_defense
+	}
+	###
+	if = {
+		limit = { has_completed_focus = USA_air_war_plans_division }
+		set_country_flag = USA_air_war_plans_division
+	}
+	if = {
+		limit = { has_completed_focus = USA_air_support }
+		set_country_flag = USA_air_support
+	}
+	if = {
+		limit = { has_completed_focus = USA_strategic_bombing }
+		set_country_flag = USA_strategic_bombing
+	}
+	if = {
+		limit = { has_completed_focus = USA_TAC }
+		set_country_flag = USA_TAC
+	}
+	if = {
+		limit = { has_completed_focus = USA_CAS }
+		set_country_flag = USA_CAS
+	}
+	if = {
+		limit = { has_completed_focus = USA_combined_bomber_offensive }
+		set_country_flag = USA_combined_bomber_offensive
+	}
+	if = {
+		limit = { has_completed_focus = USA_escort_fighters }
+		set_country_flag = USA_escort_fighters
+	}
+	###
+	if = {
+		limit = { has_completed_focus = USA_two_ocean_navy_act }
+		set_country_flag = USA_two_ocean_navy_act
+	}
+	if = {
+		limit = { has_completed_focus = USA_maritime_commission }
+		set_country_flag = USA_maritime_commission
+	}
+	if = {
+		limit = { has_completed_focus = USA_liberty_ships }
+		set_country_flag = USA_liberty_ships
+	}
+	if = {
+		limit = { has_completed_focus = USA_bureau_of_ships }
+		set_country_flag = USA_bureau_of_ships
+	}
+	if = {
+		limit = { has_completed_focus = USA_battleship_primacy }
+		set_country_flag = USA_battleship_primacy
+	}
+	if = {
+		limit = { has_completed_focus = USA_carrier_primacy }
+		set_country_flag = USA_carrier_primacy
+	}
+	if = {
+		limit = { has_completed_focus = USA_escort_effort }
+		set_country_flag = USA_escort_effort
+	}
+	if = {
+		limit = { has_completed_focus = USA_fleet_submarines }
+		set_country_flag = USA_fleet_submarines
+	}
+	if = {
+		limit = { has_completed_focus = USA_fund_the_navy }
+		set_country_flag = USA_fund_the_navy
+	}
+	if = {
+		limit = { has_completed_focus = USA_expand_the_USMC }
+		set_country_flag = USA_expand_the_USMC
+	}
+}
+TNA_complete_same_focuses = {
+	if = {
+		limit = { has_country_flag = USA_war_plans_division }
+		complete_national_focus = TNA_war_plans_division
+		clr_country_flag = USA_war_plans_division
+	}
+	###
+	if = {
+		limit = { has_country_flag = USA_intervention_in_the_americas }
+		complete_national_focus = TNA_intervention_in_the_americas
+		clr_country_flag = USA_intervention_in_the_americas
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_green }
+		complete_national_focus = TNA_war_plan_green
+		clr_country_flag = USA_war_plan_green
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_crimson }
+		complete_national_focus = TNA_war_plan_crimson
+		clr_country_flag = USA_war_plan_crimson
+	}
+#	if = {
+#		limit = { has_country_flag = USA_reinforce_monroe_doctrine }
+#		complete_national_focus = TNA_reinforce_monroe_doctrine
+#		clr_country_flag = USA_reinforce_monroe_doctrine
+#	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_gray }
+		complete_national_focus = TNA_war_plan_gray
+		clr_country_flag = USA_war_plan_gray
+	}
+	###
+	if = {
+		limit = { has_country_flag = USA_intervention_in_europe }
+		complete_national_focus = TNA_intervention_in_europe
+		clr_country_flag = USA_intervention_in_europe
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_gold }
+		complete_national_focus = TNA_war_plan_gold
+		clr_country_flag = USA_war_plan_gold
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_silver }
+		complete_national_focus = TNA_war_plan_silver
+		clr_country_flag = USA_war_plan_silver
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_black }
+		complete_national_focus = TNA_war_plan_black
+		clr_country_flag = USA_war_plan_black
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_white }
+		complete_national_focus = TNA_war_plan_white
+		clr_country_flag = USA_war_plan_white
+	}
+	if = {
+		limit = { has_country_flag = USA_anti_bolshevist_aid }
+		complete_national_focus = TNA_anti_bolshevist_aid
+		clr_country_flag = USA_anti_bolshevist_aid
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_red }
+		complete_national_focus = TNA_war_plan_red
+		clr_country_flag = USA_war_plan_red
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_ruby }
+		complete_national_focus = TNA_war_plan_ruby
+		clr_country_flag = USA_war_plan_ruby
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_scarlet_garnet }
+		complete_national_focus = TNA_war_plan_scarlet_garnet
+		clr_country_flag = USA_war_plan_scarlet_garnet
+	}
+	###
+	if = {
+		limit = { has_country_flag = USA_intervention_in_asia }
+		complete_national_focus = TNA_intervention_in_asia
+		clr_country_flag = USA_intervention_in_asia
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_orange }
+		complete_national_focus = TNA_war_plan_orange
+		clr_country_flag = USA_war_plan_orange
+	}
+	if = {
+		limit = { has_country_flag = USA_war_plan_yellow }
+		complete_national_focus = TNA_war_plan_yellow
+		clr_country_flag = USA_war_plan_yellow
+	}
+	if = {
+		limit = { has_country_flag = USA_defense_of_the_pacific }
+		unlock_national_focus = TNA_defense_of_the_pacific
+		clr_country_flag = USA_defense_of_the_pacific
+	}
+	###
+	if = {
+		limit = { has_country_flag = USA_war_department }
+		complete_national_focus = TNA_war_department
+		clr_country_flag = USA_war_department
+	}
+	if = {
+		limit = { has_country_flag = USA_selective_training_act }
+		complete_national_focus = TNA_selective_training_act
+		clr_country_flag = USA_selective_training_act
+	}
+	if = {
+		limit = { has_country_flag = USA_first_special_service_force }
+		complete_national_focus = TNA_first_special_service_force
+		clr_country_flag = USA_first_special_service_force
+	}
+	if = {
+		limit = { has_country_flag = USA_louisiana_maneuvers }
+		complete_national_focus = TNA_louisiana_maneuvers
+		clr_country_flag = USA_louisiana_maneuvers
+	}
+	if = {
+		limit = { has_country_flag = USA_airborne_divisions }
+		complete_national_focus = TNA_airborne_divisions
+		clr_country_flag = USA_airborne_divisions
+	}
+	if = {
+		limit = { has_country_flag = USA_army_of_the_united_states }
+		complete_national_focus = TNA_army_of_the_united_states
+		clr_country_flag = USA_army_of_the_united_states
+	}
+	if = {
+		limit = { has_country_flag = USA_support_rock_island }
+		complete_national_focus = TNA_support_rock_island
+		clr_country_flag = USA_support_rock_island
+	}
+	if = {
+		limit = { has_country_flag = USA_tank_experiments }
+		complete_national_focus = TNA_tank_experiments
+		clr_country_flag = USA_tank_experiments
+	}
+	###
+	if = {
+		limit = { has_country_flag = USA_build_the_pentagon }
+		complete_national_focus = TNA_build_the_pentagon
+		clr_country_flag = USA_build_the_pentagon
+	}
+	if = {
+		limit = { has_country_flag = USA_department_of_defense }
+		complete_national_focus = TNA_department_of_defense
+		clr_country_flag = USA_department_of_defense
+	}
+	###
+	if = {
+		limit = { has_country_flag = USA_air_war_plans_division }
+		complete_national_focus = TNA_air_war_plans_division
+		clr_country_flag = USA_air_war_plans_division
+	}
+	if = {
+		limit = { has_country_flag = USA_air_support }
+		complete_national_focus = TNA_air_support
+		clr_country_flag = USA_air_support
+	}
+	if = {
+		limit = { has_country_flag = USA_strategic_bombing }
+		complete_national_focus = TNA_strategic_bombing
+		clr_country_flag = USA_strategic_bombing
+	}
+	if = {
+		limit = { has_country_flag = USA_TAC }
+		complete_national_focus = TNA_TAC
+		clr_country_flag = USA_TAC
+	}
+	if = {
+		limit = { has_country_flag = USA_CAS }
+		complete_national_focus = TNA_CAS
+		clr_country_flag = USA_CAS
+	}
+	if = {
+		limit = { has_country_flag = USA_combined_bomber_offensive }
+		complete_national_focus = TNA_combined_bomber_offensive
+		clr_country_flag = USA_combined_bomber_offensive
+	}
+	if = {
+		limit = { has_country_flag = USA_escort_fighters }
+		complete_national_focus = TNA_escort_fighters
+		clr_country_flag = USA_escort_fighters
+	}
+	###
+	if = {
+		limit = { has_country_flag = USA_two_ocean_navy_act }
+		complete_national_focus = TNA_two_ocean_navy_act
+		clr_country_flag = USA_two_ocean_navy_act
+	}
+	if = {
+		limit = { has_country_flag = USA_maritime_commission }
+		complete_national_focus = TNA_maritime_commission
+		clr_country_flag = USA_maritime_commission
+	}
+	if = {
+		limit = { has_country_flag = USA_liberty_ships }
+		complete_national_focus = TNA_liberty_ships
+		clr_country_flag = USA_liberty_ships
+	}
+	if = {
+		limit = { has_country_flag = USA_bureau_of_ships }
+		complete_national_focus = TNA_naval_engineering_industrial_function
+		clr_country_flag = USA_bureau_of_ships
+	}
+	if = {
+		limit = { has_country_flag = USA_battleship_primacy }
+		complete_national_focus = TNA_battleship_primacy
+		clr_country_flag = USA_battleship_primacy
+	}
+	if = {
+		limit = { has_country_flag = USA_carrier_primacy }
+		complete_national_focus = TNA_carrier_primacy
+		clr_country_flag = USA_carrier_primacy
+	}
+	if = {
+		limit = { has_country_flag = USA_escort_effort }
+		complete_national_focus = TNA_escort_effort
+		clr_country_flag = USA_escort_effort
+	}
+	if = {
+		limit = { has_country_flag = USA_fleet_submarines }
+		complete_national_focus = TNA_fleet_submarines
+		clr_country_flag = USA_fleet_submarines
+	}
+	if = {
+		limit = { has_country_flag = USA_fund_the_navy }
+		complete_national_focus = TNA_fund_the_navy
+		clr_country_flag = USA_fund_the_navy
+	}
+	if = {
+		limit = { has_country_flag = USA_expand_the_USMC }
+		complete_national_focus = TNA_expand_the_USMC
+		clr_country_flag = USA_expand_the_USMC
+	}
+}
+TNA_mexican_rubber = {
+	if = {
+		limit = { 
+			474 = { 
+				is_owned_by = MEX 
+				has_resources_amount = {
+					resource = rubber
+					amount > 0
+				}
+			}
+		}
+		MEX = { 
+			give_resource_rights = { 
+				receiver = USA 
+				state = 474 
+				resources = { rubber } 
+			} 
+		}
+	}
+	if = {
+		limit = { 
+			475 = { 
+				is_owned_by = MEX 
+				has_resources_amount = {
+					resource = rubber
+					amount > 0
+				}
+			}
+		}
+		MEX = { 
+			give_resource_rights = { 
+				receiver = USA 
+				state = 475 
+				resources = { rubber } 
+			} 
+		}
+	}
+	if = {
+		limit = { 
+			313 = { 
+				is_owned_by = MEX 
+				has_resources_amount = {
+					resource = rubber
+					amount > 0
+				}
+			}
+		}
+		MEX = { 
+			give_resource_rights = { 
+				receiver = USA 
+				state = 313 
+				resources = { rubber } 
+			} 
+		}
+	}
+}

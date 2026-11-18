@@ -1,0 +1,192 @@
+administration_support_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = continental_quorum_tt
+		check_variable = {
+			var = continental_support
+			value = continental_quorum
+			compare = greater_than_or_equals
+		}
+	}
+}
+
+is_tna_state = {
+	OR = {
+		state = 386
+		state = 385
+		state = 378
+		state = 387
+		state = 379
+		state = 380
+		state = 377
+		state = 388
+		state = 381
+		state = 382
+		state = 376
+		state = 389
+		state = 390
+		state = 384
+		state = 383
+		state = 383
+		state = 374
+		state = 375
+		state = 391
+		state = 392
+		state = 373
+		state = 372
+		state = 371
+		state = 394
+		state = 395
+		state = 370
+		state = 393
+		state = 396
+		state = 369
+		state = 368
+		state = 370
+		state = 361
+		state = 367
+		state = 365
+		state = 366
+		state = 394
+		state = 358
+		state = 360
+		state = 359
+		state = 361
+		state = 362
+		state = 816
+		state = 363
+		state = 364
+		state = 357
+		state = 261
+		state = 730
+		state = 331
+		state = 332
+		state = 276
+		state = 464
+		state = 465
+		state = 466
+		state = 467
+		state = 468
+		state = 469
+		state = 470
+		state = 471
+		state = 472
+		state = 473
+		state = 682
+		state = 683
+		state = 739
+		state = 740
+		state = 311
+		state = 277
+		state = 474
+		state = 475
+		state = 476
+		state = 477
+		state = 478
+		state = 479
+		state = 480
+		state = 481
+		state = 482
+		state = 483
+		state = 484
+		state = 485
+		state = 314
+		state = 313
+		state = 312
+		state = 317
+		state = 316
+		state = 304
+		state = 685
+		state = 315
+		state = 318
+		state = 319
+		state = 101
+		state = 690
+		state = 693
+		state = 689
+		state = 686
+		state = 694
+		state = 308
+		state = 692
+		state = 691
+		state = 696
+		state = 493
+		state = 306
+		state = 486
+		state = 489
+		state = 307
+		state = 488
+		state = 687
+		state = 309
+		state = 310
+		state = 695
+		state = 463
+		state = 629
+		state = 650
+		state = 631
+#		state = 630
+		state = 727
+#		state = 642
+		state = 860
+		state = 861
+		state = 862
+		state = 863
+		state = 866
+		state = 867
+		state = 865
+		state = 864
+		state = 649
+	}
+}
+
+is_latin_tna_state = {
+	AND = {
+		is_tna_state = yes
+		OR = {
+			is_core_of = MEX
+			is_core_of = GUA
+			is_core_of = ELS
+			is_core_of = HON
+			is_core_of = NIC
+			is_core_of = COS
+			is_core_of = PAN
+			is_core_of = CUB
+			is_core_of = HAI
+			is_core_of = DOM
+			is_core_of = PUE
+			is_core_of = COL
+			is_core_of = VEN
+		}
+	}
+}
+
+is_rebellion_tna_state = {
+	OR = {
+		state = 371
+		state = 372
+		state = 370
+		state = 367
+		state = 365
+		state = 366
+		state = 364
+	}
+}
+is_rebellion_tna_state_2 = {
+	OR = {
+		state = 368
+		state = 363
+		state = 388
+		state = 381
+	}
+}
+
+is_TOC_state = {
+	OR = {
+		is_on_continent = australia
+		is_core_of = FSM
+		state = 636
+		state = 641
+		state = 711
+		state = 712
+		state = 336
+	}
+}

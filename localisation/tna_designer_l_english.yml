@@ -1,0 +1,14 @@
+﻿ # name list themes
+l_english:
+ # name list themes -- updated to include country-specific and other new list names
+ NAME_THEME_TNA_DESTROYERS:0 "Destroyers"
+ NAME_THEME_TNA_DE:0 "Destroyer Escorts"
+ NAME_THEME_TNA_CL:0 "Light Cruisers"
+ NAME_THEME_TNA_CA:0 "Heavy Cruisers"
+ NAME_THEME_TNA_CLAA:0 "Light Cruisers"
+ NAME_THEME_TNA_MINELAYERS:0 "Minelayers"
+ NAME_THEME_TNA_BB:0 "Battleships"
+ NAME_THEME_TNA_BC:0 "Battlecruisers"
+ NAME_THEME_TNA_CARRIERS:0 "Carriers"
+ NAME_THEME_TNA_CVL:0 "Light Carriers"
+ NAME_THEME_TNA_SUBMARINES:0 "Submarines"

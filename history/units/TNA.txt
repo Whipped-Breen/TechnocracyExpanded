@@ -1,0 +1,17 @@
+﻿##### Division Templates ####
+division_template = {
+	name = "Freedom Militia"
+	division_names_group = CSA_INF_01
+	regiments = {
+		irregular_infantry = { x = 0 y = 0 }
+		irregular_infantry= { x = 0 y = 1 }
+		irregular_infantry = { x = 0 y = 2 }
+		irregular_infantry = { x = 0 y = 3 }
+		irregular_infantry = { x = 1 y = 0 }
+		irregular_infantry = { x = 1 y = 1 }
+		irregular_infantry = { x = 1 y = 2 }
+		irregular_infantry = { x = 1 y = 3 }
+	}
+	priority = 1
+}
+#####################

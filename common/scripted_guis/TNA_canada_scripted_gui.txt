@@ -1,0 +1,9 @@
+scripted_gui = {
+
+	TNA_canada_scripted_decision_ui = {
+		context_type = decision_category
+		window_name = "tna_canada_scripted_decision_ui_window"
+	}
+	
+}
+

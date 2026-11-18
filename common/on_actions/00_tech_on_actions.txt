@@ -1,0 +1,90 @@
+on_actions = {
+	on_daily_CAN = {
+		effect = {
+			if = {
+				limit = {
+					has_dynamic_modifier = { 
+						modifier = TNA_technocracy_in_canada 
+					}
+				}
+				TNA_canada_support_time = yes
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						has_war_with = USA
+						OR = {
+							original_tag = MEX
+							original_tag = CAN
+							original_tag = ENG
+							original_tag = AST
+							original_tag = SAF
+						}
+					}
+					USA = {
+						has_focus_tree = tna_focus
+					}
+				}
+				FROM = {
+					white_peace = { tag = ROOT }
+					puppet = ROOT
+				}
+				ROOT = {
+					TNA_join_technate = yes
+				}
+			}
+		}
+	}
+	on_puppet = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = USA
+						has_country_flag = technate
+					}
+				}
+				TNA_join_technate = yes
+			}
+		}
+	}
+	
+	#used when puppeting through the occupied territories menu during peace time (or when releasing from non-core but owned territory, f.e. Britain releasing Egypt)
+	#ROOT = nation being released, FROM = overlord
+	
+	on_release_as_puppet = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = USA
+						has_country_flag = technate
+					}
+				}
+				TNA_join_technate = yes
+			}
+		}
+	}
+
+
+	on_civil_war_end = {
+		effect = {
+			if = {
+				limit = {
+					original_tag = ENG
+					has_government = fascism
+					USA = { has_completed_focus = TNA_mosley_coup }
+				}
+				set_capital = { state = 126 }
+			#	set_autonomy = { target = SAF autonomous_state = autonomy_satellite }
+			#	set_autonomy = { target = AST autonomous_state = autonomy_satellite }
+			#	set_autonomy = { target = NZL autonomous_state = autonomy_satellite }
+				set_autonomy = { target = MAL autonomous_state = autonomy_reichskommissariat }
+			}
+		}
+	}
+}

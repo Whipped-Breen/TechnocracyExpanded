@@ -1,0 +1,38 @@
+characters={
+
+	### POLITICAL ADVISORS ###
+
+	TNA_marion_king_hubbert={
+		name=TNA_marion_king_hubbert
+		portraits={
+			army={
+				small="GFX_idea_tna_marion_king_hubbert"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = marion_king_hubbert
+			allowed  = {
+				original_tag  = USA
+			}
+			available  = {
+				has_completed_focus = TNA_scientific_revolution
+			}
+			visible  = {
+				has_government = neutrality
+			}
+			traits  = {
+				geophysicist_oil 
+			}
+			cost  = 0.000
+			do_effect  = {
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+		allowed_civil_war = {
+			has_government = neutrality 
+		}
+	}
+}
