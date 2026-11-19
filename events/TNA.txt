@@ -413,16 +413,16 @@ country_event = {
 		name = tna.900.a
 
 		CAN = {
-			transfer_state = 332
-			transfer_state = 331
+			transfer_state = 332 # Labrador
+			transfer_state = 331 # Newfoundland
 		}
 	}
 	option = {
 		name = tna.900.b
 
 		USA = {
-			transfer_state = 332
-			transfer_state = 331
+			transfer_state = 332 # Labrador
+			transfer_state = 331 # Newfoundland
 		}
 		332 = {
 			hidden_effect = { add_compliance = 35 }
@@ -442,7 +442,7 @@ country_event = {
 
 		CAN = { transfer_state = 332 }
 		USA = {
-			transfer_state = 331
+			transfer_state = 331 # Newfoundland
 		}
 		331 = {
 			hidden_effect = { add_compliance = 35 }
@@ -476,31 +476,31 @@ country_event = {
 		}
 		USA = {
 			if = { limit = { 311 = { is_owned_by = ENG } }
-				transfer_state = 311
+				transfer_state = 311 # BritMex
 			}
 			if = { limit = { 689 = { is_owned_by = ENG } }
-				transfer_state = 689
+				transfer_state = 689 # Jamaica
 			}
 			if = { limit = { 690 = { is_owned_by = ENG } }
-				transfer_state = 690
+				transfer_state = 690 # Bahama Islands
 			}
 			if = { limit = { 693 = { is_owned_by = ENG } }
-				transfer_state = 693
+				transfer_state = 693 # Southern Bahamas
 			}
 			if = { limit = { 696 = { is_owned_by = ENG } }
-				transfer_state = 696
+				transfer_state = 696 # Bermuda
 			}
 			if = { limit = { 308 = { is_owned_by = ENG } }
-				transfer_state = 308
+				transfer_state = 308 # Britain SA
 			}
 			if = { limit = { 691 = { is_owned_by = ENG } }
-				transfer_state = 691
+				transfer_state = 691 # Trinidad
 			}
 			if = { limit = { 692 = { is_owned_by = ENG } }
-				transfer_state = 692
+				transfer_state = 692 # Windward Islands
 			}
 			if = { limit = { 687 = { is_owned_by = ENG } }
-				transfer_state = 687
+				transfer_state = 687 # British Guyana
 			}
 			country_event = { id = usa.401 days = 3 }
 		}
@@ -721,10 +721,10 @@ country_event = {
 			limit = {
 				is_TOC_state = yes
 				NOT = {
-					state = 669
-					state = 523
-					state = 737
-					state = 712
+					state = 669 # Dutch New Guinea
+					state = 523 # New Guinea
+					state = 737 # New Britain
+					state = 712 # Cocos Islands
 				}
 			}
 			add_core_of = ROOT
@@ -740,9 +740,9 @@ country_event = {
 			every_owned_state = {
 				limit = {
 					OR = {
-						state = 669
-						state = 523
-						state = 737
+						state = 669 # Dutch New Guinea
+						state = 523 # New Guinea
+						state = 737 # New Britain
 					}
 				}
 				add_compliance = 35
@@ -1784,7 +1784,7 @@ country_event = {
 	
 	immediate = {
 		MAL = {
-			transfer_state = 333
+			transfer_state = 333 # British Borneo
 		}
 	}
 }

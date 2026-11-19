@@ -673,7 +673,7 @@ TNA_mexican_rubber = {
 		MEX = { 
 			give_resource_rights = { 
 				receiver = USA 
-				state = 474 
+				state = 474 # Yucatan
 				resources = { rubber } 
 			} 
 		}
@@ -691,7 +691,7 @@ TNA_mexican_rubber = {
 		MEX = { 
 			give_resource_rights = { 
 				receiver = USA 
-				state = 475 
+				state = 475 # Chiapas
 				resources = { rubber } 
 			} 
 		}
@@ -709,7 +709,7 @@ TNA_mexican_rubber = {
 		MEX = { 
 			give_resource_rights = { 
 				receiver = USA 
-				state = 313 
+				state = 313 # Guatemala
 				resources = { rubber } 
 			} 
 		}

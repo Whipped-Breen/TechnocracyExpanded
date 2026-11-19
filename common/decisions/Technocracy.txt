@@ -5,7 +5,7 @@ scottia_category = {
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 395
+				state = 395 # Illinois
 			}
 		}
 		
@@ -96,10 +96,10 @@ prospect_for_resources = {
 		available = {
 			has_tech = excavation3
 			num_of_civilian_factories_available_for_projects > 2
-			controls_state = 470
-			controls_state = 471
-			controls_state = 472
-			controls_state = 683
+			controls_state = 470 # Alberta
+			controls_state = 471 # Northwestern Canada
+			controls_state = 472 # Northwest Territories
+			controls_state = 683 # Northeastern Canada
 		}
 
 		visible = {
@@ -109,19 +109,19 @@ prospect_for_resources = {
 				}
 			}
 			has_completed_focus = TNA_prospect
-			owns_state = 470
-			owns_state = 471
-			owns_state = 472
-			owns_state = 683
+			owns_state = 470 # Alberta
+			owns_state = 471 # Northwestern Canada
+			owns_state = 472 # Northwest Territories
+			owns_state = 683 # Northeastern Canada
 		}
 
 	#	highlight_states = {
 	#		highlight_states_trigger = {
 	#			OR = {
-	#				state = 470
-	#				state = 471
-	#				state = 472
-	#				state = 683
+	#				state = 470 # Alberta
+	#				state = 471 # Northwestern Canada
+	#				state = 472 # Northwest Territories
+	#				state = 683 # Northeastern Canada
 	#			}
 	#		}
 	#	}
@@ -176,8 +176,8 @@ prospect_for_resources = {
 		available = {
 			has_tech = excavation3
 			num_of_civilian_factories_available_for_projects > 2
-			controls_state = 480
-			controls_state = 482
+			controls_state = 480 # Coahuila
+			controls_state = 482 # Chihuahua
 		}
 
 		visible = {
@@ -187,8 +187,8 @@ prospect_for_resources = {
 				}
 			}
 			has_completed_focus = TNA_state_industry
-			owns_state = 480
-			owns_state = 482
+			owns_state = 480 # Coahuila
+			owns_state = 482 # Chihuahua
 		}
 
 		fire_only_once = yes
@@ -250,20 +250,20 @@ prospect_for_resources = {
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 101
+				state = 101 # Greenland
 			} 
 		}
 
 		available = {
 			has_tech = excavation4
 			num_of_civilian_factories_available_for_projects > 2
-			owns_state = 101
-			controls_state = 101
+			owns_state = 101 # Greenland
+			controls_state = 101 # Greenland
 		}
 
 		visible = {
-			owns_state = 101
-			controls_state = 101
+			owns_state = 101 # Greenland
+			controls_state = 101 # Greenland
 			has_completed_focus = TNA_prospect
 			101 = {
 				NOT = {
@@ -304,20 +304,20 @@ prospect_for_resources = {
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 101
+				state = 101 # Greenland
 			} 
 		}
 
 		available = {
 			has_tech = excavation4
 			num_of_civilian_factories_available_for_projects > 2
-			owns_state = 101
-			controls_state = 101
+			owns_state = 101 # Greenland
+			controls_state = 101 # Greenland
 		}
 
 		visible = {
-			owns_state = 101
-			controls_state = 101
+			owns_state = 101 # Greenland
+			controls_state = 101 # Greenland
 			has_completed_focus = TNA_prospect
 			101 = {
 				NOT = {
@@ -473,12 +473,12 @@ foreign_influence = {
 		}
 		available = {
 			MEX = { is_subject_of = ROOT }
-			controls_state = 313
-			controls_state = 314
-			controls_state = 312
-			controls_state = 317
-			controls_state = 316
-			controls_state = 304
+			controls_state = 313 # Guatemala
+			controls_state = 314 # El Salvador
+			controls_state = 312 # Honduras
+			controls_state = 317 # Nicaragua
+			controls_state = 316 # Costa Rica
+			controls_state = 304 # Panama
 		}
 		visible = {
 			has_country_flag = technate
@@ -496,13 +496,13 @@ foreign_influence = {
 			every_state = {
 				limit = {
 					OR = {
-						state = 313
-						state = 314
-						state = 312
-						state = 317
-						state = 316
-						state = 304
-						state = 311
+						state = 313 # Guatemala
+						state = 314 # El Salvador
+						state = 312 # Honduras
+						state = 317 # Nicaragua
+						state = 316 # Costa Rica
+						state = 304 # Panama
+						state = 311 # BritMex
 					}
 					is_owned_and_controlled_by = USA
 				}
@@ -1364,7 +1364,7 @@ TNA_europe_category = {
 		}
 		complete_effect = {
 			IRE = {
-				transfer_state = 119
+				transfer_state = 119 # Northern Ireland
 			}
 		}
 		remove_effect = {

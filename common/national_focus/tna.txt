@@ -35,7 +35,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			owns_state = 361
+			owns_state = 361 # Maryland
 		}
 
 		completion_reward = {
@@ -796,57 +796,57 @@ focus_tree = {
 			every_state = {
 				limit = {
 					OR = {
-						state = 476
-						state = 477
-						state = 479
-						state = 375
-						state = 371
-						state = 370
-						state = 367
-						state = 365
-						state = 365
-						state = 364
-						state = 363
-						state = 362
-						state = 361
-						state = 360
-						state = 359
-						state = 358
-						state = 357
-						state = 365
-						state = 365
-						state = 468
-						state = 276
-						state = 374
-						state = 383
-						state = 384
-						state = 467
-						state = 683
-						state = 372
-						state = 373
-						state = 392
-						state = 394
-						state = 393
-						state = 395
-						state = 396
-						state = 368
-						state = 369
-						state = 361
-						state = 396
-						state = 378
-						state = 377
-						state = 380
-						state = 386
-						state = 473
-						state = 471
-						state = 463
-						state = 387
-						state = 470
-						state = 469
-						state = 472
-						state = 683
-						state = 682
-						state = 493
+						state = 476 # Oaxaca
+						state = 477 # Veracruz
+						state = 479 # Tamaulipas
+						state = 375 # Texas
+						state = 371 # Louisiana
+						state = 370 # Mississippi
+						state = 367 # Alabama
+						state = 365 # Georgia
+						state = 365 # Georgia
+						state = 364 # South Carolina
+						state = 363 # North Carolina
+						state = 362 # Virginia
+						state = 361 # Maryland
+						state = 360 # Pennsylvania
+						state = 359 # New Jersey
+						state = 358 # New York
+						state = 357 # New England
+						state = 365 # Georgia
+						state = 365 # Georgia
+						state = 468 # Saint Lawrence
+						state = 276 # Southern Ontario
+						state = 374 # Oklahoma
+						state = 383 # Kansas
+						state = 384 # Nebraska
+						state = 467 # Manitoba
+						state = 683 # Northeastern Canada
+						state = 372 # Arkansas
+						state = 373 # Missouri
+						state = 392 # Iowa
+						state = 394 # Wisconsin
+						state = 393 # Michigan
+						state = 395 # Illinois
+						state = 396 # Indiana
+						state = 368 # Tennesse
+						state = 369 # Kentucky
+						state = 361 # Maryland
+						state = 396 # Indiana
+						state = 378 # California
+						state = 377 # Arizona
+						state = 380 # Utah
+						state = 386 # Washington State
+						state = 473 # British Columbia
+						state = 471 # Northwestern Canada
+						state = 463 # Alaska
+						state = 387 # Idaho
+						state = 470 # Alberta
+						state = 469 # Saskatchewan
+						state = 472 # Northwest Territories
+						state = 683 # Northeastern Canada
+						state = 682 # Northern Ontario
+						state = 493 # La Libertad
 					}
 				}
 				add_dynamic_modifier = { modifier = TNA_continental_hydrology }
@@ -1161,16 +1161,16 @@ focus_tree = {
 		cost = 10
 		
 		bypass = { 
-			owns_state = 315
-			owns_state = 318
-			owns_state = 319
-			owns_state = 313
-			owns_state = 312
-			owns_state = 317
-			owns_state = 304
-			owns_state = 685
-			owns_state = 316
-			owns_state = 314
+			owns_state = 315 # Cuba
+			owns_state = 318 # Haiti
+			owns_state = 319 # Dominican Republic
+			owns_state = 313 # Guatemala
+			owns_state = 312 # Honduras
+			owns_state = 317 # Nicaragua
+			owns_state = 304 # Panama
+			owns_state = 685 # Panama Canal
+			owns_state = 316 # Costa Rica
+			owns_state = 314 # El Salvador
 		}
 		completion_reward = {
 			every_country = {
@@ -1203,13 +1203,13 @@ focus_tree = {
 		cost = 5
 		
 		bypass = { 
-			owns_state = 306
-			owns_state = 493
-			owns_state = 486
-			owns_state = 488
-			owns_state = 307
-			owns_state = 489
-			owns_state = 649
+			owns_state = 306 # Cundinamarca
+			owns_state = 493 # La Libertad
+			owns_state = 486 # Meta
+			owns_state = 488 # Bolivar
+			owns_state = 307 # Miranda
+			owns_state = 489 # Zulia
+			owns_state = 649 # Galapagos Islands
 		}
 		
 		completion_reward = {
@@ -1301,14 +1301,14 @@ focus_tree = {
 		cost = 10
 
 		bypass = {
-			controls_state = 311
-			controls_state = 689
-			controls_state = 690
-			controls_state = 693
-			controls_state = 696
-			controls_state = 308
-			controls_state = 691
-			controls_state = 692
+			controls_state = 311 # BritMex
+			controls_state = 689 # Jamaica
+			controls_state = 690 # Bahama Islands
+			controls_state = 693 # Southern Bahamas
+			controls_state = 696 # Bermuda
+			controls_state = 308 # Britain SA
+			controls_state = 691 # Trinidad
+			controls_state = 692 # Windward Islands
 		}
 
 		available = {
@@ -1334,14 +1334,14 @@ focus_tree = {
 			
 			effect_tooltip = {
 				custom_effect_tooltip = USA_destroyers_for_bases_tt
-				transfer_state = 311
-				transfer_state = 689
-				transfer_state = 690
-				transfer_state = 693
-				transfer_state = 696
-				transfer_state = 308
-				transfer_state = 691
-				transfer_state = 692
+				transfer_state = 311 # BritMex
+				transfer_state = 689 # Jamaica
+				transfer_state = 690 # Bahama Islands
+				transfer_state = 693 # Southern Bahamas
+				transfer_state = 696 # Bermuda
+				transfer_state = 308 # Britain SA
+				transfer_state = 691 # Trinidad
+				transfer_state = 692 # Windward Islands
 				
 			}
 		}
@@ -1357,8 +1357,8 @@ focus_tree = {
 		cost = 1
 		
 		bypass = { 
-			controls_state = 309
-			controls_state = 695
+			controls_state = 309 # Dutch SA
+			controls_state = 695 # Curacao
 		}
 		
 		available = {
@@ -1402,7 +1402,7 @@ focus_tree = {
 		cost = 1
 		
 		bypass = { 
-			controls_state = 101
+			controls_state = 101 # Greenland
 		}
 		
 		available = {
@@ -1446,9 +1446,9 @@ focus_tree = {
 		cost = 1
 		
 		bypass = { 
-			controls_state = 310
-			controls_state = 694
-			controls_state = 730
+			controls_state = 310 # French SA
+			controls_state = 694 # French Caribbean
+			controls_state = 730 # St Pierre and Miquelon 
 		}
 		
 		available = {
@@ -1708,7 +1708,7 @@ focus_tree = {
 						has_government = fascism
 					}
 					load_focus_tree = british_focus
-					transfer_state = 127
+					transfer_state = 127 # Sussex
 					save_event_target_as = ENG_Mosley
 				}
 				SAF = {
@@ -3446,8 +3446,8 @@ focus = {
 					congress_low_support_trigger = yes
 				}
 			}
-			controls_state = 378
-			controls_state = 358
+			controls_state = 378 # California
+			controls_state = 358 # New York
 		}
 		
 		bypass = {

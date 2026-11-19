@@ -30,7 +30,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 		
 		available = {
-			owns_state = 126
+			owns_state = 126 # Greater London Area
 		}
 
 		completion_reward = {

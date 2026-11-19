@@ -109,43 +109,43 @@ country_event = {
 			}
 			ENG = {
 				if = { limit = { 696 = { is_controlled_by = ENG } }
-					remove_state_core = 696
+					remove_state_core = 696 # Bermuda
 				}
 				if = { limit = { 331 = { is_controlled_by = ENG } }
-					remove_state_core = 331
+					remove_state_core = 331 # Newfoundland
 				}
 				if = { limit = { 308 = { is_controlled_by = ENG } } 
-					remove_state_core = 308
+					remove_state_core = 308 # Britain SA
 				}
 				if = { limit = { 693 = { is_controlled_by = ENG } } 
-					remove_state_core = 693
+					remove_state_core = 693 # Southern Bahamas
 				}
 				if = { limit = { 689 = { is_controlled_by = ENG } } 
-					remove_state_core = 689
+					remove_state_core = 689 # Jamaica
 				}
 				if = { limit = { 691 = { is_controlled_by = ENG } } 
-					remove_state_core = 691
+					remove_state_core = 691 # Trinidad
 				}
 			}
 		}
 		USA = {
 			if = { limit = { 696 = { is_controlled_by = ENG } }
-				transfer_state = 696
+				transfer_state = 696 # Bermuda
 			}
 			if = { limit = { 331 = { is_controlled_by = ENG } }
-				transfer_state = 331
+				transfer_state = 331 # Newfoundland
 			}
 			if = { limit = { 308 = { is_controlled_by = ENG } } 
-				transfer_state = 308
+				transfer_state = 308 # Britain SA
 			}
 			if = { limit = { 693 = { is_controlled_by = ENG } } 
-				transfer_state = 693
+				transfer_state = 693 # Southern Bahamas
 			}
 			if = { limit = { 689 = { is_controlled_by = ENG } } 
-				transfer_state = 689
+				transfer_state = 689 # Jamaica
 			}
 			if = { limit = { 691 = { is_controlled_by = ENG } } 
-				transfer_state = 691
+				transfer_state = 691 # Trinidad
 			}
 			add_opinion_modifier = {
 				target = ROOT
