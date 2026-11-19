@@ -1605,7 +1605,7 @@ focus_tree = {
 		prerequisite = { focus = TNA_the_design }
 		relative_position_id = TNA_scientific_revolution
 		x = 0
-		y = 4
+		y = 5
 		cost = 10
 		
 		bypass = {
@@ -2476,7 +2476,7 @@ focus = {
 	focus = {
 		id = TNA_war_department
 		icon = GFX_focus_usa_recruit_the_free_corps
-		x = 17
+		x = 19
 		y = 6
 
 		cost = 10
@@ -2858,7 +2858,7 @@ focus = {
 		prerequisite = { focus = TNA_war_department }
 		prerequisite = { focus = TNA_adopt_joule }
 		relative_position_id = TNA_war_department
-		x = -3
+		x = -8
 		y = 1
 		cost = 10
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_USA_CONGRESS}
@@ -3044,7 +3044,7 @@ focus = {
 	focus = {
 		id = TNA_m_day 
 		icon = GFX_goal_m_day
-		x = -6
+		x = -1
 		y = 1
 		prerequisite = { focus = TNA_total_conscription }
 		relative_position_id = TNA_total_conscription

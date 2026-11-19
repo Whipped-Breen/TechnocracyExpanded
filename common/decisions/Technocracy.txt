@@ -723,7 +723,6 @@ operations = {
 	}
 }
 TNA_technocracy_in_canada = {
-	
 	TNA_CAN_expand_civil_technocracy_support = {
 
 		icon = generic_civil_support
@@ -763,7 +762,6 @@ TNA_technocracy_in_canada = {
 			factor = 1
 		}
 	}
-
 	TNA_CAN_open_up_political_discourse_technocracy = {
 
 		icon = generic_political_discourse
@@ -789,7 +787,6 @@ TNA_technocracy_in_canada = {
 			factor = 1
 		}
 	}
-
 	TNA_CAN_rally = {
 		
 		icon = eng_propaganda_campaigns
