@@ -182,6 +182,6 @@ is_TOC_state = {
 		state = 641 # Tahiti
 		state = 711 # Christmas Island
 		state = 712 # Cocos Islands
-		state = 336 # Singapore
+		state = 1021 # Singapore
 	}
 }
