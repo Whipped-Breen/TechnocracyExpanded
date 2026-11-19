@@ -1545,13 +1545,15 @@ focus_tree = {
 					}
 					USA = { annex_country = { target = PREV  transfer_troops = yes } }
 				}
-
 				every_state = {
 					limit = {
 						is_tna_state = yes
 					}
 					add_core_of = USA
-					USA = { transfer_state = PREV }
+					if = {
+						limit = { NOT = { is_owned_by = USA } }
+						USA = { transfer_state = PREV }
+					}
 				}
 
 				set_country_flag = delete_congress
@@ -1563,6 +1565,15 @@ focus_tree = {
 				set_variable = { var = continental_support_medium value = 30 }
 				set_variable = { var = continental_support_large value = 60 }
 				TNA_recalc_administration_icon_frames = yes
+				
+				hidden_effect = {
+					every_owned_state = {
+						limit = { is_core_of = HAW NOT = {is_core_of = USA} }
+						add_core_of = USA
+					}
+					add_state_core = 1072 # American Samoa
+					add_state_core = 650  # Attu Island
+				}
 
 				news_event = { id = tech_news.002 days = 1 }
 			}
@@ -1805,7 +1816,6 @@ focus_tree = {
 		}
 		
 		completion_reward = {
-			add_state_claim = 726
 			effect_tooltip = {
 				every_other_country = {
 					limit = {

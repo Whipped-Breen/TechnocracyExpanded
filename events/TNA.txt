@@ -749,7 +749,6 @@ country_event = {
 				add_dynamic_modifier = { modifier = self_governing_district }
 			}
 		}
-		USA = { add_state_core = 726 transfer_state = 726 }
 		set_country_flag = technate
 		USA = { set_autonomy = { target = ROOT autonomy_state = autonomy_tech_partner } }
 	}
