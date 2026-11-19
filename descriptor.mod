@@ -1,7 +1,4 @@
 version="1.12.2"
-picture={
-	"thumbnail.png"
-}
 tags={
 	"Alternative History"
 	"Gameplay"
