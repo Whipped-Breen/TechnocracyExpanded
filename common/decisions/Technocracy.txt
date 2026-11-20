@@ -642,7 +642,7 @@ TNA_functional_sequences_category = {
 				NOT = { has_state_flag = TNA_enginearing_greenland }
 			}
 		}
-		cost = 50
+		cost = 30
 		days_remove = 90
 		ai_will_do = {
 			factor = 1
