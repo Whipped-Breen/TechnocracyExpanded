@@ -19,6 +19,10 @@ spriteTypes = {
 		name = "GFX_idea_tna_marion_king_hubbert"
 		texturefile = "gfx/interface/ideas/marion_king_hubbert.dds"
 	}
+	spriteType = {
+		name = "GFX_idea_continental_hydrology"
+		texturefile = "gfx/interface/ideas/continental_hydrology.dds"
+	}
 #	spriteType = {
 #		name = "GFX_report_event_rosebowl"
 #		texturefile = "gfx/interface/event_pictures/rosebowl.dds"
