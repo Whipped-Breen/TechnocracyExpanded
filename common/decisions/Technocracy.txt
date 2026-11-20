@@ -1516,3 +1516,16 @@ TNA_europe_category = {
 		}
 	}
 }
+debug_decisions = {
+	get_all_technate_states = {
+		visible = {
+			has_country_flag = technate
+		}
+		complete_effect = {
+			every_state = {
+				limit = { is_tna_state = yes NOT = {is_owned_and_controlled_by = USA} }
+				USA = { transfer_state = PREV }
+			}
+		}
+	}
+}
