@@ -358,10 +358,7 @@ TNA_urbanates_category = {
 		available = {
 			num_of_available_civilian_factories > 3
 			FROM = {
-				CONTROLLER = {
-					tag = ROOT
-					is_subject_of = ROOT
-				}
+				is_owned_or_subject_trigger = yes
 			}
 		}
 
