@@ -563,6 +563,7 @@ focus_tree = {
 		}
 		
 		completion_reward = {
+			unlock_decision_category_tooltip = TNA_urbanates_category
 			359 = {
 				add_extra_state_shared_building_slots = 1
 				set_state_flag = tna_urbanate_development
