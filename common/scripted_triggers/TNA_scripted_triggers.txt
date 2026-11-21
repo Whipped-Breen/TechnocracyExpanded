@@ -121,6 +121,9 @@ is_tna_state = {
 		state = 695 # Curacao
 		state = 463 # Alaska
 		state = 629 # Hawaii
+		state = 630 # Johnston Atoll
+		state = 631 # Midway Island
+		state = 632 # Wake Island
 		state = 860 # Cote-Nord
 		state = 861 # Saguenay
 		state = 862 # ouest du quebec
@@ -129,7 +132,11 @@ is_tna_state = {
 		state = 867 # Northern Manitoba
 		state = 865 # Northern Saskatchewan
 		state = 864 # Yukon
+		state = 642 # Phoenix Island
 		state = 649 # Galapagos Islands
+		state = 650 # Attu Island
+		state = 727 # Line Islands
+		state = 1072 # American Samoa
 	}
 }
 
